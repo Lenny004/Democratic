@@ -43,11 +43,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="ModelActas.cs" />
     <Compile Include="ModelCandidato.cs" />
+    <Compile Include="ModelCV.cs" />
+    <Compile Include="ModelDetalleActa.cs" />
+    <Compile Include="ModelDetalleMiembro.cs" />
+    <Compile Include="ModelJRV.cs" />
     <Compile Include="ModelLogin.cs" />
     <Compile Include="ModelMiembro.cs" />
     <Compile Include="ModelPartido.cs" />
+    <Compile Include="ModelRecuperar.cs" />
+    <Compile Include="ModelResultados.cs" />
     <Compile Include="ModelRegistro.cs" />
+    <Compile Include="ModelTribunal.cs" />
+    <Compile Include="ModelVer.cs" />
+    <Compile Include="ModelVoto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModelUsuarios.cs" />
   </ItemGroup>

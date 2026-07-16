@@ -8,14 +8,14 @@ using System.Data;
 
 namespace Modelo
 {
-    public class ModelMiembro
+    public class ModeloDetalleActa
     {
-        public static DataTable CargarEstadoMiembro()
+        public static DataTable CargarActa()
         {
             DataTable data;
             try
             {
-                string query = "SELECT * FROM tbestado_miembros";
+                string query = "SELECT id_Acta, Cantidad_Boletas FROM tbacta";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();
@@ -32,12 +32,12 @@ namespace Modelo
             }
         }
 
-        public static DataTable CargarMiembro()
+        public static DataTable CargarPartido()
         {
             DataTable data;
             try
             {
-                string query = "SELECT tm.id_Miembro, tm.Nombre_Miembro, tm.Apellido_Miembro, tm.DUI, tm.OCR, tm.Imagen_Miembro, tm.Fecha_de_nacimiento, tm.Dirección_Usuario, tm.Numero_Telefonico, tcv.Nombre_Centro_Votación, tj.Correlativo_JRV ,tem.Nombre_Estado_Miembros FROM tbmiembros tm, tbcentro_de_votación tcv , tbjrv tj, tbestado_miembros tem WHERE tm.id_Centro_Votación = tcv.id_Centro_Votación AND tm.id_JRV = tj.id_JRV  AND tm.id_Estado_Miembros = tem.id_Estado_Miembros";
+                string query = "SELECT id_Partido, Nombre_Partido FROM tbpartido_politico";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();
@@ -54,12 +54,35 @@ namespace Modelo
             }
         }
 
-        public static bool RegistrarMiembros(string nombre, string apellido, string dui, string OCR, string ImagenM, string Fecha_de_nacimiento, string dirección, string telefono, int CV, int JRV, int estadomiembro)
+
+        public static DataTable CargarDetalleActa()
+        {
+            DataTable data;
+            try
+            {
+                string query = "SELECT tda.id_Detalle_Acta, tda.Cantidad_Votos, ta.Cantidad_Boletas, tpp.Nombre_Partido FROM tbdetalle_acta tda, tbacta ta, tbpartido_politico tpp WHERE tda.id_Acta = ta.id_Acta AND tda.id_Partido = tpp.id_Partido";
+                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
+                data = new DataTable();
+                adp.Fill(data);
+                return data;
+            }
+            catch (Exception)
+            {
+                return data = null;
+            }
+            finally
+            {
+                Conexion.getConnect().Close();
+            }
+        }
+
+        public static bool RegistrarDetalleActa(int cantidadvotos, int acta, int partido)
         {
             bool retorno;
-            try 
+            try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tbmiembros(Nombre_Miembro, Apellido_Miembro, DUI, OCR, Imagen_Miembro, Fecha_de_nacimiento, Dirección_Usuario, Numero_Telefonico, id_Centro_Votación, id_JRV, id_Estado_Miembros) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", nombre, apellido, dui, OCR, ImagenM, Fecha_de_nacimiento, dirección, telefono, CV, JRV, estadomiembro), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tbdetalle_acta (Cantidad_Votos, id_Acta, id_Partido ) VALUES ('{0}','{1}','{2}')", cantidadvotos, acta, partido), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -69,14 +92,14 @@ namespace Modelo
             }
         }
 
-        public static DataTable CargarEstadoMiembrosInner(string idestadomiembro)
+        public static DataTable CargarActaInner(string id)
         {
             DataTable data;
             try
             {
-                string query = "SELECT * FROM tbestado_miembros WHERE Nombre_Estado_Miembros = ?param1";
+                string query = "SELECT id_Acta, Cantidad_Boletas FROM tbacta WHERE Cantidad_Boletas = ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", idestadomiembro));
+                cmdselect.Parameters.Add(new MySqlParameter("?param1", id));
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();
                 adp.Fill(data);
@@ -92,14 +115,14 @@ namespace Modelo
             }
         }
 
-        public static DataTable CargarCentroVotacionUsuarioInner(string idCentro_Votacion)
+        public static DataTable CargarPartidoInner(string id)
         {
             DataTable data;
             try
             {
-                string query = "SELECT * FROM tbcentro_de_votación WHERE Nombre_Centro_Votación = ?param1";
+                string query = "SELECT id_Partido, Nombre_Partido FROM tbpartido_politico WHERE Nombre_Partido = ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", idCentro_Votacion));
+                cmdselect.Parameters.Add(new MySqlParameter("?param1", id));
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();
                 adp.Fill(data);
@@ -115,41 +138,42 @@ namespace Modelo
             }
         }
 
-        public static DataTable CargarJRVInner(string id_JRV)
-        {
-            DataTable data;
-            try
-            {
-                string query = "SELECT * FROM tbjrv WHERE Correlativo_JRV = ?param1";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", id_JRV));
-                MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
-                data = new DataTable();
-                adp.Fill(data);
-                return data;
-            }
-            catch (Exception)
-            {
-                return data = null;
-            }
-            finally
-            {
-                Conexion.getConnect().Close();
-            }
-        }
 
-        public static bool ActualizarMiembro(int id_Miembro, string nombre, string apellido, string dui, string OCR, string ImagenM, string Fecha_de_nacimiento, string dirección, string telefono, int CV, int JRV, int estadomiembro)
+        public static bool ActualizarDetalleActa(int id, int cantidadvotos, int acta, int partido)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbmiembros SET Nombre_Miembro = '" + nombre + "', Apellido_Miembro = '" + apellido + "', DUI = '" + dui + "', OCR = '"+ OCR +"', Imagen_Miembro = '"+ ImagenM +"', Fecha_de_nacimiento = '" + Fecha_de_nacimiento + "', Dirección_Usuario = '" + dirección + "', Numero_Telefonico = '" + telefono + "', id_Centro_Votación = '"+ CV +"', id_JRV = '"+ JRV +"', id_Estado_Miembros = '" + estadomiembro + "' WHERE id_Miembro = '" + id_Miembro + "'  "), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbdetalle_acta SET Cantidad_Votos = '" + cantidadvotos + "', id_Acta = '" + acta + "', id_Partido = '" + partido + "' WHERE id_Detalle_Acta = '" + id + "'  "), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
             catch (Exception)
             {
                 return retorno = false;
+            }
+        }
+
+        public static int EliminarDetalleActa(int id)
+        {
+            int retorno = 0;
+            try
+            {
+                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tbdetalle_acta WHERE id_Detalle_Acta = '" + id + "'  "), Conexion.getConnect());
+                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                if (retorno == 1)
+                {
+                    retorno = 1;
+                }
+                else
+                {
+                    retorno = 2;
+                }
+                return retorno;
+            }
+            catch (Exception)
+            {
+                return retorno = -1;
             }
         }
     }
