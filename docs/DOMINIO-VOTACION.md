@@ -168,13 +168,13 @@ Los permisos se definen en `tbtipo_usuario`. El campo `id_Tipo_Usuario` se usa e
 |---------------------------|-----------------|--------------|-----------------|
 | 1 | Root | **Superadministrador** | Configuración completa: organización, sedes, mesas, grupos, opciones, usuarios, escrutinio, reportes. |
 | 2 | Votante | **Votante** | Ver opciones, emitir voto, ver estadísticas/gráficas. |
-| 3 | Candidato a Presidencia | **Opción principal** | Igual que votante; rol asociado a una opción destacada del proceso. |
-| 4 | Candidato a VicePresidencia | **Opción secundaria** | Igual que votante; segunda categoría de opción. |
-| 5 | Partido | **Representante de grupo** | Ver opciones y estadísticas de su grupo; sin emitir voto. |
-| 6 | Miembro de JRV | **Operador de mesa** | Gestión de actas, sedes/mesas asignadas, registro de votos en mesa. |
+| 3 | Candidato a Presidencia | **Supervisor** | Supervisa el proceso; permisos de consulta ampliados (ids BD sin cambio). |
+| 4 | Candidato a VicePresidencia | **Auditor** | Audita resultados y registros de escrutinio. |
+| 5 | Partido | **Representante de grupo** | Consulta opciones y estadísticas de su grupo. |
+| 6 | Miembro de JRV | **Operador de mesa** | Gestión de actas, sedes/mesas asignadas. |
 | 7 | Administrador | **Administrador** | Usuarios, grupos, opciones, estructura; sin todos los módulos de Root. |
 
-Los textos de bienvenida en la UI pueden seguir mostrando etiquetas legacy (“Candidato a Presidencia”, “Partido”, etc.) hasta que se actualicen los recursos de idioma. **Semánticamente**, el sistema ya no asume elección presidencial: esos roles son plantillas de permisos reutilizables.
+Los mensajes de bienvenida (`msjpresi`, `msjvice`) ya muestran **Supervisor** y **Auditor**. Los ids numéricos en BD se mantienen; solo cambia la semántica de plantilla genérica.
 
 ### Autenticación
 
