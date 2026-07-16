@@ -42,14 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActasController.cs" />
     <Compile Include="CandidatosController.cs" />
+    <Compile Include="CentroVotacionController.cs" />
+    <Compile Include="DetalleActaController.cs" />
+    <Compile Include="DetalleMiembrosController.cs" />
+    <Compile Include="JRVController.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="MainController.cs" />
     <Compile Include="MiembrosController.cs" />
     <Compile Include="PartidoController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecuperarController.cs" />
+    <Compile Include="ResultadosController.cs" />
     <Compile Include="RegistroController.cs" />
+    <Compile Include="TribunalController.cs" />
     <Compile Include="UsuariosController.cs" />
+    <Compile Include="Validaciones.cs" />
+    <Compile Include="VarSession.cs" />
+    <Compile Include="VerCandidatoController.cs" />
+    <Compile Include="VotoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
