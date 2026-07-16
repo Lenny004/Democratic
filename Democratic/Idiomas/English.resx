@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnvercandidatos" xml:space="preserve">
+    <value>Check your Options</value>
+  </data>
+  <data name="btnIniciar" xml:space="preserve">
+    <value>Sing In</value>
+  </data>
+  <data name="lblpass" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="lbluser" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="btnprimeruso" xml:space="preserve">
+    <value>Configure organization</value>
+  </data>
+  <data name="btnprimerusuario" xml:space="preserve">
+    <value>Create First User</value>
+  </data>
+  <data name="lblcuenta" xml:space="preserve">
+    <value>Don´t have an account? So...</value>
+  </data>
+  <data name="lblinicio" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="lblolvidar" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="btnactas" xml:space="preserve">
+    <value>Act</value>
+  </data>
+  <data name="btnadmindactas" xml:space="preserve">
+    <value>Manage Act</value>
+  </data>
+  <data name="btnadmindmiembrosanduser" xml:space="preserve">
+    <value>Manage Members and Users</value>
+  </data>
+  <data name="btnadmindpartidosycandidatos" xml:space="preserve">
+    <value>Manage Option Groups and Options</value>
+  </data>
+  <data name="btncandidato" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="btncerrar" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="btnconectar" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="btncv" xml:space="preserve">
+    <value>Voting Venues</value>
+  </data>
+  <data name="btndetalleacta" xml:space="preserve">
+    <value>Act Details</value>
+  </data>
+  <data name="btndetallemiembros" xml:space="preserve">
+    <value>Members Detail</value>
+  </data>
+  <data name="btnestructura" xml:space="preserve">
+    <value>System Structure</value>
+  </data>
+  <data name="btnexit" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="lblMostrar" xml:space="preserve">
+    <value>Show:</value>
+  </data>
+  <data name="btnjrvandcv" xml:space="preserve">
+    <value>Manage Voting Stations and Voting Venues</value>
+  </data>
+  <data name="btnmaximizar" xml:space="preserve">
+    <value>Maximize</value>
+  </data>
+  <data name="btnmiembros" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="btnminimizar" xml:space="preserve">
+    <value>Minimize</value>
+  </data>
+  <data name="btnnormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="btnpartido" xml:space="preserve">
+    <value>Option groups</value>
+  </data>
+  <data name="btnusuarios" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="btnverestadisticas" xml:space="preserve">
+    <value>See Stats</value>
+  </data>
+  <data name="btnvotar" xml:space="preserve">
+    <value>Vote</value>
+  </data>
+  <data name="btnvotos" xml:space="preserve">
+    <value>Manage Votes</value>
+  </data>
+  <data name="lbldarkmode" xml:space="preserve">
+    <value>Activate dark mode</value>
+  </data>
+  <data name="toolacerca" xml:space="preserve">
+    <value>About the system</value>
+  </data>
+  <data name="toolcerrar" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="toolerror" xml:space="preserve">
+    <value>Report bug</value>
+  </data>
+  <data name="toolhelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="toolreq" xml:space="preserve">
+    <value>System technical requirements</value>
+  </data>
+  <data name="toolsalir" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="toolsistema" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="toolverhelp" xml:space="preserve">
+    <value>See help</value>
+  </data>
+  <data name="btncargarimagen" xml:space="preserve">
+    <value>Upload image</value>
+  </data>
+  <data name="btncontinuar" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="lblIntento" xml:space="preserve">
+    <value>Tried:</value>
+  </data>
+  <data name="btnrojo" xml:space="preserve">
+    <value>No Conecction</value>
+  </data>
+  <data name="btnverde" xml:space="preserve">
+    <value>Connection Exists</value>
+  </data>
+  <data name="lblcentrov" xml:space="preserve">
+    <value>Voting center:</value>
+  </data>
+  <data name="lblcomposicion" xml:space="preserve">
+    <value>Composition:</value>
+  </data>
+  <data name="Lblcontrainfo" xml:space="preserve">
+    <value>(The password provided must
+be the one used to access the mail)</value>
+  </data>
+  <data name="lblkey" xml:space="preserve">
+    <value>Key:</value>
+  </data>
+  <data name="lbldui" xml:space="preserve">
+    <value>Enter the member's ID document:</value>
+  </data>
+  <data name="lblestadouser" xml:space="preserve">
+    <value>User status:</value>
+  </data>
+  <data name="lblfecha" xml:space="preserve">
+    <value>Foundation date:</value>
+  </data>
+  <data name="lblimgmax" xml:space="preserve">
+    <value>Image max 4MB</value>
+  </data>
+  <data name="lblimgT" xml:space="preserve">
+    <value>Organization image:</value>
+  </data>
+  <data name="lblinfo" xml:space="preserve">
+    <value>(The email provided will be used
+to contact other users.)</value>
+  </data>
+  <data name="lblinfo1" xml:space="preserve">
+    <value>Democratic is a configurable voting system based on templates.
+It lets you define vote options, organize voting tables and view
+result charts. It is built with C# and databases; the interfaces
+use Visual Studio 2015 and the Bunifu Framework v1.52.</value>
+  </data>
+  <data name="lblinfo2" xml:space="preserve">
+    <value>The program was developed by the following programmers:
+
+- Eduardo Ernesto Vargas Hernández
+- Gabriela Susana Méndez Barrera
+- Lenny Adrián Elías Sánchez
+- Monica Abigail Mejía Mártinez</value>
+  </data>
+  <data name="lbljurisdiccion" xml:space="preserve">
+    <value>Jurisdiction:</value>
+  </data>
+  <data name="lblmenosseguras" xml:space="preserve">
+    <value>Note: Email must have less secure apps access enabled.</value>
+  </data>
+  <data name="lblmiembro" xml:space="preserve">
+    <value>Member:</value>
+  </data>
+  <data name="lblpais" xml:space="preserve">
+    <value>Country:</value>
+  </data>
+  <data name="lblpassconfirm" xml:space="preserve">
+    <value>Confirm Password:</value>
+  </data>
+  <data name="lblprimerU" xml:space="preserve">
+    <value>Organization configuration</value>
+  </data>
+  <data name="lblproporcionado" xml:space="preserve">
+    <value>(previously given e-mail)</value>
+  </data>
+  <data name="lblpuser" xml:space="preserve">
+    <value>First User Configuration</value>
+  </data>
+  <data name="lblsede" xml:space="preserve">
+    <value>Meeting venue:</value>
+  </data>
+  <data name="lbltema" xml:space="preserve">
+    <value>What is Democratic?</value>
+  </data>
+  <data name="lbltipo" xml:space="preserve">
+    <value>Organization type:</value>
+  </data>
+  <data name="lbltipouser" xml:space="preserve">
+    <value>Type of user:</value>
+  </data>
+  <data name="lbluser2" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="toolmenu" xml:space="preserve">
+    <value>Main menu</value>
+  </data>
+  <data name="btnreenviar" xml:space="preserve">
+    <value>Resend</value>
+  </data>
+  <data name="lblcoincidencia" xml:space="preserve">
+    <value>Passwords match</value>
+  </data>
+  <data name="lblnocoincidencia" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="lblreenviar" xml:space="preserve">
+    <value>You have not received the password, click resend</value>
+  </data>
+  <data name="btnjrv" xml:space="preserve">
+    <value>Voting stations</value>
+  </data>
+  <data name="BtnActualizarActa" xml:space="preserve">
+    <value>Update report</value>
+  </data>
+  <data name="BtnActualizarCandidato" xml:space="preserve">
+    <value>Update option</value>
+  </data>
+  <data name="BtnActualizarCV" xml:space="preserve">
+    <value>Update voting venue</value>
+  </data>
+  <data name="BtnActualizarDetalleA" xml:space="preserve">
+    <value>Update report detail</value>
+  </data>
+  <data name="BtnActualizarDetalleM" xml:space="preserve">
+    <value>Update member detail</value>
+  </data>
+  <data name="BtnActualizarJRV" xml:space="preserve">
+    <value>Update voting station</value>
+  </data>
+  <data name="BtnActualizarM" xml:space="preserve">
+    <value>Update member</value>
+  </data>
+  <data name="BtnActualizarPartido" xml:space="preserve">
+    <value>Update option group</value>
+  </data>
+  <data name="BtnAgregarActa" xml:space="preserve">
+    <value>Add report</value>
+  </data>
+  <data name="BtnAgregarCandidato" xml:space="preserve">
+    <value>Add option</value>
+  </data>
+  <data name="BtnAgregarDetalleA" xml:space="preserve">
+    <value>Add report detail</value>
+  </data>
+  <data name="BtnAgregarDetalleM" xml:space="preserve">
+    <value>Add member detail</value>
+  </data>
+  <data name="BtnAgregarM" xml:space="preserve">
+    <value>Add member</value>
+  </data>
+  <data name="BtnAgregarPartido" xml:space="preserve">
+    <value>Add option group</value>
+  </data>
+  <data name="BtnCargarImageC" xml:space="preserve">
+    <value>Load image</value>
+  </data>
+  <data name="BtnEliminarActa" xml:space="preserve">
+    <value>Delete user</value>
+  </data>
+  <data name="BtnEliminarCandidato" xml:space="preserve">
+    <value>Delete option</value>
+  </data>
+  <data name="BtnEliminarCV" xml:space="preserve">
+    <value>Delete voting venue</value>
+  </data>
+  <data name="BtnEliminarDetalleA" xml:space="preserve">
+    <value>Delete report detail</value>
+  </data>
+  <data name="BtnEliminarJRV" xml:space="preserve">
+    <value>Delete voting station</value>
+  </data>
+  <data name="BtnEliminarPartido" xml:space="preserve">
+    <value>Remove option group</value>
+  </data>
+  <data name="BtnIngresarCV" xml:space="preserve">
+    <value>Add voting venue</value>
+  </data>
+  <data name="BtnIngresarJRV" xml:space="preserve">
+    <value>Add voting station</value>
+  </data>
+  <data name="BtnLimpiar" xml:space="preserve">
+    <value>Clean boxes</value>
+  </data>
+  <data name="BtnLimpiarActa" xml:space="preserve">
+    <value>Clean report</value>
+  </data>
+  <data name="BtnLimpiarPartidos" xml:space="preserve">
+    <value>Clean fields</value>
+  </data>
+  <data name="BtnRefrescarM" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="BtnTruncateC" xml:space="preserve">
+    <value>Remove all options</value>
+  </data>
+  <data name="label1" xml:space="preserve">
+    <value>Search Members by ID Document Number</value>
+  </data>
+  <data name="label3" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
+  <data name="lblafiliado" xml:space="preserve">
+    <value>Affiliated option group</value>
+  </data>
+  <data name="lblApellidoC" xml:space="preserve">
+    <value>Option last name</value>
+  </data>
+  <data name="lblApellidoM" xml:space="preserve">
+    <value>Member last name:</value>
+  </data>
+  <data name="lblBuscar" xml:space="preserve">
+    <value>Search report</value>
+  </data>
+  <data name="lblBuscarC" xml:space="preserve">
+    <value>Search option</value>
+  </data>
+  <data name="lblBuscarCV" xml:space="preserve">
+    <value>Search voting venue</value>
+  </data>
+  <data name="lblBuscarDa" xml:space="preserve">
+    <value>Search report details</value>
+  </data>
+  <data name="lblBuscarDM" xml:space="preserve">
+    <value>Search for an option group</value>
+  </data>
+  <data name="lblBuscarjrv" xml:space="preserve">
+    <value>Search for voting station</value>
+  </data>
+  <data name="lblBuscarP" xml:space="preserve">
+    <value>Search option group</value>
+  </data>
+  <data name="lblCantidadBoleta" xml:space="preserve">
+    <value>Number of ballots</value>
+  </data>
+  <data name="lblCantidadJRV" xml:space="preserve">
+    <value>Number of voting stations</value>
+  </data>
+  <data name="lblCantidadV" xml:space="preserve">
+    <value>Number of votes:</value>
+  </data>
+  <data name="lblcentrovotacion" xml:space="preserve">
+    <value>Voting venue</value>
+  </data>
+  <data name="lblcorrelative" xml:space="preserve">
+    <value>Correlative of voting station</value>
+  </data>
+  <data name="lblCV" xml:space="preserve">
+    <value>Name of voting venue</value>
+  </data>
+  <data name="lblDetalleM" xml:space="preserve">
+    <value>Member details:</value>
+  </data>
+  <data name="lblDireccionM" xml:space="preserve">
+    <value>Member address:</value>
+  </data>
+  <data name="lblDuiM" xml:space="preserve">
+    <value>ID document:</value>
+  </data>
+  <data name="lblestado" xml:space="preserve">
+    <value>Voting venue state</value>
+  </data>
+  <data name="lblEstadoC" xml:space="preserve">
+    <value>Option status</value>
+  </data>
+  <data name="lblEstadoM" xml:space="preserve">
+    <value>Member status:</value>
+  </data>
+  <data name="lblestadovrb" xml:space="preserve">
+    <value>State of the voting station</value>
+  </data>
+  <data name="lblFechaNM" xml:space="preserve">
+    <value>Date of birth:</value>
+  </data>
+  <data name="lblGenero" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="lblidjrv" xml:space="preserve">
+    <value>Enter the correlative of the voting station:</value>
+  </data>
+  <data name="lblJRV" xml:space="preserve">
+    <value>Voting station:</value>
+  </data>
+  <data name="lblJRVdm" xml:space="preserve">
+    <value>Voting station</value>
+  </data>
+  <data name="lblMunicipio" xml:space="preserve">
+    <value>Municipality</value>
+  </data>
+  <data name="lblNombreC" xml:space="preserve">
+    <value>Option names</value>
+  </data>
+  <data name="lblNombreMiembro" xml:space="preserve">
+    <value>Member name:</value>
+  </data>
+  <data name="lblPartido" xml:space="preserve">
+    <value>Option group:</value>
+  </data>
+  <data name="lblRecomendación" xml:space="preserve">
+    <value>170x195 Recommendation</value>
+  </data>
+  <data name="lblTribunal" xml:space="preserve">
+    <value>Organization:</value>
+  </data>
+  <data name="BtnBuscar" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="BtnGenerar" xml:space="preserve">
+    <value>Generate Password</value>
+  </data>
+  <data name="BtnRegistrar" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="label2" xml:space="preserve">
+    <value>Phone number:</value>
+  </data>
+  <data name="lblApe" xml:space="preserve">
+    <value>Surnames:</value>
+  </data>
+  <data name="lblBuscar2" xml:space="preserve">
+    <value>Search users:</value>
+  </data>
+  <data name="lblCantidadVotos" xml:space="preserve">
+    <value>Number of votes:</value>
+  </data>
+  <data name="lblCBoletas" xml:space="preserve">
+    <value>Number of ballots:</value>
+  </data>
+  <data name="lblCorreo" xml:space="preserve">
+    <value>Email: (required to send password)</value>
+  </data>
+  <data name="lblcorreotribunalregister" xml:space="preserve">
+    <value>E-Mail:</value>
+  </data>
+  <data name="lblCuenta2" xml:space="preserve">
+    <value>Enter your E-mail:</value>
+  </data>
+  <data name="lblCump" xml:space="preserve">
+    <value>Date of birth:</value>
+  </data>
+  <data name="lblDirec" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="lblEstadoP" xml:space="preserve">
+    <value>Member status:</value>
+  </data>
+  <data name="lblEstadoU" xml:space="preserve">
+    <value>User status:</value>
+  </data>
+  <data name="lblgenerarc" xml:space="preserve">
+    <value>(When generating a password, it will be updated to the old password)</value>
+  </data>
+  <data name="lblM" xml:space="preserve">
+    <value>Member:</value>
+  </data>
+  <data name="lblnom" xml:space="preserve">
+    <value>Names:</value>
+  </data>
+  <data name="lblNume" xml:space="preserve">
+    <value>Phone number:</value>
+  </data>
+  <data name="lblregistrar" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="lblcantidad" xml:space="preserve">
+    <value>Ballot quantity:</value>
+  </data>
+  <data name="lblestadopartido" xml:space="preserve">
+    <value>Option group status:</value>
+  </data>
+  <data name="lblNombrep" xml:space="preserve">
+    <value>Option group name:</value>
+  </data>
+  <data name="btnactualizarusuario" xml:space="preserve">
+    <value>Update User</value>
+  </data>
+  <data name="btnagregarusuario" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="lblintentos" xml:space="preserve">
+    <value>Attempts</value>
+  </data>
+  <data name="grpgraficas" xml:space="preserve">
+    <value>Number of votes of options</value>
+  </data>
+  <data name="lblrecuperarpass" xml:space="preserve">
+    <value>Recover password</value>
+  </data>
+  <data name="lblOCR" xml:space="preserve">
+    <value>OCR Code</value>
+  </data>
+  <data name="lblinfomation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="lbltexto1" xml:space="preserve">
+    <value>If you do not have an account to
+access the system, you can use
+your ID number with the OCR Code
+(the second line on the back of
+your ID document) to access and
+participate in the active vote.</value>
+  </data>
+  <data name="lbltexto2" xml:space="preserve">
+    <value>You can create your own account to access the voting system. With it
+you can cast your vote according to the configured template. Users with
+administration or table roles can manage options, voting tables and
+results before, during and after the voting process.</value>
+  </data>
+</root>
