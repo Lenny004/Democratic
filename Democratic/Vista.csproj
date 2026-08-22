@@ -53,6 +53,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acercade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acercade.Designer.cs">
+      <DependentUpon>Acercade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdministración.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdministración.Designer.cs">
+      <DependentUpon>FrmAdministración.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAyuda.Designer.cs">
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInfo.Designer.cs">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNoti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNoti.Designer.cs">
+      <DependentUpon>FrmNoti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNotiVoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotiVoto.Designer.cs">
+      <DependentUpon>FrmNotiVoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportar.Designer.cs">
+      <DependentUpon>FrmReportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmActas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActas.Designer.cs">
+      <DependentUpon>FrmActas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCandidatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +112,18 @@
     </Compile>
     <Compile Include="FrmCV.Designer.cs">
       <DependentUpon>FrmCV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleActa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleActa.Designer.cs">
+      <DependentUpon>FrmDetalleActa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleMiembro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleMiembro.Designer.cs">
+      <DependentUpon>FrmDetalleMiembro.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGraficos.cs">
       <SubType>Form</SubType>
@@ -101,6 +161,12 @@
     <Compile Include="FrmMiembros.Designer.cs">
       <DependentUpon>FrmMiembros.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPadron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPadron.Designer.cs">
+      <DependentUpon>FrmPadron.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPartidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +185,11 @@
     <Compile Include="FrmPrimerUsuario.Designer.cs">
       <DependentUpon>FrmPrimerUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRecuperar.cs">
+    <Compile Include="FrmRecuperarPass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRecuperar.Designer.cs">
-      <DependentUpon>FrmRecuperar.cs</DependentUpon>
+    <Compile Include="FrmRecuperarPass.Designer.cs">
+      <DependentUpon>FrmRecuperarPass.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrar.cs">
       <SubType>Form</SubType>
@@ -137,19 +203,82 @@
     <Compile Include="FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVerCandidatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerCandidatos.Designer.cs">
+      <DependentUpon>FrmVerCandidatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVotar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmVotar.Designer.cs">
       <DependentUpon>FrmVotar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVotos.Designer.cs">
+      <DependentUpon>FrmVotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\English.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>English.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\EnglishMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishMessage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\Espanol.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Espanol.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\MensajesEspanol.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MensajesEspanol.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidacionesTexto.cs" />
+    <EmbeddedResource Include="Acercade.resx">
+      <DependentUpon>Acercade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActas.resx">
+      <DependentUpon>FrmActas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdministración.resx">
+      <DependentUpon>FrmAdministración.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAyuda.resx">
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInfo.resx">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNoti.resx">
+      <DependentUpon>FrmNoti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotiVoto.resx">
+      <DependentUpon>FrmNotiVoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportar.resx">
+      <DependentUpon>FrmReportar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCandidatos.resx">
       <DependentUpon>FrmCandidatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCV.resx">
       <DependentUpon>FrmCV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleActa.resx">
+      <DependentUpon>FrmDetalleActa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleMiembro.resx">
+      <DependentUpon>FrmDetalleMiembro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGraficos.resx">
       <DependentUpon>FrmGraficos.cs</DependentUpon>
@@ -169,6 +298,9 @@
     <EmbeddedResource Include="FrmMiembros.resx">
       <DependentUpon>FrmMiembros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPadron.resx">
+      <DependentUpon>FrmPadron.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPartidos.resx">
       <DependentUpon>FrmPartidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,8 +310,8 @@
     <EmbeddedResource Include="FrmPrimerUsuario.resx">
       <DependentUpon>FrmPrimerUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRecuperar.resx">
-      <DependentUpon>FrmRecuperar.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRecuperarPass.resx">
+      <DependentUpon>FrmRecuperarPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrar.resx">
       <DependentUpon>FrmRegistrar.cs</DependentUpon>
@@ -187,8 +319,30 @@
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerCandidatos.resx">
+      <DependentUpon>FrmVerCandidatos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVotar.resx">
       <DependentUpon>FrmVotar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVotos.resx">
+      <DependentUpon>FrmVotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\English.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>English.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\EnglishMessage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnglishMessage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Espanol.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Espanol.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\MensajesEspanol.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MensajesEspanol.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -211,7 +365,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Controlador\Controlador.csproj">
@@ -407,6 +563,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\downloading_updates_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_out_90px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Acerca de.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_to_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Court.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserEnglish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wallpaper1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reporte.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DUI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

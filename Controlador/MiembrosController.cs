@@ -23,7 +23,17 @@ namespace Controlador
 
         public bool EnviarDatosMiembro_Controller()
         {
-            return ModelMiembro.RegistrarMiembros(nombre, apellido, dui, Fecha_de_nacimiento, dirección, correo, telefono, estadomiembro);
+            return ModelMiembro.RegistrarMiembros(nombre, apellido, dui, OCR, ImagenM, Fecha_de_nacimiento, dirección, telefono, CV, JRV, estadomiembro);
+        }
+
+        public DataTable CargarCentroVotacionInnerJoin_Controller(string id)
+        {
+            return ModelUsuarios.CargarCentroVotacionUsuarioInner(id);
+        }
+
+        public DataTable CargarJRVInnerJoin_Controller(string id)
+        {
+            return ModelUsuarios.CargarJRVInner(id);
         }
 
         public DataTable CargarEstadoMiembroInnerJoin_Controller(string id)
@@ -33,7 +43,7 @@ namespace Controlador
 
         public bool ActualizarDatosM_Controller()
         {
-            return ModelMiembro.ActualizarMiembro(id_Miembro, nombre, apellido, dui, Fecha_de_nacimiento, dirección, correo, telefono, estadomiembro);
+            return ModelMiembro.ActualizarMiembro(id_Miembro, nombre, apellido, dui, OCR, ImagenM, Fecha_de_nacimiento, dirección, telefono, CV, JRV, estadomiembro);
         }
     }
 
@@ -43,10 +53,13 @@ namespace Controlador
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string dui { get; set; }
+        public string OCR { get; set; }
+        public string ImagenM { get; set; }
         public string Fecha_de_nacimiento { get; set; }
         public string dirección { get; set; }
-        public string correo { get; set; }
         public string telefono { get; set; }
+        public int CV { get; set; }
+        public int JRV { get; set; }
         public int estadomiembro { get; set; }
 
         //Constructor

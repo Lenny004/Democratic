@@ -26,6 +26,11 @@ namespace Controlador
             return ModelUsuarios.CargarCentroVotacion();
         }
 
+        public static DataTable CargarJRV_Controller()
+        {
+            return ModelUsuarios.CargarJRV();
+        }
+
         public static DataTable CargarMiembrosU_Controller()
         {
             return ModelUsuarios.CargarMiembrosUser();
@@ -38,7 +43,7 @@ namespace Controlador
 
         public bool EnviarDatosUser_Controller()
         {
-            return ModelUsuarios.RegistrarUsuario(usuario, clave, intento, Estado_Usuario, Tipo_Usuario, Centro_Votación, id_Miembro);
+            return ModelUsuarios.RegistrarUsuario(usuario, clave, intento, Estado_Usuario, Tipo_Usuario, id_JRV, id_Miembro);
         }
 
         public DataTable CargarEstadoUsuarioInnerJoin_Controller(string id)
@@ -56,6 +61,21 @@ namespace Controlador
             return ModelUsuarios.CargarCentroVotacionUsuarioInner(id);
         }
 
+        public DataTable CargarCentroVotacionInnerJoin2_Controller(int id)
+        {
+            return ModelUsuarios.CargarCentroVotacionUsuarioInner2(id);
+        }
+
+        public DataTable CargarJRVInnerJoin_Controller(string id)
+        {
+            return ModelUsuarios.CargarJRVInner(id);
+        }
+
+        public DataTable CargarJRVInnerJoin2_Controller(int id)
+        {
+            return ModelUsuarios.CargarJRVInner2(id);
+        }
+
         public DataTable CargarMiembrosInnerJoin_Controller(string id)
         {
             return ModelUsuarios.CargarMiembroUsuarioInner(id);
@@ -63,7 +83,7 @@ namespace Controlador
 
         public bool ActualizarDatos_Controller()
         {
-            return ModelUsuarios.ActualizarUsuario(idusuario, usuario, clave, intento, Estado_Usuario, Tipo_Usuario, Centro_Votación, id_Miembro);
+            return ModelUsuarios.ActualizarUsuario(idusuario, usuario, clave, intento, Estado_Usuario, Tipo_Usuario, id_JRV, id_Miembro);
         }
 
         public int EliminarUsuario_Controller()
@@ -87,7 +107,7 @@ namespace Controlador
 
         public int Tipo_Usuario { get; set; }
 
-        public int Centro_Votación { get; set; }
+        public int id_JRV { get; set; }
 
         public int id_Miembro { get; set; }
 

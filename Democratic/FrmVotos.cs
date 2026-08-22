@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Democratic
 {
-    public partial class FrmRecuperar : Form
+    public partial class FrmVotos : Form
     {
-        public FrmRecuperar()
+        public FrmVotos()
         {
             InitializeComponent();
         }

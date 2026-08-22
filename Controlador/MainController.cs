@@ -7,17 +7,19 @@ using MySql.Data.MySqlClient;
 
 namespace Controlador
 {
+    /// <summary>
+    /// Punto de entrada del sistema de votación genérico.
+    /// Intermediario entre la capa Vista y la base de datos (Modelo).
+    /// </summary>
     public class MainController
     {
         /// <summary>
-        /// El metodo ConnectController hará de Intermediario entre la accion que ejecute el usuario y la base de datos.
+        /// Obtiene la conexión activa a la base de datos del proceso electoral.
         /// </summary>
-        /// <returns>Retornará un valor de conexión en caso se haya realizado correctamente 
-        /// de lo contrario retornará un valor null</returns>
+        /// <returns>Conexión MySQL o null si falla.</returns>
         public static MySqlConnection ConnectController()
         {
             return Modelo.Conexion.getConnect();
         }
-
     }
 }

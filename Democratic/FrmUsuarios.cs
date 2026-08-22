@@ -13,6 +13,13 @@ namespace Democratic
 {
     public partial class FrmUsuarios : Form
     {
+        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
+        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
+        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
+        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
+        private Color Medio = ColorTranslator.FromHtml("#454356");
+        private Color Morado = ColorTranslator.FromHtml("#161422");
+
         public FrmUsuarios()
         {
             InitializeComponent();
@@ -30,6 +37,64 @@ namespace Democratic
             CmbIntentos.DataSource = intentos;
             CmbIntentos.ValueMember = "ID";
             CmbIntentos.DisplayMember = "Numero";
+        }
+
+        void VerificarMode()
+        {
+            switch (VarSession.Color)
+            {
+                case 1:
+                    lblUser3.ForeColor = Color.White;
+                    lblEstadoU.ForeColor = Color.White;
+                    lblkey.ForeColor = Color.White;
+                    lblTipoU.ForeColor = Color.White;
+                    lblDui.ForeColor = Color.White;
+                    lblMiembro.ForeColor = Color.White;
+                    lblIntento.ForeColor = Color.White;
+                    lblCV.ForeColor = Color.White;
+                    lblBuscar2.ForeColor = Color.White;
+                    lblMostrar.ForeColor = Color.White;
+                    BtnMinimizar.ForeColor = Color.White;
+                    BtnAgregarUsuario.BackColor = Celeste;
+                    BtnActualizarU.BackColor = Celeste;
+                    BtnLimpiarU.BackColor = Celeste;
+                    BtnEliminarU.BackColor = Rosa;
+                    toolStrip1.BackColor = Morado;
+                    PanelUser.BackColor = Morado;
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void VerificarIdioma()
+        {
+            switch (VarSession.idioma)
+            {
+                case 1:
+                    BtnAgregarUsuario.Text = Idiomas.English.btnagregarusuario;
+                    BtnActualizarU.Text = Idiomas.English.btnactualizarusuario;
+                    BtnLimpiarU.Text = Idiomas.English.BtnLimpiarPartidos;
+                    BtnRefrescarU.Text = Idiomas.English.BtnRefrescarM;
+                    BtnEliminarU.Text = Idiomas.English.BtnEliminarActa;
+                    lblUser3.Text = Idiomas.English.lbluser2;
+                    lblEstadoU.Text = Idiomas.English.lblEstadoU;
+                    lblkey.Text = Idiomas.English.lblpass;
+                    lblTipoU.Text = Idiomas.English.lbltipouser;
+                    lblDui.Text = Idiomas.English.lbldui;
+                    lblMiembro.Text = Idiomas.English.lblmiembro;
+                    lblIntento.Text = Idiomas.English.lblintentos;
+                    lblCV.Text = Idiomas.English.lblcentrov;
+                    lblBuscar2.Text = Idiomas.English.lblBuscar2;
+                    BtnMinimizar.Text = Idiomas.English.btnminimizar;
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
         }
 
         public class Intentos
@@ -79,7 +144,14 @@ namespace Democratic
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al cargar al menos una de las cuatro listas, consulte con su administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjerrocag, Idiomas.EnglishMessage.msjE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjerrocag, Idiomas.MensajesEspanol.msjE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -92,10 +164,17 @@ namespace Democratic
             agregar.Estado_Usuario = Convert.ToInt16(CmbEstadoU.SelectedValue);
             agregar.Tipo_Usuario = Convert.ToInt16(CmbTipoU.SelectedValue);
             agregar.id_Miembro = Convert.ToInt16(CmbMiembro.SelectedValue);
-            agregar.Centro_Votación = Convert.ToInt16(CmbCV.SelectedValue);
+            //agregar.id_JRV = Convert.ToInt16(cmbjr.SelectedValue);
             if (agregar.EnviarDatosUser_Controller() == false)
             {
-                MessageBox.Show("Usuario no pudo ser ingresado", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjusunop, Idiomas.EnglishMessage.msjerint, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjusunop, Idiomas.MensajesEspanol.msjerint, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -114,10 +193,17 @@ namespace Democratic
             objactualizar.Estado_Usuario = Convert.ToInt16(CmbEstadoU.SelectedValue);
             objactualizar.Tipo_Usuario = Convert.ToInt16(CmbTipoU.SelectedValue);
             objactualizar.id_Miembro = Convert.ToInt16(CmbMiembro.SelectedValue);
-            objactualizar.Centro_Votación = Convert.ToInt16(CmbCV.SelectedValue);
+            //objactualizar.Centro_Votación = Convert.ToInt16(CmbCV.SelectedValue);
             if (objactualizar.ActualizarDatos_Controller() == false)
             {
-                MessageBox.Show("Usuario no pudo ser actualizado", "Error de inserción", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjusunop2, Idiomas.EnglishMessage.msjerint, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjusunop2, Idiomas.MensajesEspanol.msjerint, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -145,6 +231,8 @@ namespace Democratic
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
+            VerificarMode();
+            VerificarIdioma();
             CargarListas();
             BtnActualizarU.Enabled = false;
             BtnEliminarU.Enabled = false;
@@ -152,54 +240,64 @@ namespace Democratic
 
         private void DgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            BtnAgregarUsuario.Enabled = false;
-            HabilitarUpdDel();
+            try
+            {
+                BtnAgregarUsuario.Enabled = false;
+                HabilitarUpdDel();
 
-            //objeto de la clase UsuarioController
-            UsuariosController objselect = new UsuariosController();
-            //Almanecera el numero de la fila que demos click
-            int posicion;
-            //Esta linea de código srve para capturar el número de la fila sobre la que se hace click
-            posicion = DgvUsuarios.CurrentRow.Index;
-            //Asignamos lo que esta en el DataGrid en cada uno de los controles, utilizamos el principio teórico de Arrays dibimensionales donde tenemos [columnas, filas]
-            txtId.Text = DgvUsuarios[0, posicion].Value.ToString();
-            TxtUsuario.Text = DgvUsuarios[1, posicion].Value.ToString();
-            TxtClave.Text = DgvUsuarios[2, posicion].Value.ToString();
+                //objeto de la clase UsuarioController
+                UsuariosController objselect = new UsuariosController();
+                //Almanecera el numero de la fila que demos click
+                int posicion;
+                //Esta linea de código srve para capturar el número de la fila sobre la que se hace click
+                posicion = DgvUsuarios.CurrentRow.Index;
+                //Asignamos lo que esta en el DataGrid en cada uno de los controles, utilizamos el principio teórico de Arrays dibimensionales donde tenemos [columnas, filas]
+                txtId.Text = DgvUsuarios[0, posicion].Value.ToString();
+                TxtUsuario.Text = DgvUsuarios[1, posicion].Value.ToString();
+                TxtClave.Text = DgvUsuarios[2, posicion].Value.ToString();
 
-            //Guardar en una variable de tipo entero el contenido en el DataGridView
-            int intento = Convert.ToInt16(DgvUsuarios[3, posicion].Value.ToString());
+                //Guardar en una variable de tipo entero el contenido en el DataGridView
+                int intento = Convert.ToInt16(DgvUsuarios[3, posicion].Value.ToString());
 
-            //Llenamos el combobox según el ID contenido en el DataGridView
-            //Guardar en una variable de tipo entero el id contenido en el DataGridView
-            string Estado_usuario = DgvUsuarios[4, posicion].Value.ToString();
-            //Creamos un nuevo método que permita consultar el estado del usuario según el ID contenido en la celda.
-            CmbEstadoU.DataSource = objselect.CargarEstadoUsuarioInnerJoin_Controller(Estado_usuario);
-            CmbEstadoU.ValueMember = "id_Estado_Usuario";
-            CmbEstadoU.DisplayMember = "Estado_Usuario";
+                //Llenamos el combobox según el ID contenido en el DataGridView
+                //Guardar en una variable de tipo entero el id contenido en el DataGridView
+                string Estado_usuario = DgvUsuarios[4, posicion].Value.ToString();
+                //Creamos un nuevo método que permita consultar el estado del usuario según el ID contenido en la celda.
+                CmbEstadoU.DataSource = objselect.CargarEstadoUsuarioInnerJoin_Controller(Estado_usuario);
+                CmbEstadoU.ValueMember = "id_Estado_Usuario";
+                CmbEstadoU.DisplayMember = "Estado_Usuario";
 
-            //Llenamos el combobox según el ID contenido en el DataGridView
-            //Guardar en una variable de tipo entero el id contenido en el DataGridView
-            string Tipo_usuario = DgvUsuarios[5, posicion].Value.ToString();
-            //Creamos un nuevo método que permita consultar el tipo de usuario según el ID contenido en la celda.
-            CmbTipoU.DataSource = objselect.CargarTipoUserInnerJoin_Controller(Tipo_usuario);
-            CmbTipoU.ValueMember = "id_Tipo_Usuario";
-            CmbTipoU.DisplayMember = "Estado_Usuario";
+                //Llenamos el combobox según el ID contenido en el DataGridView
+                //Guardar en una variable de tipo entero el id contenido en el DataGridView
+                string Tipo_usuario = DgvUsuarios[5, posicion].Value.ToString();
+                //Creamos un nuevo método que permita consultar el tipo de usuario según el ID contenido en la celda.
+                CmbTipoU.DataSource = objselect.CargarTipoUserInnerJoin_Controller(Tipo_usuario);
+                CmbTipoU.ValueMember = "id_Tipo_Usuario";
+                CmbTipoU.DisplayMember = "Tipo_Usuario";
 
-            //Llenamos el combobox según el ID contenido en el DataGridView
-            //Guardar en una variable de tipo entero el id contenido en el DataGridView
-            string Centro_Votación = DgvUsuarios[6, posicion].Value.ToString();
-            //Creamos un nuevo método que permita consultar el Centro de Votación del usuario según el ID contenido en la celda.
-            CmbCV.DataSource = objselect.CargarCentroVotacionInnerJoin_Controller(Centro_Votación);
-            CmbCV.ValueMember = "id_Centro_Votación";
-            CmbCV.DisplayMember = "Estado_Usuario";
+                //Llenamos el combobox según la sede del usuario
+                string SedeVotacion = DgvUsuarios[6, posicion].Value.ToString();
+                CmbCV.DataSource = objselect.CargarCentroVotacionInnerJoin_Controller(SedeVotacion);
+                CmbCV.ValueMember = "id_Centro_Votación";
+                CmbCV.DisplayMember = "Nombre_Centro_Votación";
 
-            //Llenamos el combobox según el ID contenido en el DataGridView
-            //Guardar en una variable de tipo entero el id contenido en el DataGridView
-            string Miembro = DgvUsuarios[7, posicion].Value.ToString();
-            //Creamos un nuevo método que permita consultar el Miembro del usuario según el ID contenido en la celda.
-            CmbMiembro.DataSource = objselect.CargarMiembrosInnerJoin_Controller(Miembro);
-            CmbMiembro.ValueMember = "id_Miembro";
-            CmbMiembro.DisplayMember = "Estado_Usuario";
+                //Llenamos el combobox según el participante vinculado al usuario
+                string Participante = DgvUsuarios[7, posicion].Value.ToString();
+                CmbMiembro.DataSource = objselect.CargarMiembrosInnerJoin_Controller(Participante);
+                CmbMiembro.ValueMember = "id_Miembro";
+                CmbMiembro.DisplayMember = "Nombre_Miembro";
+            }
+            catch (Exception)
+            {
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjselec, Idiomas.EnglishMessage.msjerselecio, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjselec, Idiomas.MensajesEspanol.msjerselecio, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         void EliminarUsuario()
@@ -211,27 +309,90 @@ namespace Democratic
             switch (valor)
             {
                 case -1:
-                    MessageBox.Show("Ocurrió un error al establecer conexión con la base de datos, verifique su acceso a internet o que los servicios del servidor estén activos.", "Error crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (VarSession.idioma == 1)
+                    {
+                        MessageBox.Show(Idiomas.EnglishMessage.msjocubase, Idiomas.EnglishMessage.msjE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Idiomas.MensajesEspanol.msjocubase, Idiomas.MensajesEspanol.msjE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     break;
                 case 1:
-                    MessageBox.Show("Usuario eliminado", "Proceso completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (VarSession.idioma == 1)
+                    {
+                        MessageBox.Show(Idiomas.EnglishMessage.msjeliusu, Idiomas.EnglishMessage.msjproint2, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Idiomas.MensajesEspanol.msjeliusu, Idiomas.MensajesEspanol.msjproint2, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     break;
                 case 2:
-                    MessageBox.Show("Usuario no pudo ser eleiminado debido a que existen datos dependientes.", "Proceso Interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (VarSession.idioma == 1)
+                    {
+                        MessageBox.Show(Idiomas.EnglishMessage.msjdepedi, Idiomas.EnglishMessage.msjproint, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Idiomas.MensajesEspanol.msjdepedi, Idiomas.MensajesEspanol.msjproint, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     break;
                 default:
                     break;
             }
         }
 
+        void ObtenerDatosM()
+        {
+            List<string> datos = RegistroController.BuscarDUI_Controller();
+            CmbMiembro.Text = datos[1];
+        }
+
+        void ExistenciaMiembro()
+        {
+            AtributosRegister.DUI = MSKdui.Text;
+            bool existe = RegistroController.Existencia_Controller();
+            if (existe == true)
+            {
+                ObtenerDatosM();
+            }
+            else
+            {
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjduiin, Idiomas.EnglishMessage.msjduico, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjduiin, Idiomas.MensajesEspanol.msjduico, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
         private void BtnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxtUsuario.Text))
+            if (string.IsNullOrWhiteSpace(TxtUsuario.Text.Trim()))
             {
-                MessageBox.Show("Campo de usuario necesario", "Datos faltantes del usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjcamusu, Idiomas.EnglishMessage.msjcheyo2, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjcamusu, Idiomas.MensajesEspanol.msjcheyo2, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else if(string.IsNullOrWhiteSpace(TxtClave.Text)){
-                MessageBox.Show("Campo de clave necesario", "Datos faltantes del usuario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (string.IsNullOrWhiteSpace(TxtClave.Text.Trim()))
+            {
+                if (VarSession.idioma == 1)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjcamusu2, Idiomas.EnglishMessage.msjcheyo2, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjcamusu2, Idiomas.MensajesEspanol.msjcheyo2, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else{
                 EnvioDatos();
@@ -258,13 +419,27 @@ namespace Democratic
 
         private void BtnEliminarU_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("¿Estas seguro de querer eliminar a: " + TxtUsuario.Text + " ?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            if (VarSession.idioma == 1)
             {
-                EliminarUsuario();
-                CargarListas();
-                LimpiarCampos();
+                DialogResult dr = MessageBox.Show(Idiomas.EnglishMessage.msjextraño + TxtUsuario.Text + " ?", Idiomas.EnglishMessage.msjextraño2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    EliminarUsuario();
+                    CargarListas();
+                    LimpiarCampos();
+                }
             }
+            else
+            {
+                DialogResult dr = MessageBox.Show(Idiomas.MensajesEspanol.msjextraño + TxtUsuario.Text + " ?", Idiomas.MensajesEspanol.msjextraño2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    EliminarUsuario();
+                    CargarListas();
+                    LimpiarCampos();
+                }
+            }
+
         }
 
         //---------------------------------------------------------------------------------------------------------------------------------
@@ -308,6 +483,44 @@ namespace Democratic
         private void CmbCV_Click(object sender, EventArgs e)
         {
             CargarCentroVotaciónU();
+        }
+
+        private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '"')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidacionesTexto.soloNumeros(e);
+        }
+
+        private void PbLUPA_Click(object sender, EventArgs e)
+        {
+            ExistenciaMiembro();
+        }
+
+        private void DgvUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            switch (VarSession.Color)
+            {
+                case 1:
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Oscuro;
+                    e.CellStyle.SelectionBackColor = Color.Cyan;
+                    e.CellStyle.SelectionForeColor = Color.Black;
+                    DgvUsuarios.BackgroundColor = Medio;
+                    DgvUsuarios.HeaderBgColor = Rosa;
+                    DgvUsuarios.HeaderForeColor = Color.White;
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

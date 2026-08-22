@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="msjintentosmas" xml:space="preserve">
+    <value>Timeout has expired, you have 5 more attempts</value>
+  </data>
+  <data name="msjintentosmastitle" xml:space="preserve">
+    <value>Time is up</value>
+  </data>
+  <data name="msjLogin" xml:space="preserve">
+    <value>All the elements are required.</value>
+  </data>
+  <data name="msjLoginTitle" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="msjperdioconexion" xml:space="preserve">
+    <value>The connection to the database was lost.</value>
+  </data>
+  <data name="msjperdioconexiontitle" xml:space="preserve">
+    <value>Access Denied</value>
+  </data>
+  <data name="msjtribunal" xml:space="preserve">
+    <value>Oops! An error occurred while loading the organization image</value>
+  </data>
+  <data name="msjuserdenied" xml:space="preserve">
+    <value>Wrong username or password, check your credentials</value>
+  </data>
+  <data name="msjverificar" xml:space="preserve">
+    <value>A verification error occurred, check with your administrator</value>
+  </data>
+  <data name="msjverificartitle" xml:space="preserve">
+    <value>Error information</value>
+  </data>
+  <data name="msjerrorrevisarhora" xml:space="preserve">
+    <value>An error occurred while checking hours</value>
+  </data>
+  <data name="msjintentosesperar" xml:space="preserve">
+    <value>You will have 5 chances in 3 minutes, please wait</value>
+  </data>
+  <data name="msjintentosesperarmas" xml:space="preserve">
+    <value>You will have 5 more chances in 3 minutes</value>
+  </data>
+  <data name="msjintentosesperartitle" xml:space="preserve">
+    <value>Time remaining</value>
+  </data>
+  <data name="msjintentosrestantes1" xml:space="preserve">
+    <value>Only have </value>
+  </data>
+  <data name="msjintentosrestantes2" xml:space="preserve">
+    <value> attempts to access.</value>
+  </data>
+  <data name="msjintentosrestantestitle" xml:space="preserve">
+    <value>Login error</value>
+  </data>
+  <data name="msjnoactualizado" xml:space="preserve">
+    <value>User could not be updated</value>
+  </data>
+  <data name="msjnoactualizadotitle" xml:space="preserve">
+    <value>Update error</value>
+  </data>
+  <data name="msjusernoencontrado" xml:space="preserve">
+    <value>No user found, check if you have entered the correct user</value>
+  </data>
+  <data name="msjusernoencontradotitle" xml:space="preserve">
+    <value>Wrong user</value>
+  </data>
+  <data name="msjadminpu" xml:space="preserve">
+    <value>Check with your administrator</value>
+  </data>
+  <data name="msjadminputitle" xml:space="preserve">
+    <value>Error creating organization</value>
+  </data>
+  <data name="msjbademailpuser" xml:space="preserve">
+    <value>The email entered in the first use must be the same as the email entered in the user</value>
+  </data>
+  <data name="msjbademailpusertitle" xml:space="preserve">
+    <value>Wrong E-Mail</value>
+  </data>
+  <data name="msjduimiembrotitle" xml:space="preserve">
+    <value>Missing Member Data</value>
+  </data>
+  <data name="msjduinecesario" xml:space="preserve">
+    <value>ID document field required</value>
+  </data>
+  <data name="msjduipuser" xml:space="preserve">
+    <value>Wrong ID document, check your credentials and try again</value>
+  </data>
+  <data name="msjduipusertitle" xml:space="preserve">
+    <value>ID document not found</value>
+  </data>
+  <data name="msjestadoinactivo" xml:space="preserve">
+    <value>The user entered is inactive, wait for lockout time or contact your admin</value>
+  </data>
+  <data name="msjestadoinactivotitle" xml:space="preserve">
+    <value>Inactive Status</value>
+  </data>
+  <data name="msjfaltadatapu" xml:space="preserve">
+    <value>To configure the organization be sure to enter all fields and upload an image</value>
+  </data>
+  <data name="msjfaltadataputitle" xml:space="preserve">
+    <value>Missing data</value>
+  </data>
+  <data name="msjfieldspu" xml:space="preserve">
+    <value>Missing data from the query</value>
+  </data>
+  <data name="msjinactiva" xml:space="preserve">
+    <value>Your account has been updated to an inactive status</value>
+  </data>
+  <data name="msjinactivatitle" xml:space="preserve">
+    <value>Updated Status</value>
+  </data>
+  <data name="msjinserterror" xml:space="preserve">
+    <value>Insert error</value>
+  </data>
+  <data name="msjinsertusererror" xml:space="preserve">
+    <value>User could not be entered</value>
+  </data>
+  <data name="msjloggedpuser" xml:space="preserve">
+    <value>User logged in, root user has been created</value>
+  </data>
+  <data name="msjloggedpusertitle" xml:space="preserve">
+    <value>Successful creation</value>
+  </data>
+  <data name="msjpassbadpuser" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="msjpassbadpusertitle" xml:space="preserve">
+    <value>Incorrect passwords</value>
+  </data>
+  <data name="msjtribnocreatepu" xml:space="preserve">
+    <value>Sorry, the organization has not been configured</value>
+  </data>
+  <data name="msjtribnocreateputitle" xml:space="preserve">
+    <value>Inconsistent dates</value>
+  </data>
+  <data name="msjtribnoexistpu" xml:space="preserve">
+    <value>Sorry, the Organization may not have existed</value>
+  </data>
+  <data name="msjtribuimgpu" xml:space="preserve">
+    <value>Organization image missing</value>
+  </data>
+  <data name="msjtribunalerrorpu" xml:space="preserve">
+    <value>Organization could not be configured</value>
+  </data>
+  <data name="msjvaciotitle" xml:space="preserve">
+    <value>Empty fields</value>
+  </data>
+  <data name="msjactaeliminada" xml:space="preserve">
+    <value>Voting record deleted</value>
+  </data>
+  <data name="msjactanoeliminada" xml:space="preserve">
+    <value>Voting record could not be deleted because of dependent data</value>
+  </data>
+  <data name="msjactanoingresada" xml:space="preserve">
+    <value>Voting record could not be entered</value>
+  </data>
+  <data name="msjactanoupdate" xml:space="preserve">
+    <value>Voting record could not be updated</value>
+  </data>
+  <data name="msjadvertencia" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="msjcampocorrelativo" xml:space="preserve">
+    <value>Required correlation field</value>
+  </data>
+  <data name="msjcamposnecesarios" xml:space="preserve">
+    <value>Required option fields</value>
+  </data>
+  <data name="msjcandidatoeliminado" xml:space="preserve">
+    <value>Option eliminated</value>
+  </data>
+  <data name="msjcandidatonoactualizado" xml:space="preserve">
+    <value>Option could not be updated</value>
+  </data>
+  <data name="msjcandidatonoeliminado" xml:space="preserve">
+    <value>Option could not be deleted because of dependent data</value>
+  </data>
+  <data name="msjcandidatonoingresado" xml:space="preserve">
+    <value>Option could not be entered</value>
+  </data>
+  <data name="msjcandidatoseliminados" xml:space="preserve">
+    <value>All options were eliminated</value>
+  </data>
+  <data name="msjcandidatosnoeliminados" xml:space="preserve">
+    <value>Options could not be eliminated</value>
+  </data>
+  <data name="msjConfirmationP" xml:space="preserve">
+    <value>Are you sure you want to delete the option group:</value>
+  </data>
+  <data name="msjConfirmationPTitle" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="msjconfirmeliminaracta" xml:space="preserve">
+    <value>Are you sure you want to eliminate the Report?</value>
+  </data>
+  <data name="msjcvdatosfaltan" xml:space="preserve">
+    <value>Missing Voting Venue Data</value>
+  </data>
+  <data name="msjcveliminado" xml:space="preserve">
+    <value>Voting venue eliminated</value>
+  </data>
+  <data name="msjcvnecesario" xml:space="preserve">
+    <value>Required Voting Venue Fields</value>
+  </data>
+  <data name="msjcvnoactualizado" xml:space="preserve">
+    <value>Voting venue could not be updated</value>
+  </data>
+  <data name="msjcvnoeliminado" xml:space="preserve">
+    <value>The voting venue could not be removed</value>
+  </data>
+  <data name="msjcvnoregistrado" xml:space="preserve">
+    <value>Voting venue could not be entered into the registry</value>
+  </data>
+  <data name="msjDatabaseP" xml:space="preserve">
+    <value>An error occurred while connecting to the database, check your internet access or that the server's servers are active.</value>
+  </data>
+  <data name="msjDatabasePTitle" xml:space="preserve">
+    <value>Critical error</value>
+  </data>
+  <data name="msjdatosfaltantes" xml:space="preserve">
+    <value>Missing Data Report</value>
+  </data>
+  <data name="msjdatosfaltantescandidato" xml:space="preserve">
+    <value>Missing data of the option</value>
+  </data>
+  <data name="msjDeletedP" xml:space="preserve">
+    <value>Eliminated option group</value>
+  </data>
+  <data name="msjdetalleactanodatos" xml:space="preserve">
+    <value>Missing data entry fields</value>
+  </data>
+  <data name="msjdetalleactanoingresada" xml:space="preserve">
+    <value>Details of the record could not be entered</value>
+  </data>
+  <data name="msjdetallemdatosfaltan" xml:space="preserve">
+    <value>Missing details, check if a description has been added to the member</value>
+  </data>
+  <data name="msjdetallemeliminado" xml:space="preserve">
+    <value>Detail of deleted member</value>
+  </data>
+  <data name="msjdetallemiembronoactualizado" xml:space="preserve">
+    <value>Member detail could not be updated</value>
+  </data>
+  <data name="msjdetallemiembronoingresado" xml:space="preserve">
+    <value>Member detail could not be entered</value>
+  </data>
+  <data name="msjdetallemnoeliminado" xml:space="preserve">
+    <value>Member detail could not be removed</value>
+  </data>
+  <data name="msjdetallenoupdated" xml:space="preserve">
+    <value>The record could not be updated</value>
+  </data>
+  <data name="msjDeteledPTitle" xml:space="preserve">
+    <value>Completed process</value>
+  </data>
+  <data name="msjDiedM" xml:space="preserve">
+    <value>Sorry, the member may have died</value>
+  </data>
+  <data name="msjdoslistas" xml:space="preserve">
+    <value>Error loading at least one of the two lists, consult your administrator</value>
+  </data>
+  <data name="msjEmployedP" xml:space="preserve">
+    <value>Employee could not be removed due to dependent data</value>
+  </data>
+  <data name="msjEmployedPTitle" xml:space="preserve">
+    <value>Process interrupted</value>
+  </data>
+  <data name="msjerrorconexion" xml:space="preserve">
+    <value>Connection error</value>
+  </data>
+  <data name="msjErrorListP" xml:space="preserve">
+    <value>Failed to load Option group status list, check with your administrator</value>
+  </data>
+  <data name="msjErrorM" xml:space="preserve">
+    <value>Failed to load member status list, check with admin</value>
+  </data>
+  <data name="msjerrortreslistas" xml:space="preserve">
+    <value>Error loading at least one of the three lists, consult with the administrator</value>
+  </data>
+  <data name="msjFieldsP" xml:space="preserve">
+    <value>Missing data to enter, verify that all fields are filled</value>
+  </data>
+  <data name="msjimagencandidato" xml:space="preserve">
+    <value>Option image required</value>
+  </data>
+  <data name="msjImageP" xml:space="preserve">
+    <value>Image missing to enter, verify you have added an image</value>
+  </data>
+  <data name="msjImagePTitle" xml:space="preserve">
+    <value>Missing image</value>
+  </data>
+  <data name="msjInsertM" xml:space="preserve">
+    <value>Member could not be entered</value>
+  </data>
+  <data name="msjInsertP" xml:space="preserve">
+    <value>Option group could not be entered</value>
+  </data>
+  <data name="msjJRVfailed" xml:space="preserve">
+    <value>Failed to load voting station list, check with administrator</value>
+  </data>
+  <data name="msjJRVincorrecto" xml:space="preserve">
+    <value>Bad voting station mapping, please check your credentials and try again</value>
+  </data>
+  <data name="msjJRVincorrectoTitle" xml:space="preserve">
+    <value>Voting station not found</value>
+  </data>
+  <data name="msjJRVnoingresada" xml:space="preserve">
+    <value>Voting station could not be entered</value>
+  </data>
+  <data name="msjlistas" xml:space="preserve">
+    <value>Error when loading the lists</value>
+  </data>
+  <data name="msjlistasnocargadas" xml:space="preserve">
+    <value>One or more lists could not be loaded into the system</value>
+  </data>
+  <data name="msjMenorM" xml:space="preserve">
+    <value>Sorry, the member you want to join is a minor</value>
+  </data>
+  <data name="msjregistroeliminado" xml:space="preserve">
+    <value>Record deleted</value>
+  </data>
+  <data name="msjregistronoeliminado" xml:space="preserve">
+    <value>The record could not be deleted because of dependent data</value>
+  </data>
+  <data name="msjUpdM" xml:space="preserve">
+    <value>User could not be updated</value>
+  </data>
+  <data name="msjUpdP" xml:space="preserve">
+    <value>Option group could not be updated</value>
+  </data>
+  <data name="msjusuarionoactualizado" xml:space="preserve">
+    <value>User, registration could not be updated</value>
+  </data>
+  <data name="msjactivo" xml:space="preserve">
+    <value>User status is Active</value>
+  </data>
+  <data name="mjsactuer" xml:space="preserve">
+    <value>The password could not be updated</value>
+  </data>
+  <data name="mjsconen" xml:space="preserve">
+    <value>Password not sent</value>
+  </data>
+  <data name="mjsmesageno" xml:space="preserve">
+    <value>Message not sent</value>
+  </data>
+  <data name="msjblank" xml:space="preserve">
+    <value>Blanks, check if you have entered an email</value>
+  </data>
+  <data name="msjcamusu" xml:space="preserve">
+    <value>Required user field</value>
+  </data>
+  <data name="msjcamusu2" xml:space="preserve">
+    <value>Key field required</value>
+  </data>
+  <data name="msjchema" xml:space="preserve">
+    <value>Blanks, check</value>
+  </data>
+  <data name="msjcheyo" xml:space="preserve">
+    <value>check your credentials i have try again</value>
+  </data>
+  <data name="msjcheyo2" xml:space="preserve">
+    <value>Missing user data</value>
+  </data>
+  <data name="msjcore" xml:space="preserve">
+    <value>Enter the email you want to send the password to</value>
+  </data>
+  <data name="msjcreaex" xml:space="preserve">
+    <value>Successful creation</value>
+  </data>
+  <data name="msjdepedi" xml:space="preserve">
+    <value>User could not be deleted due to dependent data.</value>
+  </data>
+  <data name="msjduico" xml:space="preserve">
+    <value>ID document not found</value>
+  </data>
+  <data name="msjduiin" xml:space="preserve">
+    <value>Wrong ID document, check your credentials I have tried again</value>
+  </data>
+  <data name="msjE" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msjeliusu" xml:space="preserve">
+    <value>User Deleted</value>
+  </data>
+  <data name="msjerima" xml:space="preserve">
+    <value>Error loading images</value>
+  </data>
+  <data name="msjerint" xml:space="preserve">
+    <value>Insert error</value>
+  </data>
+  <data name="msjerrocag" xml:space="preserve">
+    <value>Error loading at least one of the four lists, check with your administrator</value>
+  </data>
+  <data name="msjerselecio" xml:space="preserve">
+    <value>Selection error</value>
+  </data>
+  <data name="msjexele" xml:space="preserve">
+    <value>Excellent! the user entered already exists in the database, your new password has been sent to your email, User Found</value>
+  </data>
+  <data name="msjextraño" xml:space="preserve">
+    <value>Are you sure you want to eliminate:</value>
+  </data>
+  <data name="msjextraño2" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="msjfalta" xml:space="preserve">
+    <value>Option images are missing</value>
+  </data>
+  <data name="msjfaltan" xml:space="preserve">
+    <value>Missing data</value>
+  </data>
+  <data name="msjinco" xml:space="preserve">
+    <value>Wrong email</value>
+  </data>
+  <data name="msjmailno" xml:space="preserve">
+    <value>Mail not found</value>
+  </data>
+  <data name="msjnoi" xml:space="preserve">
+    <value>User login, voting user has been created</value>
+  </data>
+  <data name="msjocubase" xml:space="preserve">
+    <value>An error occurred while connecting to the database, check 
+your internet Access or that the server services are active</value>
+  </data>
+  <data name="msjocubol" xml:space="preserve">
+    <value>There was a problem adding the ballot</value>
+  </data>
+  <data name="msjprocom" xml:space="preserve">
+    <value>Your vote was successfully recorded in the system</value>
+  </data>
+  <data name="msjproint" xml:space="preserve">
+    <value>Process interrupted</value>
+  </data>
+  <data name="msjproint2" xml:space="preserve">
+    <value>Completed process</value>
+  </data>
+  <data name="msjselec" xml:space="preserve">
+    <value>An error occurred when selecting an empty cell \ n \ ntry to select a cell with an existing data</value>
+  </data>
+  <data name="msjunai" xml:space="preserve">
+    <value>One or more option images were not uploaded</value>
+  </data>
+  <data name="msjusunop" xml:space="preserve">
+    <value>User could not be entered</value>
+  </data>
+  <data name="msjusunop2" xml:space="preserve">
+    <value>User could not be updated</value>
+  </data>
+  <data name="msjvtin" xml:space="preserve">
+    <value>Vote could not be entered</value>
+  </data>
+  <data name="msjvtin2" xml:space="preserve">
+    <value>Vote recorded</value>
+  </data>
+  <data name="msjadmind" xml:space="preserve">
+    <value>Welcome, your access level is: Administrator</value>
+  </data>
+  <data name="msjconexionno" xml:space="preserve">
+    <value>Connection could not be established</value>
+  </data>
+  <data name="msjconexionsi" xml:space="preserve">
+    <value>Successful connection</value>
+  </data>
+  <data name="msjmiembro" xml:space="preserve">
+    <value>Welcome, you are a member of a voting station</value>
+  </data>
+  <data name="msjpartido" xml:space="preserve">
+    <value>Welcome, Option group</value>
+  </data>
+  <data name="msjpresi" xml:space="preserve">
+    <value>Welcome, Supervisor</value>
+  </data>
+  <data name="msjroot" xml:space="preserve">
+    <value>Welcome, your access level is: Root</value>
+  </data>
+  <data name="msjseguro" xml:space="preserve">
+    <value>Be sure to save all data to avoid loss of information</value>
+  </data>
+  <data name="msjsegurotitle" xml:space="preserve">
+    <value>Close Application</value>
+  </data>
+  <data name="msjvice" xml:space="preserve">
+    <value>Welcome, Auditor</value>
+  </data>
+  <data name="msjvotante" xml:space="preserve">
+    <value>Welcome Voter</value>
+  </data>
+  <data name="msjcadidatoselimited" xml:space="preserve">
+    <value>Are you sure you want to eliminate the option group: </value>
+  </data>
+  <data name="msjduiocr" xml:space="preserve">
+    <value>The ID document or OCR Code field has not been entered.</value>
+  </data>
+  <data name="msjMinactivo" xml:space="preserve">
+    <value>The logged in member has an inactive status</value>
+  </data>
+  <data name="msjOCR" xml:space="preserve">
+    <value>Wrong OCR Code, check your credentials I have tried again</value>
+  </data>
+  <data name="msjOCRTitle" xml:space="preserve">
+    <value>OCR Code not found</value>
+  </data>
+</root>

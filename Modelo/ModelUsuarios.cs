@@ -76,6 +76,28 @@ namespace Modelo
             }
         }
 
+        public static DataTable CargarJRV()
+        {
+            DataTable data;
+            try
+            {
+                string query = "SELECT id_JRV, Correlativo_JRV FROM tbjrv";
+                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
+                data = new DataTable();
+                adp.Fill(data);
+                return data;
+            }
+            catch (Exception)
+            {
+                return data = null;
+            }
+            finally
+            {
+                Conexion.getConnect().Close();
+            }
+        }
+
         public static DataTable CargarMiembrosUser()
         {
             DataTable data;
@@ -120,12 +142,12 @@ namespace Modelo
             }
         }
 
-        public static bool RegistrarUsuario(string usuario, string clave, int intento, int Estado_Usuario, int Tipo_Usuario, int Centro_Votación, int id_Miembro)
+        public static bool RegistrarUsuario(string usuario, string clave, int intento, int Estado_Usuario, int Tipo_Usuario, int JRV, int id_Miembro)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tbusuario (Usuario, Clave_Usuario, intento, id_Estado_Usuario, id_Tipo_Usuario, id_Centro_Votación, id_Miembro) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", usuario, clave, intento, Estado_Usuario, Tipo_Usuario, Centro_Votación, id_Miembro), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tbusuario (Usuario, Clave_Usuario, intento, id_Estado_Usuario, id_Tipo_Usuario, id_JRV, id_Miembro) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", usuario, clave, intento, Estado_Usuario, Tipo_Usuario, JRV, id_Miembro), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -208,6 +230,73 @@ namespace Modelo
             }
         }
 
+        public static DataTable CargarCentroVotacionUsuarioInner2(int idCentro_Votacion)
+        {
+            DataTable data;
+            try
+            {
+                string query = "SELECT * FROM tbcentro_de_votación WHERE id_Centro_Votación = '"+ idCentro_Votacion + "'  ";
+                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
+                data = new DataTable();
+                adp.Fill(data);
+                return data;
+            }
+            catch (Exception)
+            {
+                return data = null;
+            }
+            finally
+            {
+                Conexion.getConnect().Close();
+            }
+        }
+
+        public static DataTable CargarJRVInner(string id_JRV)
+        {
+            DataTable data;
+            try
+            {
+                string query = "SELECT * FROM tbjrv WHERE Correlativo_JRV = ?param1";
+                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                cmdselect.Parameters.Add(new MySqlParameter("param1", id_JRV));
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
+                data = new DataTable();
+                adp.Fill(data);
+                return data;
+            }
+            catch (Exception)
+            {
+                return data = null;
+            }
+            finally
+            {
+                Conexion.getConnect().Close();
+            }
+        }
+
+        public static DataTable CargarJRVInner2(int id_JRV)
+        {
+            DataTable data;
+            try
+            {
+                string query = "SELECT * FROM tbjrv WHERE id_JRV = '"+ id_JRV +"' ";
+                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
+                data = new DataTable();
+                adp.Fill(data);
+                return data;
+            }
+            catch (Exception)
+            {
+                return data = null;
+            }
+            finally
+            {
+                Conexion.getConnect().Close();
+            }
+        }
+
         public static DataTable CargarMiembroUsuarioInner(string idMiembro)
         {
             DataTable data;
@@ -231,12 +320,12 @@ namespace Modelo
             }
         }
 
-        public static bool ActualizarUsuario(int idusuario, string usuario, string clave, int intento, int Estado_Usuario, int Tipo_Usuario, int Centro_Votación, int id_Miembro)
+        public static bool ActualizarUsuario(int idusuario, string usuario, string clave, int intento, int Estado_Usuario, int Tipo_Usuario, int JRV, int id_Miembro)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbusuario SET Usuario = '" + usuario + "', Clave_Usuario = '" + clave + "', intento = '" + intento + "', id_Estado_Usuario = '" + Estado_Usuario + "', id_Tipo_Usuario = '" + Tipo_Usuario + "', id_Centro_Votación = '" + Centro_Votación + "', id_Miembro = '" + id_Miembro + "' WHERE id_Usuario = '" + idusuario + "'  "), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbusuario SET Usuario = '" + usuario + "', Clave_Usuario = '" + clave + "', intento = '" + intento + "', id_Estado_Usuario = '" + Estado_Usuario + "', id_Tipo_Usuario = '" + Tipo_Usuario + "', id_JRV = '" + JRV + "', id_Miembro = '" + id_Miembro + "' WHERE id_Usuario = '" + idusuario + "'  "), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }

@@ -73,6 +73,16 @@ namespace Democratic.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Acerca_de {
+            get {
+                object obj = ResourceManager.GetObject("Acerca de", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap add_user_group_woman_man_90px {
             get {
                 object obj = ResourceManager.GetObject("add_user_group_woman_man_90px", resourceCulture);
@@ -133,6 +143,16 @@ namespace Democratic.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap back_to_60px {
+            get {
+                object obj = ResourceManager.GetObject("back_to_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ballot_50px {
             get {
                 object obj = ResourceManager.GetObject("ballot_50px", resourceCulture);
@@ -156,6 +176,16 @@ namespace Democratic.Properties {
         public static System.Drawing.Bitmap box_50px1 {
             get {
                 object obj = ResourceManager.GetObject("box_50px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Court {
+            get {
+                object obj = ResourceManager.GetObject("Court", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +256,16 @@ namespace Democratic.Properties {
         public static System.Drawing.Bitmap downloading_updates_100px {
             get {
                 object obj = ResourceManager.GetObject("downloading_updates_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DUI {
+            get {
+                object obj = ResourceManager.GetObject("DUI", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,6 +553,16 @@ namespace Democratic.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap question {
+            get {
+                object obj = ResourceManager.GetObject("question", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap real_estate_50px {
             get {
                 object obj = ResourceManager.GetObject("real_estate_50px", resourceCulture);
@@ -556,6 +606,16 @@ namespace Democratic.Properties {
         public static System.Drawing.Bitmap report_card_50px {
             get {
                 object obj = ResourceManager.GetObject("report_card_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Reporte {
+            get {
+                object obj = ResourceManager.GetObject("Reporte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,6 +693,16 @@ namespace Democratic.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap sign_out_90px1 {
+            get {
+                object obj = ResourceManager.GetObject("sign_out_90px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap tribunal {
             get {
                 object obj = ResourceManager.GetObject("tribunal", resourceCulture);
@@ -656,6 +726,16 @@ namespace Democratic.Properties {
         public static System.Drawing.Bitmap user_male_90px1 {
             get {
                 object obj = ResourceManager.GetObject("user_male_90px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap UserEnglish {
+            get {
+                object obj = ResourceManager.GetObject("UserEnglish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -696,6 +776,36 @@ namespace Democratic.Properties {
         public static System.Drawing.Bitmap view_details_100px {
             get {
                 object obj = ResourceManager.GetObject("view_details_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("Wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wallpaper1 {
+            get {
+                object obj = ResourceManager.GetObject("Wallpaper1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap warning {
+            get {
+                object obj = ResourceManager.GetObject("warning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
