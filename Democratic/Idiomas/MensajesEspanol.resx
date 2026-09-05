@@ -193,7 +193,7 @@
     <value>Correo incorrecto</value>
   </data>
   <data name="msjduimiembrotitle" xml:space="preserve">
-    <value>Datos faltantes del Miembro</value>
+    <value>Datos faltantes del participante</value>
   </data>
   <data name="msjduinecesario" xml:space="preserve">
     <value>Campo de documento de identidad necesario</value>
@@ -262,16 +262,16 @@
     <value>Campos vacios</value>
   </data>
   <data name="msjactaeliminada" xml:space="preserve">
-    <value>Acta eliminada</value>
+    <value>Registro de escrutinio eliminado</value>
   </data>
   <data name="msjactanoeliminada" xml:space="preserve">
-    <value>Acta no pudo ser eliminada debido a que existen datos dependientes.</value>
+    <value>El registro de escrutinio no pudo ser eliminado debido a que existen datos dependientes.</value>
   </data>
   <data name="msjactanoingresada" xml:space="preserve">
-    <value>Acta no pudo ser ingresada</value>
+    <value>El registro de escrutinio no pudo ser ingresado</value>
   </data>
   <data name="msjactanoupdate" xml:space="preserve">
-    <value>Acta no pudo ser actualizada</value>
+    <value>El registro de escrutinio no pudo ser actualizado</value>
   </data>
   <data name="msjadvertencia" xml:space="preserve">
     <value>Advertencia</value>
@@ -307,7 +307,7 @@
     <value>Confirmación</value>
   </data>
   <data name="msjconfirmeliminaracta" xml:space="preserve">
-    <value>¿Estás seguro de querer eliminar la Acta?</value>
+    <value>¿Estás seguro de querer eliminar el registro de escrutinio?</value>
   </data>
   <data name="msjcvdatosfaltan" xml:space="preserve">
     <value>Datos faltantes del Sede</value>
@@ -334,7 +334,7 @@
     <value>Error Crítico</value>
   </data>
   <data name="msjdatosfaltantes" xml:space="preserve">
-    <value>Datos faltantes de Actas</value>
+    <value>Datos faltantes de registros de escrutinio</value>
   </data>
   <data name="msjdatosfaltantescandidato" xml:space="preserve">
     <value>Datos faltantes de la opción</value>
@@ -346,22 +346,22 @@
     <value>Campos faltantes de ingresar datos</value>
   </data>
   <data name="msjdetalleactanoingresada" xml:space="preserve">
-    <value>Detalle de acta no pudo ser ingresada</value>
+    <value>Detalle de escrutinio no pudo ser ingresado</value>
   </data>
   <data name="msjdetallemdatosfaltan" xml:space="preserve">
-    <value>Datos faltantes en los detalles, verifique si se ha agregado una descripción al miembro</value>
+    <value>Datos faltantes en los detalles, verifique si se ha agregado una descripción al participante</value>
   </data>
   <data name="msjdetallemeliminado" xml:space="preserve">
-    <value>Detalle de miembro eliminado</value>
+    <value>Detalle de participante eliminado</value>
   </data>
   <data name="msjdetallemiembronoactualizado" xml:space="preserve">
-    <value>Detalle del miembro no pudo ser actualizado</value>
+    <value>Detalle del participante no pudo ser actualizado</value>
   </data>
   <data name="msjdetallemiembronoingresado" xml:space="preserve">
-    <value>Detalle del miembro no pudo ser ingresado</value>
+    <value>Detalle del participante no pudo ser ingresado</value>
   </data>
   <data name="msjdetallemnoeliminado" xml:space="preserve">
-    <value>Detalle de miembro no pudo ser eliminado</value>
+    <value>Detalle de participante no pudo ser eliminado</value>
   </data>
   <data name="msjdetallenoupdated" xml:space="preserve">
     <value>No pudo ser actualizado el registro</value>
@@ -370,7 +370,7 @@
     <value>Proceso Completado</value>
   </data>
   <data name="msjDiedM" xml:space="preserve">
-    <value>Lo sentimos, Es posible que el miembro haya fallecido</value>
+    <value>Lo sentimos, es posible que el participante haya fallecido</value>
   </data>
   <data name="msjdoslistas" xml:space="preserve">
     <value>Error al cargar al menos una de las dos listas, consulte con su administrador</value>
@@ -388,7 +388,7 @@
     <value>Error al cargar la lista del Estado del grupo de opciones, consulte con su administrador</value>
   </data>
   <data name="msjErrorM" xml:space="preserve">
-    <value>Error al cargar la lista de estado de miembros, consulte con el administrador</value>
+    <value>Error al cargar la lista de estado de participantes, consulte con el administrador</value>
   </data>
   <data name="msjerrortreslistas" xml:space="preserve">
     <value>Error al cargar al menos una de las tres listas, consulte con el administrador</value>
@@ -406,7 +406,7 @@
     <value>Imagen faltante</value>
   </data>
   <data name="msjInsertM" xml:space="preserve">
-    <value>Miembro no pudo ser ingresado</value>
+    <value>Participante no pudo ser ingresado</value>
   </data>
   <data name="msjInsertP" xml:space="preserve">
     <value>Grupo de opciones no pudo ser ingresado</value>
@@ -430,7 +430,7 @@
     <value>Una o mas listas no pudieron ser cargadas en el sistema</value>
   </data>
   <data name="msjMenorM" xml:space="preserve">
-    <value>Lo sentimos, el miembro que desea ingresar es menor de edad</value>
+    <value>Lo sentimos, el participante que desea ingresar es menor de edad</value>
   </data>
   <data name="msjregistroeliminado" xml:space="preserve">
     <value>Registro eliminado</value>
@@ -578,7 +578,7 @@ su acceso a internet o que los servicios del servidor estén activos</value>
     <value>Conexión exitosa</value>
   </data>
   <data name="msjmiembro" xml:space="preserve">
-    <value>Bienvenido, es Miembro de una mesa de votación</value>
+    <value>Bienvenido, operador de mesa de votación</value>
   </data>
   <data name="msjpartido" xml:space="preserve">
     <value>Bienvenido, Grupo de opciones</value>
@@ -602,15 +602,15 @@ su acceso a internet o que los servicios del servidor estén activos</value>
     <value>Bienvenido, Votante</value>
   </data>
   <data name="msjduiocr" xml:space="preserve">
-    <value>El campo de documento de identidad o Código OCR no ha sido ingresado</value>
+    <value>El campo de documento de identidad o código de verificación no ha sido ingresado</value>
   </data>
   <data name="msjMinactivo" xml:space="preserve">
-    <value>El miembro ingresado tiene un estado inactivo</value>
+    <value>El participante ingresado tiene un estado inactivo</value>
   </data>
   <data name="msjOCR" xml:space="preserve">
-    <value>Código OCR incorrecto, verifique sus credenciales he intentelo de nuevo</value>
+    <value>Código de verificación incorrecto, verifique sus credenciales e inténtelo de nuevo</value>
   </data>
   <data name="msjOCRTitle" xml:space="preserve">
-    <value>Código OCR no ha sido encontrado</value>
+    <value>Código de verificación no encontrado</value>
   </data>
 </root>

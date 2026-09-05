@@ -145,7 +145,7 @@
     <value>Las contraseñas no coinciden</value>
   </data>
   <data name="lblOCR" xml:space="preserve">
-    <value>Código OCR</value>
+    <value>Código de verificación</value>
   </data>
   <data name="lblolvidar" xml:space="preserve">
     <value>¿Olvidaste tu contraseña?</value>

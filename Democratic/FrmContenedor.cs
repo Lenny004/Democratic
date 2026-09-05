@@ -65,49 +65,80 @@ namespace Democratic
                 });
         }
 
+        void AplicarMenuGenerico(bool ingles)
+        {
+            if (ingles)
+            {
+                BtnCandidatos.Text = UiTerminology.MenuEn.VerOpciones;
+                BtnVotar.Text = UiTerminology.MenuEn.Votar;
+                BtnEstadisticas.Text = UiTerminology.MenuEn.Estadisticas;
+                BtnAdminActas.Text = UiTerminology.MenuEn.AdminEscrutinio;
+                BtnActas.Text = UiTerminology.MenuEn.RegistrosEscrutinio;
+                BtnDetalleActas.Text = UiTerminology.MenuEn.DetalleEscrutinio;
+                BtnJRVyCV.Text = UiTerminology.MenuEn.SedesYMesas;
+                BtnJRV.Text = UiTerminology.MenuEn.Mesas;
+                BtnCV.Text = UiTerminology.MenuEn.Sedes;
+                BtnMiembroyUser.Text = UiTerminology.MenuEn.ParticipantesYUsuarios;
+                BtnMiembros.Text = UiTerminology.MenuEn.Participantes;
+                BtnDetalleM.Text = UiTerminology.MenuEn.DetalleParticipante;
+                BtnUsuarios.Text = UiTerminology.MenuEn.Usuarios;
+                BtnPartidoCandidato.Text = UiTerminology.MenuEn.GruposYOpciones;
+                BtnPartidos.Text = UiTerminology.MenuEn.GruposOpciones;
+                BtnC.Text = UiTerminology.MenuEn.Opciones;
+                BtnVotos.Text = UiTerminology.MenuEn.Votos;
+                BtnEstructura.Text = UiTerminology.MenuEn.Estructura;
+                BtnSalir.Text = UiTerminology.MenuEn.Salir;
+                ToolSistema.Text = Idiomas.English.toolsistema;
+                CerrarToolStrip.Text = Idiomas.English.toolsalir;
+                SalirToolStrip.Text = Idiomas.English.toolcerrar;
+                ToolAyuda.Text = Idiomas.English.toolhelp;
+                ToolVerayuda.Text = Idiomas.English.toolverhelp;
+                ToolReq.Text = Idiomas.English.toolreq;
+                ToolAcerca.Text = Idiomas.English.toolacerca;
+                ToolError.Text = Idiomas.English.toolerror;
+                BtnCerrar.Text = Idiomas.English.btncerrar;
+                BtnMaximizar.Text = Idiomas.English.btnmaximizar;
+                BtnNormal.Text = Idiomas.English.btnnormal;
+                BtnMinimizar.Text = Idiomas.English.btnminimizar;
+                BtnConectar.Text = Idiomas.English.btnconectar;
+                BtnRojo.Text = Idiomas.English.btnrojo;
+                BtnVerde.Text = Idiomas.English.btnverde;
+                return;
+            }
+
+            BtnCandidatos.Text = UiTerminology.MenuEs.VerOpciones;
+            BtnVotar.Text = UiTerminology.MenuEs.Votar;
+            BtnEstadisticas.Text = UiTerminology.MenuEs.Estadisticas;
+            BtnAdminActas.Text = UiTerminology.MenuEs.AdminEscrutinio;
+            BtnActas.Text = UiTerminology.MenuEs.RegistrosEscrutinio;
+            BtnDetalleActas.Text = UiTerminology.MenuEs.DetalleEscrutinio;
+            BtnJRVyCV.Text = UiTerminology.MenuEs.SedesYMesas;
+            BtnJRV.Text = UiTerminology.MenuEs.Mesas;
+            BtnCV.Text = UiTerminology.MenuEs.Sedes;
+            BtnMiembroyUser.Text = UiTerminology.MenuEs.ParticipantesYUsuarios;
+            BtnMiembros.Text = UiTerminology.MenuEs.Participantes;
+            BtnDetalleM.Text = UiTerminology.MenuEs.DetalleParticipante;
+            BtnUsuarios.Text = UiTerminology.MenuEs.Usuarios;
+            BtnPartidoCandidato.Text = UiTerminology.MenuEs.GruposYOpciones;
+            BtnPartidos.Text = UiTerminology.MenuEs.GruposOpciones;
+            BtnC.Text = UiTerminology.MenuEs.Opciones;
+            BtnVotos.Text = UiTerminology.MenuEs.Votos;
+            BtnEstructura.Text = UiTerminology.MenuEs.Estructura;
+            BtnSalir.Text = UiTerminology.MenuEs.Salir;
+        }
+
         void VerificarIdioma()
         {
             switch (VarSession.idioma)
             {
                 case 1:
-                    BtnCandidatos.Text = Idiomas.English.btnvercandidatos;
-                    BtnVotar.Text = Idiomas.English.btnvotar;
-                    BtnEstadisticas.Text = Idiomas.English.btnverestadisticas;
-                    BtnAdminActas.Text = Idiomas.English.btnadmindactas;
-                    BtnActas.Text = Idiomas.English.btnactas;
-                    BtnDetalleActas.Text = Idiomas.English.btndetalleacta;
-                    BtnJRVyCV.Text = Idiomas.English.btnjrvandcv;
-                    BtnJRV.Text = Idiomas.English.btnjrv;
-                    BtnCV.Text = Idiomas.English.btncv;
-                    BtnMiembroyUser.Text = Idiomas.English.btnadmindmiembrosanduser;
-                    BtnMiembros.Text = Idiomas.English.btnmiembros;
-                    BtnDetalleM.Text = Idiomas.English.btndetallemiembros;
-                    BtnUsuarios.Text = Idiomas.English.btnusuarios;
-                    BtnPartidoCandidato.Text = Idiomas.English.btnadmindpartidosycandidatos;
-                    BtnPartidos.Text = Idiomas.English.btnpartido;
-                    BtnC.Text = Idiomas.English.btncandidato;
-                    BtnVotos.Text = Idiomas.English.btnvotos;
-                    BtnEstructura.Text = Idiomas.English.btnestructura;
-                    BtnSalir.Text = Idiomas.English.btnexit;
-                    ToolSistema.Text = Idiomas.English.toolsistema;
-                    CerrarToolStrip.Text = Idiomas.English.toolsalir;
-                    SalirToolStrip.Text = Idiomas.English.toolcerrar;
-                    ToolAyuda.Text = Idiomas.English.toolhelp;
-                    ToolVerayuda.Text = Idiomas.English.toolverhelp;
-                    ToolReq.Text = Idiomas.English.toolreq;
-                    ToolAcerca.Text = Idiomas.English.toolacerca;
-                    ToolError.Text = Idiomas.English.toolerror;
-                    BtnCerrar.Text = Idiomas.English.btncerrar;
-                    BtnMaximizar.Text = Idiomas.English.btnmaximizar;
-                    BtnNormal.Text = Idiomas.English.btnnormal;
-                    BtnMinimizar.Text = Idiomas.English.btnminimizar;
-                    BtnConectar.Text = Idiomas.English.btnconectar;
-                    BtnRojo.Text = Idiomas.English.btnrojo;
-                    BtnVerde.Text = Idiomas.English.btnverde;
+                    AplicarMenuGenerico(true);
                     break;
                 case 2:
+                    AplicarMenuGenerico(false);
                     break;
                 default:
+                    AplicarMenuGenerico(false);
                     break;
             }
         }

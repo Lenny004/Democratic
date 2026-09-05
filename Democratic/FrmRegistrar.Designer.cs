@@ -304,7 +304,7 @@
             this.lblDui.Name = "lblDui";
             this.lblDui.Size = new System.Drawing.Size(35, 17);
             this.lblDui.TabIndex = 4;
-            this.lblDui.Text = "DUI:";
+            this.lblDui.Text = "Documento de identidad:";
             // 
             // lblDirec
             // 

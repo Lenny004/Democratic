@@ -2,14 +2,14 @@
 
 Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos **MySQL 8** para gestionar **procesos de votación configurables** (no solo elecciones estatales): organización del evento, sedes, mesas, grupos de opciones, emisión de votos, escrutinio y gráficas.
 
-> La UI y algunos formularios aún dicen «Tribunal», «partido», «candidato» o «JRV» por herencia del proyecto original; en el modelo genérico equivalen a organización, grupo de opciones, opción y mesa.
+> Los nombres internos de clases y formularios pueden conservar alias legacy (`FrmJRV`, `ModelPartido`, etc.); la interfaz y los mensajes usan terminología genérica (organización, sede, mesa, grupo de opciones, participante, escrutinio).
 
 ---
 
 ## Características
 
 - **Votación configurable:** grupos de opciones y opciones ilimitadas.
-- **Padrón de participantes** con autenticación por usuario/contraseña o DUI + OCR.
+- **Padrón de participantes** con autenticación por usuario y contraseña.
 - **Roles y permisos:** superadministrador, administrador, operador de mesa, representante de grupo, votante.
 - **Escrutinio:** registros por mesa y detalle por grupo.
 - **Gráficas en tiempo real** (`FrmGraficos`).

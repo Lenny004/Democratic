@@ -325,7 +325,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 17);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Código OCR:";
+            this.label3.Text = "Código de verificación:";
             // 
             // MskTelefonoM
             // 
@@ -421,7 +421,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 17);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Buscar participantes por N° DUI:";
+            this.label1.Text = "Buscar por documento de identidad:";
             // 
             // CmbEstadoM
             // 
@@ -498,7 +498,7 @@
             this.lblDuiM.Name = "lblDuiM";
             this.lblDuiM.Size = new System.Drawing.Size(120, 17);
             this.lblDuiM.TabIndex = 6;
-            this.lblDuiM.Text = "DUI del participante:";
+            this.lblDuiM.Text = "Documento del participante:";
             // 
             // MskDui
             // 

@@ -145,13 +145,13 @@
     <value>Forgot your password?</value>
   </data>
   <data name="btnactas" xml:space="preserve">
-    <value>Act</value>
+    <value>Scrutiny records</value>
   </data>
   <data name="btnadmindactas" xml:space="preserve">
-    <value>Manage Act</value>
+    <value>Manage scrutiny</value>
   </data>
   <data name="btnadmindmiembrosanduser" xml:space="preserve">
-    <value>Manage Members and Users</value>
+    <value>Participants and users</value>
   </data>
   <data name="btnadmindpartidosycandidatos" xml:space="preserve">
     <value>Manage Option Groups and Options</value>
@@ -166,13 +166,13 @@
     <value>Test</value>
   </data>
   <data name="btncv" xml:space="preserve">
-    <value>Voting Venues</value>
+    <value>Venues</value>
   </data>
   <data name="btndetalleacta" xml:space="preserve">
-    <value>Act Details</value>
+    <value>Scrutiny detail</value>
   </data>
   <data name="btndetallemiembros" xml:space="preserve">
-    <value>Members Detail</value>
+    <value>Participant detail</value>
   </data>
   <data name="btnestructura" xml:space="preserve">
     <value>System Structure</value>
@@ -184,13 +184,13 @@
     <value>Show:</value>
   </data>
   <data name="btnjrvandcv" xml:space="preserve">
-    <value>Manage Voting Stations and Voting Venues</value>
+    <value>Manage venues and tables</value>
   </data>
   <data name="btnmaximizar" xml:space="preserve">
     <value>Maximize</value>
   </data>
   <data name="btnmiembros" xml:space="preserve">
-    <value>Members</value>
+    <value>Participants</value>
   </data>
   <data name="btnminimizar" xml:space="preserve">
     <value>Minimize</value>
@@ -356,7 +356,7 @@ use Visual Studio 2015 and the Bunifu Framework v1.52.</value>
     <value>You have not received the password, click resend</value>
   </data>
   <data name="btnjrv" xml:space="preserve">
-    <value>Voting stations</value>
+    <value>Tables</value>
   </data>
   <data name="BtnActualizarActa" xml:space="preserve">
     <value>Update report</value>

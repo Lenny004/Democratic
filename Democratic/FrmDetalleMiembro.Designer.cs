@@ -169,7 +169,7 @@
             this.lblDui.Name = "lblDui";
             this.lblDui.Size = new System.Drawing.Size(184, 17);
             this.lblDui.TabIndex = 62;
-            this.lblDui.Text = "Ingrese el DUI del participante:";
+            this.lblDui.Text = "Documento del participante:";
             // 
             // DgvDetalleMiembros
             // 

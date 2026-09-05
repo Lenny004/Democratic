@@ -61,6 +61,7 @@
       <DependentUpon>Acercade.cs</DependentUpon>
     </Compile>
     <Compile Include="UiTheme.cs" />
+    <Compile Include="UiTerminology.cs" />
     <Compile Include="FrmAdministración.cs">
       <SubType>Form</SubType>
     </Compile>

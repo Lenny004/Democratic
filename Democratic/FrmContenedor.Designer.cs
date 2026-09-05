@@ -312,7 +312,7 @@
             this.BtnDetalleM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             this.BtnDetalleM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnDetalleM.BorderRadius = 0;
-            this.BtnDetalleM.ButtonText = "Detalle de Miembros";
+            this.BtnDetalleM.ButtonText = "Detalle de participante";
             this.BtnDetalleM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDetalleM.DisabledColor = System.Drawing.Color.Gray;
             this.BtnDetalleM.Iconcolor = System.Drawing.Color.Transparent;
@@ -335,7 +335,7 @@
             this.BtnDetalleM.selected = false;
             this.BtnDetalleM.Size = new System.Drawing.Size(200, 44);
             this.BtnDetalleM.TabIndex = 3;
-            this.BtnDetalleM.Text = "Detalle de Miembros";
+            this.BtnDetalleM.Text = "Detalle de participante";
             this.BtnDetalleM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDetalleM.Textcolor = System.Drawing.Color.White;
             this.BtnDetalleM.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -383,7 +383,7 @@
             this.BtnMiembros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             this.BtnMiembros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnMiembros.BorderRadius = 0;
-            this.BtnMiembros.ButtonText = "Miembros";
+            this.BtnMiembros.ButtonText = "Participantes";
             this.BtnMiembros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnMiembros.DisabledColor = System.Drawing.Color.Gray;
             this.BtnMiembros.Dock = System.Windows.Forms.DockStyle.Top;
@@ -407,7 +407,7 @@
             this.BtnMiembros.selected = false;
             this.BtnMiembros.Size = new System.Drawing.Size(200, 44);
             this.BtnMiembros.TabIndex = 1;
-            this.BtnMiembros.Text = "Miembros";
+            this.BtnMiembros.Text = "Participantes";
             this.BtnMiembros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMiembros.Textcolor = System.Drawing.Color.White;
             this.BtnMiembros.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -429,7 +429,7 @@
             this.BtnDetalleActas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             this.BtnDetalleActas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnDetalleActas.BorderRadius = 0;
-            this.BtnDetalleActas.ButtonText = "Detalle de Actas";
+            this.BtnDetalleActas.ButtonText = "Detalle de escrutinio";
             this.BtnDetalleActas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDetalleActas.DisabledColor = System.Drawing.Color.Gray;
             this.BtnDetalleActas.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -453,7 +453,7 @@
             this.BtnDetalleActas.selected = false;
             this.BtnDetalleActas.Size = new System.Drawing.Size(200, 44);
             this.BtnDetalleActas.TabIndex = 1;
-            this.BtnDetalleActas.Text = "Detalle de Actas";
+            this.BtnDetalleActas.Text = "Detalle de escrutinio";
             this.BtnDetalleActas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDetalleActas.Textcolor = System.Drawing.Color.White;
             this.BtnDetalleActas.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -465,7 +465,7 @@
             this.BtnActas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(77)))), ((int)(((byte)(119)))));
             this.BtnActas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnActas.BorderRadius = 0;
-            this.BtnActas.ButtonText = "Actas";
+            this.BtnActas.ButtonText = "Registros de escrutinio";
             this.BtnActas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnActas.DisabledColor = System.Drawing.Color.Gray;
             this.BtnActas.Dock = System.Windows.Forms.DockStyle.Top;
@@ -489,7 +489,7 @@
             this.BtnActas.selected = false;
             this.BtnActas.Size = new System.Drawing.Size(200, 44);
             this.BtnActas.TabIndex = 0;
-            this.BtnActas.Text = "Actas";
+            this.BtnActas.Text = "Registros de escrutinio";
             this.BtnActas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnActas.Textcolor = System.Drawing.Color.White;
             this.BtnActas.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -501,7 +501,7 @@
             this.BtnAdminActas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(30)))), ((int)(((byte)(51)))));
             this.BtnAdminActas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnAdminActas.BorderRadius = 0;
-            this.BtnAdminActas.ButtonText = "Administrar Actas";
+            this.BtnAdminActas.ButtonText = "Administrar escrutinio";
             this.BtnAdminActas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAdminActas.DisabledColor = System.Drawing.Color.Gray;
             this.BtnAdminActas.Iconcolor = System.Drawing.Color.Transparent;
@@ -524,7 +524,7 @@
             this.BtnAdminActas.selected = false;
             this.BtnAdminActas.Size = new System.Drawing.Size(200, 45);
             this.BtnAdminActas.TabIndex = 15;
-            this.BtnAdminActas.Text = "Administrar Actas";
+            this.BtnAdminActas.Text = "Administrar escrutinio";
             this.BtnAdminActas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnAdminActas.Textcolor = System.Drawing.Color.White;
             this.BtnAdminActas.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -982,7 +982,7 @@
             this.BtnMiembroyUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(30)))), ((int)(((byte)(51)))));
             this.BtnMiembroyUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnMiembroyUser.BorderRadius = 0;
-            this.BtnMiembroyUser.ButtonText = "Administrar Miembro y Usuarios";
+            this.BtnMiembroyUser.ButtonText = "Participantes y usuarios";
             this.BtnMiembroyUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnMiembroyUser.DisabledColor = System.Drawing.Color.Gray;
             this.BtnMiembroyUser.Iconcolor = System.Drawing.Color.Transparent;
@@ -1005,7 +1005,7 @@
             this.BtnMiembroyUser.selected = false;
             this.BtnMiembroyUser.Size = new System.Drawing.Size(200, 45);
             this.BtnMiembroyUser.TabIndex = 5;
-            this.BtnMiembroyUser.Text = "Administrar Miembro y Usuarios";
+            this.BtnMiembroyUser.Text = "Participantes y usuarios";
             this.BtnMiembroyUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMiembroyUser.Textcolor = System.Drawing.Color.White;
             this.BtnMiembroyUser.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

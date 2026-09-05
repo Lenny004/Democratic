@@ -141,14 +141,9 @@ antes, durante y después del proceso de votación.
 </value>
   </data>
   <data name="lbltext1.Text" xml:space="preserve">
-    <value>Si no posees una cuenta para
-ingresar al sistema, puedes
-utilizar tu N° de DUI junto con
-el Código OCR (la segunda
-línea de la parte de atrás de tu
-documento de identidad) para
-acceder y participar en la
-votación activa.
+    <value>Inicia sesión con tu usuario y contraseña asignados por el administrador
+del proceso de votación. Si aún no tienes cuenta, el superadministrador puede
+crearte un usuario vinculado a tu participante en el padrón.
  </value>
   </data>
 </root>

@@ -286,7 +286,7 @@
             this.LblOCR.Name = "LblOCR";
             this.LblOCR.Size = new System.Drawing.Size(96, 17);
             this.LblOCR.TabIndex = 32;
-            this.LblOCR.Text = "Código OCR:";
+            this.LblOCR.Text = "Código de verificación:";
             // 
             // Separador3
             // 
@@ -342,7 +342,7 @@
             this.LblDui.Name = "LblDui";
             this.LblDui.Size = new System.Drawing.Size(33, 17);
             this.LblDui.TabIndex = 28;
-            this.LblDui.Text = "DUI:";
+            this.LblDui.Text = "Documento de identidad:";
             // 
             // lblOr
             // 

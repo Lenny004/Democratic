@@ -135,10 +135,10 @@ en la pantalla de acceso que se te indique.</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Si eres operador de mesa, administrador u otro rol distinto al votante,
-puedes ingresar con tu DUI y el código OCR del reverso de tu documento.
+accede con el usuario y contraseña que te asignó el administrador del evento.
 El sistema detectará tu rol y habilitará las herramientas correspondientes.
-Para recuperar un correo olvidado, usa Ayuda → Reportar error con asunto
-"Correo olvidado" e indica DUI, OCR, mesa asignada y datos que recuerdes.</value>
+Para incidencias técnicas, usa Ayuda → Reportar error con una descripción
+del formulario y, si es posible, una captura del problema.</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Si estas conectado con la base de datos y a pesar de eso no puedes realizar ninguna acción del CRUD, ve a la sección de

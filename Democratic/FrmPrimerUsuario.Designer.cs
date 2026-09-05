@@ -190,7 +190,7 @@
             this.LblCentroV.Name = "LblCentroV";
             this.LblCentroV.Size = new System.Drawing.Size(142, 17);
             this.LblCentroV.TabIndex = 52;
-            this.LblCentroV.Text = "Centro de votación:";
+            this.LblCentroV.Text = "Sede de votación:";
             // 
             // CmbJRV
             // 
@@ -246,7 +246,7 @@
             this.lblDui.Name = "lblDui";
             this.lblDui.Size = new System.Drawing.Size(97, 34);
             this.lblDui.TabIndex = 47;
-            this.lblDui.Text = "Ingrese el DUI \r\ndel miembro:";
+            this.lblDui.Text = "Documento del participante:";
             // 
             // checkPass
             // 
@@ -303,7 +303,7 @@
             this.lblMiembro.Name = "lblMiembro";
             this.lblMiembro.Size = new System.Drawing.Size(69, 17);
             this.lblMiembro.TabIndex = 40;
-            this.lblMiembro.Text = "Miembro:";
+            this.lblMiembro.Text = "Participante:";
             // 
             // CmbMiembro
             // 
