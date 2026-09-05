@@ -763,10 +763,12 @@ namespace Democratic
             BtnPrimerUso.Text = Idiomas.English.btnprimeruso;
             BtnPrimerUsuario.Text = Idiomas.English.btnprimerusuario;
             VerificarTribunalYUser();
+            OcultarRegistroPorCorreo();
         }
 
         private void Rdespanol_CheckedChanged(object sender, EventArgs e)
         {
+            VerificarIdioma();
             lblUser.Text = Idiomas.Espanol.lbluser;
             lblPass.Text = Idiomas.Espanol.lblpass;
             lblOlvidar.Text = Idiomas.Espanol.lblolvidar;
@@ -774,14 +776,13 @@ namespace Democratic
             lblCuenta.Text = Idiomas.Espanol.lblcuenta;
             lblInicio.Text = Idiomas.Espanol.lblinicio;
             lblModo.Text = Idiomas.Espanol.lbldarkmode;
+            LblOCR.Text = Idiomas.Espanol.lblOCR;
             BtnAcceder.Text = Idiomas.Espanol.btnIniciar;
             BtnAcceder2.Text = Idiomas.Espanol.BtnAcceder2;
             BtnPrimerUso.Text = Idiomas.Espanol.btnprimeruso;
             BtnPrimerUsuario.Text = Idiomas.Espanol.btnprimerusuario;
-            PBcourt.Visible = true;
-            PBuser.Visible = true;
-            PBcourt.Visible = false;
-            PBuser.Visible = false;
+            VerificarTribunalYUser();
+            OcultarRegistroPorCorreo();
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------

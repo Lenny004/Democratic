@@ -7,6 +7,8 @@ namespace Democratic
 {
     public partial class FrmPrimerUsuario : Form
     {
+        private Label lblMostrarPass;
+
         public FrmPrimerUsuario()
         {
             InitializeComponent();
@@ -24,8 +26,16 @@ namespace Democratic
                     BtnIngresar.Text = Idiomas.English.lblIntento;
                     BtnCerrar.Text = Idiomas.English.btncerrar;
                     BtnMinimizar.Text = Idiomas.English.btnminimizar;
+                    if (lblMostrarPass != null)
+                    {
+                        lblMostrarPass.Text = Idiomas.English.lblMostrar;
+                    }
                     break;
                 case 2:
+                    if (lblMostrarPass != null)
+                    {
+                        lblMostrarPass.Text = "Mostrar";
+                    }
                     break;
                 default:
                     break;
@@ -48,6 +58,44 @@ namespace Democratic
             CmbTipoUser.Visible = false;
             lblTipoUser.Visible = false;
             lblproporcionado.Visible = false;
+        }
+
+        void CrearLabelMostrar()
+        {
+            lblMostrarPass = new Label();
+            lblMostrarPass.AutoSize = true;
+            lblMostrarPass.BackColor = Color.Transparent;
+            lblMostrarPass.Cursor = Cursors.Hand;
+            lblMostrarPass.Font = new Font("Century Gothic", 9.75F);
+            lblMostrarPass.ForeColor = Color.White;
+            lblMostrarPass.Text = VarSession.idioma == 1 ? Idiomas.English.lblMostrar : "Mostrar";
+            lblMostrarPass.Click += (s, e) => { checkPass.Checked = !checkPass.Checked; };
+            panel2.Controls.Add(lblMostrarPass);
+            lblMostrarPass.BringToFront();
+        }
+
+        void ReacomodarLayout()
+        {
+            const int anchoCampo = 272;
+            const int campoX = 264;
+            const int btnX = (800 - 147) / 2;
+
+            lblUser2.Location = new Point(campoX - 2, 100);
+            txtUsuario2.SetBounds(campoX, 123, anchoCampo, 27);
+            bunifuSeparator3.Location = new Point(campoX - 2, 155);
+            lblPass2.Location = new Point(campoX - 2, 175);
+            txtClave2.SetBounds(campoX, 198, anchoCampo, 24);
+            checkPass.Location = new Point(campoX, 232);
+            if (lblMostrarPass != null)
+            {
+                lblMostrarPass.Location = new Point(campoX + 28, 232);
+            }
+            bunifuSeparator1.Location = new Point(campoX - 2, 258);
+            LblPassConfirm.Location = new Point(campoX - 2, 278);
+            txtClaveConfirm.SetBounds(campoX, 301, anchoCampo, 24);
+            bunifuSeparator2.Location = new Point(campoX, 333);
+            lblCoincidencia.Location = new Point(campoX + 90, 308);
+            BtnIngresar.Location = new Point(btnX, 360);
         }
 
         void EnvioDatosUser()
@@ -132,6 +180,8 @@ namespace Democratic
         {
             VerificarIdioma();
             OcultarCamposAvanzados();
+            CrearLabelMostrar();
+            ReacomodarLayout();
             BtnIngresar.Enabled = true;
         }
 

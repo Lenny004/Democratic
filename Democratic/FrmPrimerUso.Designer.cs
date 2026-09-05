@@ -281,8 +281,6 @@
             this.txtCorreoRegister.Name = "txtCorreoRegister";
             this.txtCorreoRegister.Size = new System.Drawing.Size(218, 28);
             this.txtCorreoRegister.TabIndex = 7;
-            this.txtCorreoRegister.MouseEnter += new System.EventHandler(this.txtCorreo_MouseEnter);
-            this.txtCorreoRegister.MouseLeave += new System.EventHandler(this.txtCorreo_MouseLeave);
             // 
             // LblimgT
             // 

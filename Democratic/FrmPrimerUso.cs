@@ -49,6 +49,12 @@ namespace Democratic
             lblContraRegister.Visible = false;
             lblinfo.Visible = false;
             lblmenosseguras.Visible = false;
+            LblContrainfo.Visible = false;
+        }
+
+        void ReacomodarLayout()
+        {
+            BtnContinuar.Location = new Point(324, 295);
         }
 
         private void BtnCargarImagen_Click(object sender, EventArgs e)
@@ -258,14 +264,6 @@ namespace Democratic
             lblSede.ForeColor = Color.White;
         }
 
-        private void txtCorreo_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
-        private void txtCorreo_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -305,6 +303,7 @@ namespace Democratic
         {
             VerificarIdioma();
             OcultarControlesCorreo();
+            ReacomodarLayout();
         }
     }
 }
