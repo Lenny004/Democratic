@@ -101,7 +101,7 @@ namespace Democratic
             try
             {
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "SELECT Imagen_Tribunal FROM tbtribunal";
+                string query = "SELECT imagen FROM tb_organizacion";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
                 MySqlDataReader Reader = cmdselect.ExecuteReader();
                 while (Reader.Read())
@@ -263,7 +263,7 @@ namespace Democratic
             {
                 cliente.Send(mmsg);
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "UPDATE tbusuario SET Clave_Usuario = '"+ contraA +"' WHERE Usuario = BINARY ?param1";
+                string query = "UPDATE tb_usuario SET clave = '"+ contraA +"' WHERE nombre_usuario = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
                 cmdselect.Parameters.Add(new MySqlParameter("param1", CorreoI));
             }

@@ -1,241 +1,137 @@
 # Dominio de votación genérica — Democratic
 
-Este documento describe el **modelo conceptual** del sistema Democratic como **plantilla genérica de votación**, independiente de elecciones presidenciales o de partidos políticos. Las tablas físicas en MySQL conservan nombres **legacy** por compatibilidad con la aplicación WinForms existente; el significado actual se interpreta mediante el mapeo siguiente.
-
-> **Principio:** no renombrar tablas ni columnas en producción. La capa de compatibilidad SQL (`sql/compat_vistas_genericas.sql`) expone vistas con nombres genéricos sin alterar el esquema legacy.
+Modelo conceptual y esquema físico **genérico** para procesos de votación configurables. La aplicación WinForms y MySQL usan tablas `tb_*` con nombres de dominio actuales.
 
 ---
 
 ## Visión general
 
-Democratic gestiona un proceso electoral configurable:
-
-1. Una **Organización** define el contexto del evento (nombre, sede, jurisdicción, imagen).
-2. Los **Grupos de opciones** agrupan candidaturas o alternativas (equipos, listas, bloques).
-3. Las **Opciones** son las elecciones concretas que el votante puede elegir.
-4. Los **Participantes** (padrón) se asignan a **Sedes** y **Mesas**.
-5. Cada emisión genera una **Boleta** en una **Mesa** y uno o más **Votos** asociados a un grupo.
-6. El **Escrutinio** consolida resultados por mesa en **Registros de escrutinio** y su detalle.
+1. **Organización** (`tb_organizacion`) — contexto del evento.
+2. **Grupos de opciones** (`tb_grupo_opciones`) — agrupación de alternativas.
+3. **Opciones** (`tb_opcion`) — ítems votables.
+4. **Participantes** (`tb_participante`) — padrón asignado a sedes y mesas.
+5. **Boletas** (`tb_boleta`) y **votos** (`tb_voto`) — emisión y registro.
+6. **Escrutinio** (`tb_registro_escrutinio`, `tb_detalle_escrutinio`) — cierre por mesa.
 
 ```
-Organización (tbtribunal)
-    └── Sedes (tbcentro_de_votación)
-            └── Mesas (tbjrv)
-                    ├── Boletas (tbboleta)
-                    │       └── Votos (tbvoto) → Grupo de opciones
-                    └── Registros de escrutinio (tbacta)
-                            └── Detalle por grupo (tbdetalle_acta)
+tb_organizacion
+    └── tb_sede
+            └── tb_mesa
+                    ├── tb_boleta → tb_voto → tb_grupo_opciones
+                    └── tb_registro_escrutinio → tb_detalle_escrutinio
 
-Grupos de opciones (tbpartido_politico)
-    └── Opciones (tbcandidato)
+tb_grupo_opciones
+    └── tb_opcion
 ```
 
 ---
 
-## Mapeo tabla legacy → concepto genérico
+## Tablas principales
 
-| Concepto genérico | Tabla legacy | Descripción |
-|-------------------|--------------|-------------|
-| **Organización** | `tbtribunal` | Entidad que organiza el proceso de votación (antes “tribunal electoral”). Almacena datos institucionales: fundación, composición, país, tipo, jurisdicción, sede, contacto e imagen. |
-| **Grupo de opciones** | `tbpartido_politico` | Conjunto al que pertenecen una o más opciones (antes “partido político”). Incluye nombre, imagen, contador de votos y estado. |
-| **Opción** | `tbcandidato` | Alternativa votable concreta (antes “candidato”). Pertenece a un grupo (`id_Partido`). Puede representar persona, propuesta, lista o cualquier ítem de balota. |
-| **Boleta** | `tbboleta` | Registro de una emisión de voto en una mesa: fecha, estado y mesa (`id_JRV`). |
-| **Voto** | `tbvoto` | Selección registrada, ligada a boleta, grupo (`id_Partido`), estado, fecha y hora. La app puede resolver el grupo a partir de la opción elegida (`tbcandidato`). |
-| **Mesa** | `tbjrv` | Punto de recepción de votos (antes “JRV”). Identificada por correlativo y asociada a una sede. |
-| **Sede** | `tbcentro_de_votación` | Lugar físico o lógico del proceso (antes “centro de votación”). Agrupa mesas y participantes. |
-| **Registro de escrutinio** | `tbacta` | Acta de cierre de mesa: cantidad de boletas y mesa asociada. |
-| **Detalle de escrutinio** | `tbdetalle_acta` | Desglose de votos por grupo dentro de un registro de escrutinio. |
+| Concepto | Tabla | PK |
+|----------|-------|-----|
+| Organización | `tb_organizacion` | `id_organizacion` |
+| Grupo de opciones | `tb_grupo_opciones` | `id_grupo_opciones` |
+| Opción | `tb_opcion` | `id_opcion` |
+| Boleta | `tb_boleta` | `id_boleta` |
+| Voto | `tb_voto` | `id_voto` |
+| Mesa | `tb_mesa` | `id_mesa` |
+| Sede | `tb_sede` | `id_sede` |
+| Registro escrutinio | `tb_registro_escrutinio` | `id_registro_escrutinio` |
+| Detalle escrutinio | `tb_detalle_escrutinio` | `id_detalle_escrutinio` |
+| Participante | `tb_participante` | `id_participante` |
+| Usuario | `tb_usuario` | `id_usuario` |
+| Rol | `tb_rol` | `id_rol` |
 
-### Tablas de soporte (sin cambio de nombre)
+### Catálogos
 
-| Concepto | Tabla legacy | Uso |
-|----------|--------------|-----|
-| Participante / padrón | `tbmiembros` | Personas habilitadas para votar (DUI, OCR, sede, mesa). |
-| Usuario del sistema | `tbusuario` | Cuentas de acceso vinculadas a un participante y un rol. |
-| Rol | `tbtipo_usuario` | Tipo de usuario y nivel de permisos (`id_Tipo_Usuario`). |
-| Estado de usuario | `tbestado_usuario` | Activo, bloqueado, etc. |
-| Municipio | `tbmunicipio` | Ubicación geográfica de sedes. |
-| Estados (catálogos) | `tbestado_*` | Estados de opción, grupo, mesa, sede, boleta, voto, miembro. |
+`tb_estado_grupo`, `tb_estado_opcion`, `tb_estado_sede`, `tb_estado_mesa`, `tb_estado_boleta`, `tb_estado_voto`, `tb_estado_participante`, `tb_estado_usuario`, `tb_municipio`, `tb_detalle_participante`.
 
 ---
 
-## Columnas clave y alias genéricos
+## Columnas clave
 
-### Organización — `tbtribunal`
+### `tb_organizacion`
 
-| Columna legacy | Alias genérico | Notas |
-|----------------|----------------|-------|
-| `id_Tribunal` | `id_organizacion` | PK |
-| `Fundación` | `fecha_fundacion` | Texto libre |
-| `Composición` | `descripcion` | |
-| `Imagen_Tribunal` | `imagen` | Base64 |
-| `Pais` | `pais` | |
-| `Tipo` | `tipo_organizacion` | |
-| `Jurisdicción` | `jurisdiccion` | |
-| `Sede` | `sede_principal` | |
-| `Correo_electronicoTribunal` | `correo` | |
-| `Contra_Tribunal` | `contrasena_contacto` | |
+| Columna | Descripción |
+|---------|-------------|
+| `fecha_fundacion` | Texto libre |
+| `descripcion` | Composición / descripción |
+| `imagen` | Logo (Base64) |
+| `tipo_organizacion`, `jurisdiccion`, `sede_principal` | Metadatos |
+| `correo`, `contrasena_contacto` | Contacto |
 
-### Grupo de opciones — `tbpartido_politico`
+### `tb_grupo_opciones`
 
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Partido` | `id_grupo_opciones` |
-| `Nombre_Partido` | `nombre_grupo` |
-| `Imagen_Partido` | `imagen` |
-| `Cantidad_Votos` | `total_votos` |
-| `id_Estado_Partido` | `id_estado_grupo` |
+| Columna | Descripción |
+|---------|-------------|
+| `nombre_grupo` | Nombre del grupo |
+| `total_votos` | Contador |
+| `id_estado_grupo` | FK estado |
 
-### Opción — `tbcandidato`
+### `tb_opcion`
 
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Candidato` | `id_opcion` |
-| `Nombre_Candidato` | `nombre` |
-| `Apellido_Candidato` | `apellido` |
-| `Género` | `genero` |
-| `Imagen_Candidato` | `imagen` |
-| `id_Partido` | `id_grupo_opciones` |
-| `id_Estado_Candidato` | `id_estado_opcion` |
+| Columna | Descripción |
+|---------|-------------|
+| `nombre`, `apellido`, `genero` | Datos de la opción |
+| `id_grupo_opciones` | FK grupo |
+| `id_estado_opcion` | FK estado |
 
-### Boleta — `tbboleta`
+### `tb_voto`
 
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Boleta` | `id_boleta` |
-| `Fecha_Votación` | `fecha_votacion` |
-| `id_Estado_Boleta` | `id_estado_boleta` |
-| `id_JRV` | `id_mesa` |
-
-### Voto — `tbvoto`
-
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Voto` | `id_voto` |
-| `id_Partido` | `id_grupo_opciones` |
-| `id_Boleta` | `id_boleta` |
-| `id_Estado_Voto` | `id_estado_voto` |
-| `Fecha_Votación` | `fecha_votacion` |
-| `Hora_Votacion` | `hora_votacion` |
-
-> En el dominio genérico, `id_Partido` en `tbvoto` significa **grupo de opciones elegido**, no partido político obligatoriamente.
-
-### Mesa — `tbjrv`
-
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_JRV` | `id_mesa` |
-| `Correlativo_JRV` | `codigo_mesa` |
-| `id_Centro_Votación` | `id_sede` |
-| `id_Estado_JRV` | `id_estado_mesa` |
-
-### Sede — `tbcentro_de_votación`
-
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Centro_Votación` | `id_sede` |
-| `Nombre_Centro_Votación` | `nombre_sede` |
-| `id_Acta` | `id_registro_escrutinio` |
-| `Cantidad_de_JRV` | `cantidad_mesas` |
-| `id_Estado_CentroVotación` | `id_estado_sede` |
-| `id_Municipio` | `id_municipio` |
-| `id_Tribunal` | `id_organizacion` |
-
-### Registro de escrutinio — `tbacta`
-
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Acta` | `id_registro_escrutinio` |
-| `Cantidad_Boletas` | `cantidad_boletas` |
-| `id_JRV` | `id_mesa` |
-
-### Detalle de escrutinio — `tbdetalle_acta`
-
-| Columna legacy | Alias genérico |
-|----------------|----------------|
-| `id_Detalle_Acta` | `id_detalle_escrutinio` |
-| `Cantidad_Votos` | `cantidad_votos` |
-| `id_Acta` | `id_registro_escrutinio` |
-| `id_Partido` | `id_grupo_opciones` |
+| Columna | Descripción |
+|---------|-------------|
+| `id_grupo_opciones` | Grupo elegido |
+| `id_boleta` | Boleta asociada |
+| `fecha_votacion`, `hora_votacion` | Registro temporal |
 
 ---
 
-## Roles genéricos
+## Roles (`tb_rol`)
 
-Los permisos se definen en `tbtipo_usuario`. El campo `id_Tipo_Usuario` se usa en la sesión como **nivel** (`VarSession.nivelU`) para mostrar u ocultar menús en `FrmContenedor`.
+| id_rol | Rol |
+|--------|-----|
+| 1 | Superadministrador |
+| 2 | Votante |
+| 3 | Supervisor |
+| 4 | Auditor |
+| 5 | Representante de grupo |
+| 6 | Operador de mesa |
+| 7 | Administrador |
 
-| Nivel (`id_Tipo_Usuario`) | Rol legacy (UI) | Rol genérico | Acceso resumido |
-|---------------------------|-----------------|--------------|-----------------|
-| 1 | Root | **Superadministrador** | Configuración completa: organización, sedes, mesas, grupos, opciones, usuarios, escrutinio, reportes. |
-| 2 | Votante | **Votante** | Ver opciones, emitir voto, ver estadísticas/gráficas. |
-| 3 | Candidato a Presidencia | **Supervisor** | Supervisa el proceso; permisos de consulta ampliados (ids BD sin cambio). |
-| 4 | Candidato a VicePresidencia | **Auditor** | Audita resultados y registros de escrutinio. |
-| 5 | Partido | **Representante de grupo** | Consulta opciones y estadísticas de su grupo. |
-| 6 | Miembro de JRV | **Operador de mesa** | Gestión de actas, sedes/mesas asignadas. |
-| 7 | Administrador | **Administrador** | Usuarios, grupos, opciones, estructura; sin todos los módulos de Root. |
-
-Los mensajes de bienvenida (`msjpresi`, `msjvice`) ya muestran **Supervisor** y **Auditor**. Los ids numéricos en BD se mantienen; solo cambia la semántica de plantilla genérica.
-
-### Autenticación
-
-- **Usuario/contraseña:** `tbusuario` + `tbmiembros` + `tbtipo_usuario`.
-- **DUI + OCR:** acceso directo del participante desde el padrón (`tbmiembros`), sin rol administrativo.
+Sesión: `VarSession.Roles` y `VarSession.nivelU` en `FrmContenedor`.
 
 ---
 
-## Flujo de voto (dominio genérico)
+## Flujo de voto
 
-1. El votante autenticado elige una **Opción** (`tbcandidato`).
-2. Se registra una **Boleta** en su **Mesa** (`tbboleta` + `id_JRV`).
-3. Se registra el **Voto** resolviendo el **Grupo de opciones** de la opción (`tbvoto.id_Partido` ← `tbcandidato.id_Partido`).
-4. Las **gráficas** (`FrmGraficos`, `ModelResultados`) agregan votos por grupo (`Nombre_Partido` / `nombre_grupo`).
-
----
-
-## Ya no es plantilla de presidentes
-
-El sistema nació como demo de elecciones presidenciales (9 candidatos fijos, partidos políticos, JRV, tribunal). La evolución a **plantilla genérica** implica:
-
-| Antes (legacy) | Ahora (genérico) |
-|----------------|------------------|
-| Tribunal electoral | Organización |
-| Partido político | Grupo de opciones |
-| Candidato presidencial / vicepresidencial | Opción (cualquier categoría) |
-| Centro de votación | Sede |
-| JRV | Mesa |
-| Acta electoral | Registro de escrutinio |
-| Roles “Presidente / Vice / Partido” | Roles configurables por `tbtipo_usuario` |
-
-**Qué permanece igual:** nombres de tablas y columnas en MySQL, formularios WinForms y consultas SQL del código C# existente.
-
-**Qué cambia conceptualmente:** la interpretación de datos y la documentación; las vistas SQL opcionales; y la capacidad de reutilizar el mismo esquema para encuestas, elecciones internas, referéndums o simulacros sin migrar la base.
+1. Votante elige **opción** (`tb_opcion`).
+2. Se crea **boleta** en su **mesa** (`tb_boleta`).
+3. Se registra **voto** con el **grupo** de la opción (`tb_voto.id_grupo_opciones`).
+4. **Gráficas** (`ModelResultados`) agregan por `nombre_grupo`.
 
 ---
 
-## Uso de las vistas de compatibilidad
+## Instalación de la base de datos
 
-Ejecutar en MySQL (base `dbdemocratic`):
+MySQL 8.x, utf8mb4:
 
 ```bash
-mysql -u root -p dbdemocratic < sql/compat_vistas_genericas.sql
+mysql -u root -p < sql/schema_generico_mysql8.sql
 ```
 
 Consultas de ejemplo:
 
 ```sql
--- Opciones activas con su grupo
-SELECT o.id_opcion, o.nombre, o.apellido, g.nombre_grupo
-FROM vw_opciones o
-JOIN vw_grupos_opciones g ON g.id_grupo_opciones = o.id_grupo_opciones;
+SELECT o.id_opcion, o.nombre, g.nombre_grupo
+FROM tb_opcion o
+JOIN tb_grupo_opciones g ON g.id_grupo_opciones = o.id_grupo_opciones;
 
--- Resultados por grupo (equivalente a gráficas)
-SELECT nombre_grupo, COUNT(*) AS total
-FROM vw_votos v
-JOIN vw_grupos_opciones g ON g.id_grupo_opciones = v.id_grupo_opciones
-GROUP BY nombre_grupo;
+SELECT g.nombre_grupo, COUNT(v.id_voto) AS total
+FROM tb_voto v
+JOIN tb_grupo_opciones g ON g.id_grupo_opciones = v.id_grupo_opciones
+GROUP BY g.id_grupo_opciones, g.nombre_grupo;
 ```
-
-La aplicación WinForms **sigue usando las tablas legacy** directamente. Las vistas sirven para reportes externos, BI, migraciones futuras y documentación viva del dominio.
 
 ---
 
@@ -243,11 +139,12 @@ La aplicación WinForms **sigue usando las tablas legacy** directamente. Las vis
 
 | Área | Ubicación |
 |------|-----------|
-| Conexión MySQL | `Modelo/Conexion.cs` → `dbdemocratic` |
-| Voto y boleta | `Modelo/ModelVoto.cs` |
-| Resultados / gráficas | `Modelo/ModelResultados.cs`, `Democratic/FrmGraficos.cs` |
-| Opciones | `Modelo/ModelCandidato.cs`, `Modelo/ModelVer.cs` |
+| Conexión | `Modelo/Conexion.cs` |
+| Voto / boleta | `Modelo/ModelVoto.cs` |
+| Resultados | `Modelo/ModelResultados.cs`, `FrmGraficos.cs` |
+| Opciones | `Modelo/ModelCandidato.cs` |
 | Grupos | `Modelo/ModelPartido.cs` |
+| Organización | `Modelo/ModelTribunal.cs` |
 | Escrutinio | `Modelo/ModelActas.cs`, `Modelo/ModelDetalleActa.cs` |
-| Sedes y mesas | `Modelo/ModelCV.cs`, `Modelo/ModelJRV.cs` |
-| Roles y sesión | `Democratic/FrmLogin.cs`, `Democratic/FrmContenedor.cs` |
+| Sedes / mesas | `Modelo/ModelCV.cs`, `Modelo/ModelJRV.cs` |
+| Roles / sesión | `FrmLogin.cs`, `FrmContenedor.cs`, `Controlador/VarSession.cs` |

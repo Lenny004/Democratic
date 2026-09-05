@@ -71,7 +71,7 @@ namespace Democratic
 
         private void CargarImagenOpcion(int idOpcion, PictureBox destino)
         {
-            byte[] imagen = ModelCandidato.ModelRecuperarImagenCandidato(idOpcion);
+            byte[] imagen = ModelCandidato.RecuperarImagenOpcion(idOpcion);
             if (imagen == null)
             {
                 return;
@@ -85,7 +85,7 @@ namespace Democratic
 
         private void CargarImagenGrupo(int idGrupo, PictureBox destino)
         {
-            byte[] imagen = ModelPartido.ModelRecuperarImagenPartido(idGrupo);
+            byte[] imagen = ModelPartido.RecuperarImagenOrganizacion(idGrupo);
             if (imagen == null)
             {
                 return;
@@ -102,7 +102,7 @@ namespace Democratic
             int idOpcion = indice + 1;
             CargarImagenOpcion(idOpcion, _pbOpciones[indice]);
 
-            List<string> datos = VotoController.BuscarIDGrupoPorOpcion_Controller(idOpcion);
+            List<string> datos = VotoController.BuscarIdGrupoPorOpcion_Controller(idOpcion);
             if (datos == null || datos.Count == 0)
             {
                 return;
@@ -191,7 +191,7 @@ namespace Democratic
             agregarBoleta.FechaV = Convert.ToString(DtToday);
             agregarBoleta.idEstadoBoleta = estadoB;
             agregarBoleta.JRV = Randomjrv;
-            if (!agregarBoleta.IngresarBoleta_Controller())
+            if (!agregarBoleta.RegistrarBoleta_Controller())
             {
                 MostrarMensajeBoletaOcupada();
                 return;
@@ -208,7 +208,7 @@ namespace Democratic
             agregarVoto.EstadoVoto = estadov;
             agregarVoto.FechaV = Convert.ToString(DtToday);
             agregarVoto.HoraV = Convert.ToString(DtNow);
-            if (!agregarVoto.EnviarDatos1_Controller())
+            if (!agregarVoto.RegistrarVoto_Controller())
             {
                 MostrarMensajeVotoInvalido();
                 return;
@@ -289,3 +289,8 @@ namespace Democratic
         private void PBP9_MouseLeave(object sender, EventArgs e) { OcultarGrupo(8); }
     }
 }
+
+
+
+
+

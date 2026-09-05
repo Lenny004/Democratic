@@ -329,7 +329,7 @@ namespace Democratic
                 if (VarSession.intentos == 5)
                 {
                     List<string> datos2 = LoginController.Hora_Controller();
-                    if (datos2?.Any() == true)
+                    if (datos2 != null && datos2.Any())
                     {
                         HoraBloqueo = TimeSpan.Parse(datos2[0]);
                         HoraDesbloqueo = TimeSpan.Parse(datos2[1]);
@@ -387,7 +387,7 @@ namespace Democratic
                             }
                         }
                     }
-                    else if (datos2?.Any() == false)
+                    else
                     {
                         TimeSpan HoraActual = TimeSpan.Parse(DtNow);
                         TimeSpan Minutos = TimeSpan.Parse("00:03:00");
@@ -453,7 +453,7 @@ namespace Democratic
             try
             {
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "SELECT Imagen_Tribunal FROM tbtribunal";
+                string query = "SELECT imagen FROM tb_organizacion";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
                 MySqlDataReader Reader = cmdselect.ExecuteReader();
                 while (Reader.Read())

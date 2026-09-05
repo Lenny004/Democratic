@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Democratic</RootNamespace>
     <AssemblyName>Democratic</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -373,6 +374,10 @@
     <ProjectReference Include="..\Controlador\Controlador.csproj">
       <Project>{fc44b9f5-20ab-4faf-813d-28c454874f71}</Project>
       <Name>Controlador</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{1efecf79-c3c9-437f-b8d0-70423eb4145a}</Project>
+      <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

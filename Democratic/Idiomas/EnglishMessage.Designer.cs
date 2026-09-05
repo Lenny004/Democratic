@@ -19,7 +19,7 @@ namespace Democratic.Idiomas {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class EnglishMessage {
@@ -61,7 +61,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The password could not be updated..
+        ///   Busca una cadena traducida similar a The password could not be updated.
         /// </summary>
         internal static string mjsactuer {
             get {
@@ -70,7 +70,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Password not sent..
+        ///   Busca una cadena traducida similar a Password not sent.
         /// </summary>
         internal static string mjsconen {
             get {
@@ -79,7 +79,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Message not sent..
+        ///   Busca una cadena traducida similar a Message not sent.
         /// </summary>
         internal static string mjsmesageno {
             get {
@@ -88,7 +88,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting record deleted..
+        ///   Busca una cadena traducida similar a Voting record deleted.
         /// </summary>
         internal static string msjactaeliminada {
             get {
@@ -97,7 +97,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting record could not be deleted because of dependent data..
+        ///   Busca una cadena traducida similar a Voting record could not be deleted because of dependent data.
         /// </summary>
         internal static string msjactanoeliminada {
             get {
@@ -106,7 +106,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting record could not be entered..
+        ///   Busca una cadena traducida similar a Voting record could not be entered.
         /// </summary>
         internal static string msjactanoingresada {
             get {
@@ -115,7 +115,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting record could not be updated..
+        ///   Busca una cadena traducida similar a Voting record could not be updated.
         /// </summary>
         internal static string msjactanoupdate {
             get {
@@ -124,7 +124,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User status is Active..
+        ///   Busca una cadena traducida similar a User status is Active.
         /// </summary>
         internal static string msjactivo {
             get {
@@ -133,7 +133,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome, your access level is: Administrator..
+        ///   Busca una cadena traducida similar a Welcome, your access level is: Administrator.
         /// </summary>
         internal static string msjadmind {
             get {
@@ -142,7 +142,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Check with your administrator..
+        ///   Busca una cadena traducida similar a Check with your administrator.
         /// </summary>
         internal static string msjadminpu {
             get {
@@ -151,7 +151,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error creating organization..
+        ///   Busca una cadena traducida similar a Error creating organization.
         /// </summary>
         internal static string msjadminputitle {
             get {
@@ -160,7 +160,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Warning..
+        ///   Busca una cadena traducida similar a Warning.
         /// </summary>
         internal static string msjadvertencia {
             get {
@@ -169,7 +169,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The email entered in the first use must be the same as the email entered in the user..
+        ///   Busca una cadena traducida similar a The email entered in the first use must be the same as the email entered in the user.
         /// </summary>
         internal static string msjbademailpuser {
             get {
@@ -178,7 +178,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong E-Mail..
+        ///   Busca una cadena traducida similar a Wrong E-Mail.
         /// </summary>
         internal static string msjbademailpusertitle {
             get {
@@ -187,7 +187,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Blanks, check if you have entered an email..
+        ///   Busca una cadena traducida similar a Blanks, check if you have entered an email.
         /// </summary>
         internal static string msjblank {
             get {
@@ -196,7 +196,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Are you sure you want to eliminate the option group:..
+        ///   Busca una cadena traducida similar a Are you sure you want to eliminate the option group: .
         /// </summary>
         internal static string msjcadidatoselimited {
             get {
@@ -205,7 +205,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Required correlation field..
+        ///   Busca una cadena traducida similar a Required correlation field.
         /// </summary>
         internal static string msjcampocorrelativo {
             get {
@@ -214,7 +214,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Required option fields..
+        ///   Busca una cadena traducida similar a Required option fields.
         /// </summary>
         internal static string msjcamposnecesarios {
             get {
@@ -223,7 +223,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Required user field..
+        ///   Busca una cadena traducida similar a Required user field.
         /// </summary>
         internal static string msjcamusu {
             get {
@@ -232,7 +232,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Key field required..
+        ///   Busca una cadena traducida similar a Key field required.
         /// </summary>
         internal static string msjcamusu2 {
             get {
@@ -241,7 +241,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option eliminated..
+        ///   Busca una cadena traducida similar a Option eliminated.
         /// </summary>
         internal static string msjcandidatoeliminado {
             get {
@@ -250,7 +250,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option could not be updated..
+        ///   Busca una cadena traducida similar a Option could not be updated.
         /// </summary>
         internal static string msjcandidatonoactualizado {
             get {
@@ -259,7 +259,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option could not be deleted because of dependent data..
+        ///   Busca una cadena traducida similar a Option could not be deleted because of dependent data.
         /// </summary>
         internal static string msjcandidatonoeliminado {
             get {
@@ -268,7 +268,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option could not be entered..
+        ///   Busca una cadena traducida similar a Option could not be entered.
         /// </summary>
         internal static string msjcandidatonoingresado {
             get {
@@ -277,7 +277,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a All options were eliminated..
+        ///   Busca una cadena traducida similar a All options were eliminated.
         /// </summary>
         internal static string msjcandidatoseliminados {
             get {
@@ -286,7 +286,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Options could not be eliminated..
+        ///   Busca una cadena traducida similar a Options could not be eliminated.
         /// </summary>
         internal static string msjcandidatosnoeliminados {
             get {
@@ -295,7 +295,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Blanks, check..
+        ///   Busca una cadena traducida similar a Blanks, check.
         /// </summary>
         internal static string msjchema {
             get {
@@ -304,7 +304,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a check your credentials i have try again..
+        ///   Busca una cadena traducida similar a check your credentials i have try again.
         /// </summary>
         internal static string msjcheyo {
             get {
@@ -313,7 +313,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing user data..
+        ///   Busca una cadena traducida similar a Missing user data.
         /// </summary>
         internal static string msjcheyo2 {
             get {
@@ -322,7 +322,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Connection could not be established..
+        ///   Busca una cadena traducida similar a Connection could not be established.
         /// </summary>
         internal static string msjconexionno {
             get {
@@ -331,7 +331,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Successful connection..
+        ///   Busca una cadena traducida similar a Successful connection.
         /// </summary>
         internal static string msjconexionsi {
             get {
@@ -340,7 +340,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Are you sure you want to delete the option group:..
+        ///   Busca una cadena traducida similar a Are you sure you want to delete the option group:.
         /// </summary>
         internal static string msjConfirmationP {
             get {
@@ -349,7 +349,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirmation..
+        ///   Busca una cadena traducida similar a Confirmation.
         /// </summary>
         internal static string msjConfirmationPTitle {
             get {
@@ -358,7 +358,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Are you sure you want to eliminate the Report?..
+        ///   Busca una cadena traducida similar a Are you sure you want to eliminate the Report?.
         /// </summary>
         internal static string msjconfirmeliminaracta {
             get {
@@ -367,7 +367,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Enter the email you want to send the password to..
+        ///   Busca una cadena traducida similar a Enter the email you want to send the password to.
         /// </summary>
         internal static string msjcore {
             get {
@@ -376,7 +376,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Successful creation..
+        ///   Busca una cadena traducida similar a Successful creation.
         /// </summary>
         internal static string msjcreaex {
             get {
@@ -385,7 +385,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing Voting Venue Data..
+        ///   Busca una cadena traducida similar a Missing Voting Venue Data.
         /// </summary>
         internal static string msjcvdatosfaltan {
             get {
@@ -394,7 +394,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting venue eliminated..
+        ///   Busca una cadena traducida similar a Voting venue eliminated.
         /// </summary>
         internal static string msjcveliminado {
             get {
@@ -403,7 +403,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Required Voting Venue Fields..
+        ///   Busca una cadena traducida similar a Required Voting Venue Fields.
         /// </summary>
         internal static string msjcvnecesario {
             get {
@@ -412,7 +412,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting venue could not be updated..
+        ///   Busca una cadena traducida similar a Voting venue could not be updated.
         /// </summary>
         internal static string msjcvnoactualizado {
             get {
@@ -421,7 +421,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The voting venue could not be removed..
+        ///   Busca una cadena traducida similar a The voting venue could not be removed.
         /// </summary>
         internal static string msjcvnoeliminado {
             get {
@@ -430,7 +430,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting venue could not be entered into the registry..
+        ///   Busca una cadena traducida similar a Voting venue could not be entered into the registry.
         /// </summary>
         internal static string msjcvnoregistrado {
             get {
@@ -448,7 +448,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Critical error..
+        ///   Busca una cadena traducida similar a Critical error.
         /// </summary>
         internal static string msjDatabasePTitle {
             get {
@@ -457,7 +457,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing Data Report..
+        ///   Busca una cadena traducida similar a Missing Data Report.
         /// </summary>
         internal static string msjdatosfaltantes {
             get {
@@ -466,7 +466,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing data of the option..
+        ///   Busca una cadena traducida similar a Missing data of the option.
         /// </summary>
         internal static string msjdatosfaltantescandidato {
             get {
@@ -475,7 +475,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Eliminated option group..
+        ///   Busca una cadena traducida similar a Eliminated option group.
         /// </summary>
         internal static string msjDeletedP {
             get {
@@ -493,7 +493,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing data entry fields..
+        ///   Busca una cadena traducida similar a Missing data entry fields.
         /// </summary>
         internal static string msjdetalleactanodatos {
             get {
@@ -502,7 +502,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Details of the record could not be entered..
+        ///   Busca una cadena traducida similar a Details of the record could not be entered.
         /// </summary>
         internal static string msjdetalleactanoingresada {
             get {
@@ -511,7 +511,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing details, check if a description has been added to the member..
+        ///   Busca una cadena traducida similar a Missing details, check if a description has been added to the member.
         /// </summary>
         internal static string msjdetallemdatosfaltan {
             get {
@@ -520,7 +520,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Detail of deleted member..
+        ///   Busca una cadena traducida similar a Detail of deleted member.
         /// </summary>
         internal static string msjdetallemeliminado {
             get {
@@ -529,7 +529,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member detail could not be updated..
+        ///   Busca una cadena traducida similar a Member detail could not be updated.
         /// </summary>
         internal static string msjdetallemiembronoactualizado {
             get {
@@ -538,7 +538,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member detail could not be entered..
+        ///   Busca una cadena traducida similar a Member detail could not be entered.
         /// </summary>
         internal static string msjdetallemiembronoingresado {
             get {
@@ -547,7 +547,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member detail could not be removed..
+        ///   Busca una cadena traducida similar a Member detail could not be removed.
         /// </summary>
         internal static string msjdetallemnoeliminado {
             get {
@@ -556,7 +556,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The record could not be updated..
+        ///   Busca una cadena traducida similar a The record could not be updated.
         /// </summary>
         internal static string msjdetallenoupdated {
             get {
@@ -565,7 +565,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Completed process..
+        ///   Busca una cadena traducida similar a Completed process.
         /// </summary>
         internal static string msjDeteledPTitle {
             get {
@@ -574,7 +574,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sorry, the member may have died..
+        ///   Busca una cadena traducida similar a Sorry, the member may have died.
         /// </summary>
         internal static string msjDiedM {
             get {
@@ -583,7 +583,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error loading at least one of the two lists, consult your administrator..
+        ///   Busca una cadena traducida similar a Error loading at least one of the two lists, consult your administrator.
         /// </summary>
         internal static string msjdoslistas {
             get {
@@ -592,7 +592,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ID document not found..
+        ///   Busca una cadena traducida similar a ID document not found.
         /// </summary>
         internal static string msjduico {
             get {
@@ -601,7 +601,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong ID document, check your credentials I have tried again..
+        ///   Busca una cadena traducida similar a Wrong ID document, check your credentials I have tried again.
         /// </summary>
         internal static string msjduiin {
             get {
@@ -610,7 +610,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing Member Data..
+        ///   Busca una cadena traducida similar a Missing Member Data.
         /// </summary>
         internal static string msjduimiembrotitle {
             get {
@@ -619,7 +619,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ID document field required..
+        ///   Busca una cadena traducida similar a ID document field required.
         /// </summary>
         internal static string msjduinecesario {
             get {
@@ -628,7 +628,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The DUI or OCR Code field has not been entered..
+        ///   Busca una cadena traducida similar a The ID document or OCR Code field has not been entered..
         /// </summary>
         internal static string msjduiocr {
             get {
@@ -637,7 +637,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong ID document, check your credentials and try again..
+        ///   Busca una cadena traducida similar a Wrong ID document, check your credentials and try again.
         /// </summary>
         internal static string msjduipuser {
             get {
@@ -646,7 +646,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ID document not found..
+        ///   Busca una cadena traducida similar a ID document not found.
         /// </summary>
         internal static string msjduipusertitle {
             get {
@@ -655,7 +655,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error..
+        ///   Busca una cadena traducida similar a Error.
         /// </summary>
         internal static string msjE {
             get {
@@ -664,7 +664,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User Deleted..
+        ///   Busca una cadena traducida similar a User Deleted.
         /// </summary>
         internal static string msjeliusu {
             get {
@@ -673,7 +673,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Employee could not be removed due to dependent data..
+        ///   Busca una cadena traducida similar a Employee could not be removed due to dependent data.
         /// </summary>
         internal static string msjEmployedP {
             get {
@@ -682,7 +682,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Process interrupted..
+        ///   Busca una cadena traducida similar a Process interrupted.
         /// </summary>
         internal static string msjEmployedPTitle {
             get {
@@ -691,7 +691,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error loading images..
+        ///   Busca una cadena traducida similar a Error loading images.
         /// </summary>
         internal static string msjerima {
             get {
@@ -700,7 +700,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Insert error..
+        ///   Busca una cadena traducida similar a Insert error.
         /// </summary>
         internal static string msjerint {
             get {
@@ -709,7 +709,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error loading at least one of the four lists, check with your administrator..
+        ///   Busca una cadena traducida similar a Error loading at least one of the four lists, check with your administrator.
         /// </summary>
         internal static string msjerrocag {
             get {
@@ -718,7 +718,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Connection error..
+        ///   Busca una cadena traducida similar a Connection error.
         /// </summary>
         internal static string msjerrorconexion {
             get {
@@ -727,7 +727,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Failed to load Option group status list, check with your administrator..
+        ///   Busca una cadena traducida similar a Failed to load Option group status list, check with your administrator.
         /// </summary>
         internal static string msjErrorListP {
             get {
@@ -736,7 +736,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Failed to load member status list, check with admin..
+        ///   Busca una cadena traducida similar a Failed to load member status list, check with admin.
         /// </summary>
         internal static string msjErrorM {
             get {
@@ -745,7 +745,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a An error occurred while checking hours..
+        ///   Busca una cadena traducida similar a An error occurred while checking hours.
         /// </summary>
         internal static string msjerrorrevisarhora {
             get {
@@ -754,7 +754,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error loading at least one of the three lists, consult with the administrator..
+        ///   Busca una cadena traducida similar a Error loading at least one of the three lists, consult with the administrator.
         /// </summary>
         internal static string msjerrortreslistas {
             get {
@@ -763,7 +763,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Selection error..
+        ///   Busca una cadena traducida similar a Selection error.
         /// </summary>
         internal static string msjerselecio {
             get {
@@ -772,7 +772,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The user entered is inactive, wait for lockout time or contact your admin..
+        ///   Busca una cadena traducida similar a The user entered is inactive, wait for lockout time or contact your admin.
         /// </summary>
         internal static string msjestadoinactivo {
             get {
@@ -781,7 +781,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Inactive Status..
+        ///   Busca una cadena traducida similar a Inactive Status.
         /// </summary>
         internal static string msjestadoinactivotitle {
             get {
@@ -790,7 +790,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Excellent! the user entered already exists in the database, your new password has been sent to your email, User Found..
+        ///   Busca una cadena traducida similar a Excellent! the user entered already exists in the database, your new password has been sent to your email, User Found.
         /// </summary>
         internal static string msjexele {
             get {
@@ -799,7 +799,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Are you sure you want to eliminate:..
+        ///   Busca una cadena traducida similar a Are you sure you want to eliminate:.
         /// </summary>
         internal static string msjextraño {
             get {
@@ -808,7 +808,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirmación..
+        ///   Busca una cadena traducida similar a Confirmación.
         /// </summary>
         internal static string msjextraño2 {
             get {
@@ -817,7 +817,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option images are missing..
+        ///   Busca una cadena traducida similar a Option images are missing.
         /// </summary>
         internal static string msjfalta {
             get {
@@ -826,7 +826,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a To configure the organization be sure to enter all fields and upload an image..
+        ///   Busca una cadena traducida similar a To configure the organization be sure to enter all fields and upload an image.
         /// </summary>
         internal static string msjfaltadatapu {
             get {
@@ -835,7 +835,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing data..
+        ///   Busca una cadena traducida similar a Missing data.
         /// </summary>
         internal static string msjfaltadataputitle {
             get {
@@ -844,7 +844,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing data..
+        ///   Busca una cadena traducida similar a Missing data.
         /// </summary>
         internal static string msjfaltan {
             get {
@@ -853,7 +853,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing data to enter, verify that all fields are filled..
+        ///   Busca una cadena traducida similar a Missing data to enter, verify that all fields are filled.
         /// </summary>
         internal static string msjFieldsP {
             get {
@@ -862,7 +862,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing data from the query..
+        ///   Busca una cadena traducida similar a Missing data from the query.
         /// </summary>
         internal static string msjfieldspu {
             get {
@@ -871,7 +871,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option image required..
+        ///   Busca una cadena traducida similar a Option image required.
         /// </summary>
         internal static string msjimagencandidato {
             get {
@@ -880,7 +880,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Image missing to enter, verify you have added an image..
+        ///   Busca una cadena traducida similar a Image missing to enter, verify you have added an image.
         /// </summary>
         internal static string msjImageP {
             get {
@@ -889,7 +889,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Missing image..
+        ///   Busca una cadena traducida similar a Missing image.
         /// </summary>
         internal static string msjImagePTitle {
             get {
@@ -898,7 +898,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Your account has been updated to an inactive status..
+        ///   Busca una cadena traducida similar a Your account has been updated to an inactive status.
         /// </summary>
         internal static string msjinactiva {
             get {
@@ -907,7 +907,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Updated Status..
+        ///   Busca una cadena traducida similar a Updated Status.
         /// </summary>
         internal static string msjinactivatitle {
             get {
@@ -916,7 +916,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong email..
+        ///   Busca una cadena traducida similar a Wrong email.
         /// </summary>
         internal static string msjinco {
             get {
@@ -925,7 +925,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Insert error..
+        ///   Busca una cadena traducida similar a Insert error.
         /// </summary>
         internal static string msjinserterror {
             get {
@@ -934,7 +934,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member could not be entered..
+        ///   Busca una cadena traducida similar a Member could not be entered.
         /// </summary>
         internal static string msjInsertM {
             get {
@@ -943,7 +943,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option group could not be entered..
+        ///   Busca una cadena traducida similar a Option group could not be entered.
         /// </summary>
         internal static string msjInsertP {
             get {
@@ -952,7 +952,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User could not be entered..
+        ///   Busca una cadena traducida similar a User could not be entered.
         /// </summary>
         internal static string msjinsertusererror {
             get {
@@ -961,7 +961,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a You will have 5 chances in 3 minutes, please wait..
+        ///   Busca una cadena traducida similar a You will have 5 chances in 3 minutes, please wait.
         /// </summary>
         internal static string msjintentosesperar {
             get {
@@ -970,7 +970,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a You will have 5 more chances in 3 minutes..
+        ///   Busca una cadena traducida similar a You will have 5 more chances in 3 minutes.
         /// </summary>
         internal static string msjintentosesperarmas {
             get {
@@ -979,7 +979,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Time remaining..
+        ///   Busca una cadena traducida similar a Time remaining.
         /// </summary>
         internal static string msjintentosesperartitle {
             get {
@@ -988,7 +988,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Timeout has expired, you have 5 more attempts..
+        ///   Busca una cadena traducida similar a Timeout has expired, you have 5 more attempts.
         /// </summary>
         internal static string msjintentosmas {
             get {
@@ -997,7 +997,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Time is up..
+        ///   Busca una cadena traducida similar a Time is up.
         /// </summary>
         internal static string msjintentosmastitle {
             get {
@@ -1006,7 +1006,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Only have..
+        ///   Busca una cadena traducida similar a Only have .
         /// </summary>
         internal static string msjintentosrestantes1 {
             get {
@@ -1024,7 +1024,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Login error..
+        ///   Busca una cadena traducida similar a Login error.
         /// </summary>
         internal static string msjintentosrestantestitle {
             get {
@@ -1033,7 +1033,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Failed to load voting station list, check with administrator..
+        ///   Busca una cadena traducida similar a Failed to load voting station list, check with administrator.
         /// </summary>
         internal static string msjJRVfailed {
             get {
@@ -1042,7 +1042,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Bad voting station mapping, please check your credentials and try again..
+        ///   Busca una cadena traducida similar a Bad voting station mapping, please check your credentials and try again.
         /// </summary>
         internal static string msjJRVincorrecto {
             get {
@@ -1051,7 +1051,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting station not found..
+        ///   Busca una cadena traducida similar a Voting station not found.
         /// </summary>
         internal static string msjJRVincorrectoTitle {
             get {
@@ -1060,7 +1060,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting station could not be entered..
+        ///   Busca una cadena traducida similar a Voting station could not be entered.
         /// </summary>
         internal static string msjJRVnoingresada {
             get {
@@ -1069,7 +1069,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error when loading the lists..
+        ///   Busca una cadena traducida similar a Error when loading the lists.
         /// </summary>
         internal static string msjlistas {
             get {
@@ -1078,7 +1078,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a One or more lists could not be loaded into the system..
+        ///   Busca una cadena traducida similar a One or more lists could not be loaded into the system.
         /// </summary>
         internal static string msjlistasnocargadas {
             get {
@@ -1087,7 +1087,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User logged in, root user has been created..
+        ///   Busca una cadena traducida similar a User logged in, root user has been created.
         /// </summary>
         internal static string msjloggedpuser {
             get {
@@ -1096,7 +1096,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Successful creation..
+        ///   Busca una cadena traducida similar a Successful creation.
         /// </summary>
         internal static string msjloggedpusertitle {
             get {
@@ -1114,7 +1114,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Warning..
+        ///   Busca una cadena traducida similar a Warning.
         /// </summary>
         internal static string msjLoginTitle {
             get {
@@ -1123,7 +1123,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Mail not found..
+        ///   Busca una cadena traducida similar a Mail not found.
         /// </summary>
         internal static string msjmailno {
             get {
@@ -1132,7 +1132,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sorry, the member you want to join is a minor..
+        ///   Busca una cadena traducida similar a Sorry, the member you want to join is a minor.
         /// </summary>
         internal static string msjMenorM {
             get {
@@ -1141,7 +1141,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome, you are a member of a voting station..
+        ///   Busca una cadena traducida similar a Welcome, you are a member of a voting station.
         /// </summary>
         internal static string msjmiembro {
             get {
@@ -1150,7 +1150,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The logged in member has an inactive status..
+        ///   Busca una cadena traducida similar a The logged in member has an inactive status.
         /// </summary>
         internal static string msjMinactivo {
             get {
@@ -1159,7 +1159,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User could not be updated..
+        ///   Busca una cadena traducida similar a User could not be updated.
         /// </summary>
         internal static string msjnoactualizado {
             get {
@@ -1168,7 +1168,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update error..
+        ///   Busca una cadena traducida similar a Update error.
         /// </summary>
         internal static string msjnoactualizadotitle {
             get {
@@ -1177,7 +1177,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User login, voting user has been created..
+        ///   Busca una cadena traducida similar a User login, voting user has been created.
         /// </summary>
         internal static string msjnoi {
             get {
@@ -1186,7 +1186,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong OCR Code, check your credentials I have tried again..
+        ///   Busca una cadena traducida similar a Wrong OCR Code, check your credentials I have tried again.
         /// </summary>
         internal static string msjOCR {
             get {
@@ -1195,7 +1195,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a OCR Code not found..
+        ///   Busca una cadena traducida similar a OCR Code not found.
         /// </summary>
         internal static string msjOCRTitle {
             get {
@@ -1204,7 +1204,8 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a An error occurred while connecting to the database, check  your internet Access or that the server services are active..
+        ///   Busca una cadena traducida similar a An error occurred while connecting to the database, check 
+        ///your internet Access or that the server services are active.
         /// </summary>
         internal static string msjocubase {
             get {
@@ -1213,7 +1214,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a There was a problem adding the ballot..
+        ///   Busca una cadena traducida similar a There was a problem adding the ballot.
         /// </summary>
         internal static string msjocubol {
             get {
@@ -1222,7 +1223,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome, Option group..
+        ///   Busca una cadena traducida similar a Welcome, Option group.
         /// </summary>
         internal static string msjpartido {
             get {
@@ -1231,7 +1232,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Passwords do not match..
+        ///   Busca una cadena traducida similar a Passwords do not match.
         /// </summary>
         internal static string msjpassbadpuser {
             get {
@@ -1240,7 +1241,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Incorrect passwords..
+        ///   Busca una cadena traducida similar a Incorrect passwords.
         /// </summary>
         internal static string msjpassbadpusertitle {
             get {
@@ -1258,7 +1259,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Access Denied..
+        ///   Busca una cadena traducida similar a Access Denied.
         /// </summary>
         internal static string msjperdioconexiontitle {
             get {
@@ -1267,7 +1268,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome, Supervisor..
+        ///   Busca una cadena traducida similar a Welcome, Supervisor.
         /// </summary>
         internal static string msjpresi {
             get {
@@ -1276,7 +1277,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Your vote was successfully recorded in the system..
+        ///   Busca una cadena traducida similar a Your vote was successfully recorded in the system.
         /// </summary>
         internal static string msjprocom {
             get {
@@ -1285,7 +1286,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Process interrupted..
+        ///   Busca una cadena traducida similar a Process interrupted.
         /// </summary>
         internal static string msjproint {
             get {
@@ -1294,7 +1295,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Completed process..
+        ///   Busca una cadena traducida similar a Completed process.
         /// </summary>
         internal static string msjproint2 {
             get {
@@ -1303,7 +1304,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Record deleted..
+        ///   Busca una cadena traducida similar a Record deleted.
         /// </summary>
         internal static string msjregistroeliminado {
             get {
@@ -1312,7 +1313,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The record could not be deleted because of dependent data..
+        ///   Busca una cadena traducida similar a The record could not be deleted because of dependent data.
         /// </summary>
         internal static string msjregistronoeliminado {
             get {
@@ -1321,7 +1322,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome, your access level is: Root..
+        ///   Busca una cadena traducida similar a Welcome, your access level is: Root.
         /// </summary>
         internal static string msjroot {
             get {
@@ -1330,7 +1331,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Be sure to save all data to avoid loss of information..
+        ///   Busca una cadena traducida similar a Be sure to save all data to avoid loss of information.
         /// </summary>
         internal static string msjseguro {
             get {
@@ -1339,7 +1340,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Close Application..
+        ///   Busca una cadena traducida similar a Close Application.
         /// </summary>
         internal static string msjsegurotitle {
             get {
@@ -1348,7 +1349,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a An error occurred when selecting an empty cell \ n \ ntry to select a cell with an existing data..
+        ///   Busca una cadena traducida similar a An error occurred when selecting an empty cell \ n \ ntry to select a cell with an existing data.
         /// </summary>
         internal static string msjselec {
             get {
@@ -1357,7 +1358,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sorry, the organization has not been configured..
+        ///   Busca una cadena traducida similar a Sorry, the organization has not been configured.
         /// </summary>
         internal static string msjtribnocreatepu {
             get {
@@ -1366,7 +1367,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Inconsistent dates..
+        ///   Busca una cadena traducida similar a Inconsistent dates.
         /// </summary>
         internal static string msjtribnocreateputitle {
             get {
@@ -1375,7 +1376,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sorry, the Organization may not have existed..
+        ///   Busca una cadena traducida similar a Sorry, the Organization may not have existed.
         /// </summary>
         internal static string msjtribnoexistpu {
             get {
@@ -1384,7 +1385,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Organization image missing..
+        ///   Busca una cadena traducida similar a Organization image missing.
         /// </summary>
         internal static string msjtribuimgpu {
             get {
@@ -1393,7 +1394,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Oops! An error occurred while loading the organization image..
+        ///   Busca una cadena traducida similar a Oops! An error occurred while loading the organization image.
         /// </summary>
         internal static string msjtribunal {
             get {
@@ -1402,7 +1403,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Organization could not be configured..
+        ///   Busca una cadena traducida similar a Organization could not be configured.
         /// </summary>
         internal static string msjtribunalerrorpu {
             get {
@@ -1411,7 +1412,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a One or more option images were not uploaded..
+        ///   Busca una cadena traducida similar a One or more option images were not uploaded.
         /// </summary>
         internal static string msjunai {
             get {
@@ -1420,7 +1421,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User could not be updated..
+        ///   Busca una cadena traducida similar a User could not be updated.
         /// </summary>
         internal static string msjUpdM {
             get {
@@ -1429,7 +1430,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option group could not be updated..
+        ///   Busca una cadena traducida similar a Option group could not be updated.
         /// </summary>
         internal static string msjUpdP {
             get {
@@ -1438,7 +1439,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong username or password, check your credentials..
+        ///   Busca una cadena traducida similar a Wrong username or password, check your credentials.
         /// </summary>
         internal static string msjuserdenied {
             get {
@@ -1447,7 +1448,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No user found, check if you have entered the correct user..
+        ///   Busca una cadena traducida similar a No user found, check if you have entered the correct user.
         /// </summary>
         internal static string msjusernoencontrado {
             get {
@@ -1456,7 +1457,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Wrong user..
+        ///   Busca una cadena traducida similar a Wrong user.
         /// </summary>
         internal static string msjusernoencontradotitle {
             get {
@@ -1465,7 +1466,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User, registration could not be updated..
+        ///   Busca una cadena traducida similar a User, registration could not be updated.
         /// </summary>
         internal static string msjusuarionoactualizado {
             get {
@@ -1474,7 +1475,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User could not be entered..
+        ///   Busca una cadena traducida similar a User could not be entered.
         /// </summary>
         internal static string msjusunop {
             get {
@@ -1483,7 +1484,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User could not be updated..
+        ///   Busca una cadena traducida similar a User could not be updated.
         /// </summary>
         internal static string msjusunop2 {
             get {
@@ -1492,7 +1493,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Empty fields..
+        ///   Busca una cadena traducida similar a Empty fields.
         /// </summary>
         internal static string msjvaciotitle {
             get {
@@ -1501,7 +1502,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a A verification error occurred, check with your administrator..
+        ///   Busca una cadena traducida similar a A verification error occurred, check with your administrator.
         /// </summary>
         internal static string msjverificar {
             get {
@@ -1510,7 +1511,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error information..
+        ///   Busca una cadena traducida similar a Error information.
         /// </summary>
         internal static string msjverificartitle {
             get {
@@ -1519,7 +1520,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome, Auditor..
+        ///   Busca una cadena traducida similar a Welcome, Auditor.
         /// </summary>
         internal static string msjvice {
             get {
@@ -1528,7 +1529,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Welcome Voter..
+        ///   Busca una cadena traducida similar a Welcome Voter.
         /// </summary>
         internal static string msjvotante {
             get {
@@ -1537,7 +1538,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Vote could not be entered..
+        ///   Busca una cadena traducida similar a Vote could not be entered.
         /// </summary>
         internal static string msjvtin {
             get {
@@ -1546,7 +1547,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Vote recorded..
+        ///   Busca una cadena traducida similar a Vote recorded.
         /// </summary>
         internal static string msjvtin2 {
             get {

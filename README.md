@@ -1,127 +1,82 @@
 # Democratic — Plantilla genérica de votación
 
-Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos **MySQL** para gestionar procesos de votación configurables: organización del evento, sedes, mesas, grupos de opciones, emisión de votos, escrutinio y **gráficas de resultados**.
+Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos **MySQL 8** para gestionar procesos de votación configurables: organización del evento, sedes, mesas, grupos de opciones, emisión de votos, escrutinio y **gráficas de resultados**.
 
-> **No es una plantilla fija de elección presidencial.** El esquema conserva nombres legacy (`tbcandidato`, `tbpartido_politico`, `tbjrv`, etc.) por compatibilidad, pero el dominio actual es genérico: organización, grupos, opciones, mesas y sedes. Ver [docs/DOMINIO-VOTACION.md](docs/DOMINIO-VOTACION.md).
+> Plantilla genérica reutilizable. El esquema físico usa tablas `tb_*` con nombres de dominio actual (organización, grupo, opción, sede, mesa, etc.).
 
 ---
 
 ## Características
 
-- **Votación configurable:** grupos de opciones y opciones ilimitadas (personas, listas, propuestas).
+- **Votación configurable:** grupos de opciones y opciones ilimitadas.
 - **Padrón de participantes** con autenticación por usuario/contraseña o DUI + OCR.
 - **Roles y permisos:** superadministrador, administrador, operador de mesa, representante de grupo, votante.
 - **Escrutinio:** registros por mesa y detalle por grupo.
-- **Gráficas en tiempo real:** barras y tortas con `System.Windows.Forms.DataVisualization.Charting` (`FrmGraficos`).
+- **Gráficas en tiempo real** (`FrmGraficos`).
 - **Modo oscuro** e idiomas español / inglés.
-- **Sitio web complementario:** carpeta hermana `Pagina Democratic 2020 Full/` (HTML/CSS/JS estático).
+- **Sitio web complementario:** `Pagina Democratic 2020 Full/`.
 
 ---
 
 ## Arquitectura
 
-Solución en tres capas (`Democratic.sln`):
-
 | Proyecto | Carpeta | Responsabilidad |
 |----------|---------|-----------------|
-| **Vista** | `Democratic/` | Formularios WinForms, recursos, idiomas |
-| **Controlador** | `Controlador/` | Lógica de presentación y coordinación |
-| **Modelo** | `Modelo/` | Acceso a datos MySQL (`MySql.Data`) |
+| **Vista** | `Democratic/` | Formularios WinForms |
+| **Controlador** | `Controlador/` | Lógica de presentación |
+| **Modelo** | `Modelo/` | Acceso a datos MySQL |
 
 ```
-Vista (Frm*)  →  Controlador (*Controller)  →  Modelo (Model*)  →  MySQL (dbdemocratic)
+Vista → Controlador → Modelo → MySQL (dbdemocratic)
 ```
-
-### Formularios principales
-
-| Formulario | Función |
-|------------|---------|
-| `FrmLogin` / `FrmLogin2` | Autenticación |
-| `FrmContenedor` | Menú según rol |
-| `FrmVotar` | Emisión de voto |
-| `FrmGraficos` | Gráficas de resultados por grupo |
-| `FrmPartidos` / `FrmVerCandidatos` | Grupos y opciones |
-| `FrmCV` / `FrmJRV` | Sedes y mesas |
-| `FrmActas` / `FrmDetalleActa` | Escrutinio |
-| `FrmMiembros` / `FrmUsuarios` | Padrón y cuentas |
 
 ---
 
 ## Requisitos
 
-- Windows con **.NET Framework 4.5.2** o superior
-- **Visual Studio 2015+** (recomendado para compilar)
-- **MySQL 5.7+** o **MariaDB 10.x**
-- Base de datos: `dbdemocratic` (ver `Modelo/Conexion.cs`)
+- Windows con **.NET Framework 4.5.2+**
+- **Visual Studio 2015+**
+- **MySQL 8.x** (utf8mb4)
+- Base de datos: `dbdemocratic`
 
-### Conexión por defecto
+### Conexión MySQL (`.env`)
 
-```csharp
-server   = 127.0.0.1
-database = dbdemocratic
-user     = root
-password = (vacío)
+Copia `.env.example` a `.env` en la raíz de `Democratic/`:
+
+```env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=dbdemocratic
+DB_USERNAME=root
+DB_PASSWORD=tu_clave
+DB_CHARSET=utf8mb4
 ```
 
-Ajustar en `Modelo/Conexion.cs` según el entorno local.
+`Modelo/Conexion.cs` lee estas variables al iniciar la app (busca `.env` desde `bin/Debug` hacia arriba). El archivo `.env` no se sube al repositorio.
 
 ---
 
 ## Base de datos
 
-### Tablas legacy (sin renombrar)
-
-El código C# consulta directamente tablas como `tbcandidato`, `tbpartido_politico`, `tbvoto`, `tbboleta`, `tbjrv`, `tbcentro_de_votación`, `tbacta`, `tbtribunal`.
-
-### Vistas genéricas opcionales
-
-Para reportes SQL, BI o documentación sin tocar el esquema físico:
+### Crear esquema genérico
 
 ```bash
-mysql -u root -p dbdemocratic < sql/compat_vistas_genericas.sql
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p < sql/schema_generico_mysql8.sql
 ```
 
-Crea vistas como `vw_opciones`, `vw_grupos_opciones`, `vw_votos`, `vw_mesas`, `vw_sedes`, `vw_resultados_por_grupo`, etc.
+Crea tablas como `tb_organizacion`, `tb_grupo_opciones`, `tb_opcion`, `tb_sede`, `tb_mesa`, `tb_voto`, `tb_participante`, `tb_usuario`, catálogos de estado y roles semilla.
 
-Documentación del mapeo completo: **[docs/DOMINIO-VOTACION.md](docs/DOMINIO-VOTACION.md)**
+Documentación del dominio: **[docs/DOMINIO-VOTACION.md](docs/DOMINIO-VOTACION.md)**
 
 ---
 
 ## Compilación y ejecución
 
-1. Clonar o abrir la carpeta `Democratic/`.
-2. Restaurar paquetes NuGet si aplica (`MySql.Data` en el proyecto Modelo).
-3. Abrir `Democratic.sln` en Visual Studio.
-4. Establecer proyecto de inicio: **Vista** (`Democratic`).
-5. Compilar (F6) y ejecutar (F5).
-6. En el primer arranque, registrar la **organización** (`FrmPrimerUso`) y el **usuario root** (`FrmPrimerUsuario`) si la base está vacía.
-
----
-
-## Gráficas de resultados
-
-`FrmGraficos` y `ModelResultados` agregan votos por **grupo de opciones**:
-
-```sql
-SELECT nombre_grupo, COUNT(*) AS total
-FROM vw_resultados_por_grupo;
-```
-
-La UI muestra tres controles `Chart` con la misma agregación (variantes visuales). Los datos provienen de `tbvoto` unido a `tbpartido_politico`.
-
----
-
-## Roles (resumen)
-
-| Nivel | Rol genérico | Capacidades típicas |
-|-------|--------------|---------------------|
-| 1 | Superadministrador | Todo el sistema |
-| 7 | Administrador | Usuarios, grupos, opciones |
-| 6 | Operador de mesa | Actas, mesas, votos |
-| 5 | Representante de grupo | Estadísticas de su grupo |
-| 2–4 | Votante / opción | Votar y ver resultados |
-
-Detalle en [docs/DOMINIO-VOTACION.md#roles-genéricos](docs/DOMINIO-VOTACION.md#roles-genéricos).
+1. Ejecutar el script SQL anterior.
+2. Abrir `Democratic.sln` en Visual Studio.
+3. Proyecto de inicio: **Vista**.
+4. Compilar y ejecutar.
+5. Primer arranque: registrar **organización** (`FrmPrimerUso`) y usuario root (`FrmPrimerUsuario`) si la base está vacía.
 
 ---
 
@@ -130,18 +85,10 @@ Detalle en [docs/DOMINIO-VOTACION.md#roles-genéricos](docs/DOMINIO-VOTACION.md#
 ```
 Democratic/
 ├── Democratic/          # Vista (WinForms)
-├── Controlador/         # Controladores
-├── Modelo/              # Acceso a datos
-├── docs/
-│   └── DOMINIO-VOTACION.md
-├── sql/
-│   └── compat_vistas_genericas.sql
+├── Controlador/
+├── Modelo/
+├── docs/DOMINIO-VOTACION.md
+├── sql/schema_generico_mysql8.sql
 ├── Democratic.sln
 └── README.md
 ```
-
----
-
-## Licencia y origen
-
-Proyecto académico / demo evolucionado a plantilla reutilizable. Los nombres de tablas reflejan el dominio electoral original; la documentación y vistas SQL expresan el **modelo genérico** actual sin exigir migración de datos.

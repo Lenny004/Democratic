@@ -1,109 +1,186 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using MySql.Data.MySqlClient;
 using Modelo;
 
 namespace Controlador
 {
     /// <summary>
-    /// CRUD de grupos de opciones (tbpartido_politico). Plantilla genérica reutilizable.
-    /// Grupo = bloque, lista o categoría organizativa según el proceso de votación.
+    /// Coordina el CRUD de grupos de opciones (tb_grupo_opciones) entre la Vista y el Modelo.
+    /// Gestiona partidos u organizaciones que agrupan candidatos en la papeleta.
     /// </summary>
     public class PartidoController : AtributosPartido
     {
+        /// <summary>
+        /// Carga los estados disponibles para un grupo de opciones.
+        /// </summary>
+        /// <returns>Tabla con los estados de grupo.</returns>
         public static DataTable CargarEstadoGrupo_Controller()
         {
-            return CargarEstadoPartido_Controller();
+            return ModelPartido.CargarEstadoOrganizacion();
         }
 
+        /// <summary>
+        /// Delega al método genérico <see cref="CargarEstadoGrupo_Controller"/>.
+        /// </summary>
+        /// <returns>Tabla con los estados de partido.</returns>
         public static DataTable CargarEstadoPartido_Controller()
         {
-            return ModelPartido.CargarEstadoPartido();
+            return CargarEstadoGrupo_Controller();
         }
 
+        /// <summary>
+        /// Registra un nuevo grupo de opciones con los atributos de la instancia actual.
+        /// </summary>
+        /// <returns><c>true</c> si el registro fue exitoso; en caso contrario, <c>false</c>.</returns>
         public bool EnviarDatosGrupo_Controller()
         {
-            return EnviarDatosPartido_Controller();
+            return ModelPartido.RegistrarOrganizacion(image, nombrep, Cantidadvotosp, Estado_Partido);
         }
 
+        /// <summary>
+        /// Delega al método genérico <see cref="EnviarDatosGrupo_Controller"/>.
+        /// </summary>
+        /// <returns><c>true</c> si el registro fue exitoso; en caso contrario, <c>false</c>.</returns>
         public bool EnviarDatosPartido_Controller()
         {
-            return ModelPartido.RegistrarPartido(image, nombrep, Cantidadvotosp, Estado_Partido);
+            return EnviarDatosGrupo_Controller();
         }
 
+        /// <summary>
+        /// Carga el listado completo de grupos de opciones registrados.
+        /// </summary>
+        /// <returns>Tabla con los grupos de opciones.</returns>
         public static DataTable CargarGrupos_Controller()
         {
-            return CargarPartido_Controller();
+            return ModelPartido.CargarOrganizaciones();
         }
 
+        /// <summary>
+        /// Delega al método genérico <see cref="CargarGrupos_Controller"/>.
+        /// </summary>
+        /// <returns>Tabla con los partidos.</returns>
         public static DataTable CargarPartido_Controller()
         {
-            return ModelPartido.CargarPartido();
+            return CargarGrupos_Controller();
         }
 
+        /// <summary>
+        /// Recupera la imagen asociada a un grupo de opciones.
+        /// </summary>
+        /// <param name="id">Identificador del grupo.</param>
+        /// <returns>Arreglo de bytes con la imagen del grupo.</returns>
         public static byte[] RecuperarImagenGrupo_Controller(int id)
         {
-            return RecuperarimagenPartido_Controller(id);
+            return ModelPartido.RecuperarImagenOrganizacion(id);
         }
 
-        public static byte[] RecuperarimagenPartido_Controller(int id)
+        /// <summary>
+        /// Delega al método genérico <see cref="RecuperarImagenGrupo_Controller"/>.
+        /// </summary>
+        /// <param name="id">Identificador del partido.</param>
+        /// <returns>Arreglo de bytes con la imagen del partido.</returns>
+        public static byte[] RecuperarImagenPartido_Controller(int id)
         {
-            return ModelPartido.ModelRecuperarImagenPartido(id);
+            return RecuperarImagenGrupo_Controller(id);
         }
 
-        public DataTable CargarEstadoGrupoInnerJoin_Controller(string id)
+        /// <summary>
+        /// Carga el estado de un grupo mediante consulta con inner join por identificador.
+        /// </summary>
+        /// <param name="id">Identificador del grupo a consultar.</param>
+        /// <returns>Tabla con los datos del estado del grupo.</returns>
+        public DataTable CargarEstadoGrupoInner_Controller(string id)
         {
-            return CargarEstadoVotosInnerJoin_Controller(id);
+            return ModelPartido.CargarEstadoOrganizacionPorId(id);
         }
 
+        /// <summary>
+        /// Delega al método genérico <see cref="CargarEstadoGrupoInner_Controller"/>.
+        /// </summary>
+        /// <param name="id">Identificador del partido a consultar.</param>
+        /// <returns>Tabla con los datos del estado del partido.</returns>
+        public DataTable CargarEstadoPartidoInnerJoin_Controller(string id)
+        {
+            return CargarEstadoGrupoInner_Controller(id);
+        }
+
+        /// <summary>
+        /// Delega al método genérico <see cref="CargarEstadoGrupoInner_Controller"/>.
+        /// </summary>
+        /// <param name="id">Identificador del grupo a consultar.</param>
+        /// <returns>Tabla con los datos del estado de votos.</returns>
         public DataTable CargarEstadoVotosInnerJoin_Controller(string id)
         {
-            return ModelPartido.CargarEstadoPartidoInner(id);
+            return CargarEstadoGrupoInner_Controller(id);
         }
 
-        public bool ActualizarDatosGrupo_Controller()
-        {
-            return ActualizarDatosPartido_Controller();
-        }
-
+        /// <summary>
+        /// Delega al método genérico <see cref="ActualizarPartido_Controller"/>.
+        /// </summary>
+        /// <returns><c>true</c> si la actualización fue exitosa; en caso contrario, <c>false</c>.</returns>
         public bool ActualizarDatosPartido_Controller()
         {
-            return ModelPartido.ActualizarPartido(idPartido, image, nombrep, Cantidadvotosp, Estado_Partido);
+            return ActualizarPartido_Controller();
         }
 
+        /// <summary>
+        /// Actualiza un grupo de opciones existente con los atributos de la instancia actual.
+        /// </summary>
+        /// <returns><c>true</c> si la actualización fue exitosa; en caso contrario, <c>false</c>.</returns>
+        public bool ActualizarGrupo_Controller()
+        {
+            return ModelPartido.ActualizarOrganizacion(idPartido, image, nombrep, Cantidadvotosp, Estado_Partido);
+        }
+
+        /// <summary>
+        /// Delega al método genérico <see cref="ActualizarGrupo_Controller"/>.
+        /// </summary>
+        /// <returns><c>true</c> si la actualización fue exitosa; en caso contrario, <c>false</c>.</returns>
+        public bool ActualizarPartido_Controller()
+        {
+            return ActualizarGrupo_Controller();
+        }
+
+        /// <summary>
+        /// Elimina un grupo de opciones según el identificador de la instancia actual.
+        /// </summary>
+        /// <returns>Código de resultado de la operación de eliminación.</returns>
         public int EliminarGrupo_Controller()
         {
-            return EliminarPartido_Controller();
+            return ModelPartido.EliminarOrganizacion(idPartido);
         }
 
+        /// <summary>
+        /// Delega al método genérico <see cref="EliminarGrupo_Controller"/>.
+        /// </summary>
+        /// <returns>Código de resultado de la operación de eliminación.</returns>
         public int EliminarPartido_Controller()
         {
-            return ModelPartido.EliminarPartido(idPartido);
+            return EliminarGrupo_Controller();
         }
     }
 
-    /// <summary>Atributos de un Grupo (mapeo tbpartido_politico).</summary>
+    /// <summary>
+    /// Contiene los atributos de un grupo o partido utilizados por la capa Controlador.
+    /// </summary>
     public class AtributosPartido
     {
-        /// <summary>Id del Grupo (id_Partido en BD).</summary>
+        /// <summary>Identificador único del partido o grupo.</summary>
         public int idPartido { get; set; }
 
-        /// <summary>Alias semántico de idPartido.</summary>
-        public int id_Grupo
-        {
-            get { return idPartido; }
-            set { idPartido = value; }
-        }
-
+        /// <summary>Ruta o referencia de la imagen del partido.</summary>
         public string image { get; set; }
+
+        /// <summary>Nombre del partido o grupo.</summary>
         public string nombrep { get; set; }
+
+        /// <summary>Cantidad de votos registrados para el partido.</summary>
         public int Cantidadvotosp { get; set; }
+
+        /// <summary>Identificador del estado del partido.</summary>
         public int Estado_Partido { get; set; }
 
+        /// <summary>Inicializa una nueva instancia de <see cref="AtributosPartido"/>.</summary>
         public AtributosPartido() { }
     }
 }

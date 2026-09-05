@@ -5,20 +5,21 @@ using MySql.Data.MySqlClient;
 namespace Modelo
 {
     /// <summary>
-    /// Agregación de Resultados de votación para gráficas e informes.
+    /// Capa Modelo: acceso a datos MySQL. Agregación de resultados de votación
+    /// para gráficas e informes. Tablas físicas: tb_voto, tb_grupo_opciones.
     /// </summary>
     public class ModelResultados
     {
         /// <summary>
-        /// Conteo de votos por GrupoOpciones (GROUP BY id_Partido).
-        /// Columnas: Nombre_GrupoOpciones, Cantidad_Votos.
+        /// Obtiene el conteo de votos agrupado por grupo de opciones.
         /// </summary>
+        /// <returns>Tabla con columnas Nombre_Partido y CANT, o <c>null</c> si hay error.</returns>
         public static DataTable ObtenerConteoVotosPorGrupoOpciones()
         {
             DataTable data;
             try
             {
-                string query = "SELECT tpp.Nombre_Partido, COUNT(tv.id_Partido) AS CANT FROM tbvoto tv, tbpartido_politico tpp WHERE tpp.id_Partido=tv.id_Partido GROUP BY tv.id_Partido,tpp.Nombre_Partido";
+                string query = "SELECT g.nombre_grupo AS Nombre_Partido, COUNT(v.id_voto) AS CANT FROM tb_voto v INNER JOIN tb_grupo_opciones g ON g.id_grupo_opciones = v.id_grupo_opciones GROUP BY g.id_grupo_opciones, g.nombre_grupo";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();

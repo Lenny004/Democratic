@@ -171,7 +171,7 @@ namespace Democratic
 
 
             MySqlConnection conexion = MainController.ConnectController();
-            string query = "SELECT Imagen_Partido FROM tbpartido_politico WHERE id_Partido = ?param1";
+            string query = "SELECT imagen FROM tb_grupo_opciones WHERE id_grupo_opciones = ?param1";
             MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
             cmdselect.Parameters.Add(new MySqlParameter("param1", TxtIdP.Text));
             MySqlDataReader Reader = cmdselect.ExecuteReader();

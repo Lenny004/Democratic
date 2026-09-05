@@ -6,18 +6,20 @@ using Modelo;
 namespace Controlador
 {
     /// <summary>
-    /// Resultados agregados del proceso de votación (plantilla genérica).
-    /// Delega en ModelResultados; métodos adicionales listos para extensión del modelo.
+    /// Coordina la consulta de resultados agregados del proceso de votación entre la Vista y el Modelo.
+    /// Plantilla genérica; delega en ModelResultados con métodos listos para extensión.
     /// </summary>
     public class ResultadosController
     {
         /// <summary>Conteo de votos por grupo de opciones.</summary>
+        /// <returns>Tabla con el nombre del grupo y la cantidad de votos.</returns>
         public static DataTable ObtenerResultadosPorGrupo_Controller()
         {
             return ModelResultados.ObtenerConteoVotosPorGrupoOpciones();
         }
 
-        /// <summary>Alias compatible con integraciones previas.</summary>
+        /// <summary>Alias compatible con integraciones previas; delega a <see cref="ObtenerResultadosPorGrupo_Controller"/>.</summary>
+        /// <returns>Lista de tuplas con nombre de grupo y cantidad de votos.</returns>
         public static List<Tuple<string, int>> ObtenerVotosPorGrupo_Controller()
         {
             var lista = new List<Tuple<string, int>>();
@@ -34,7 +36,8 @@ namespace Controlador
             return lista;
         }
 
-        /// <summary>Datos listos para gráficos (nombre Grupo, cantidad).</summary>
+        /// <summary>Datos listos para gráficos (nombre Grupo, cantidad); delega a <see cref="ObtenerVotosPorGrupo_Controller"/>.</summary>
+        /// <returns>Diccionario con nombre de grupo como clave y cantidad de votos como valor.</returns>
         public static Dictionary<string, int> ObtenerDatosGraficoPorGrupo_Controller()
         {
             var datos = new Dictionary<string, int>();
@@ -46,6 +49,7 @@ namespace Controlador
         /// <summary>
         /// Votos por Opción — pendiente de implementación en ModelResultados.
         /// </summary>
+        /// <returns>Tabla con resultados por opción; actualmente retorna <c>null</c>.</returns>
         public static DataTable ObtenerResultadosPorOpcion_Controller()
         {
             return null;
@@ -54,6 +58,7 @@ namespace Controlador
         /// <summary>
         /// Total global de votos — pendiente de implementación en ModelResultados.
         /// </summary>
+        /// <returns>Total de votos; actualmente retorna <c>0</c>.</returns>
         public static int ObtenerTotalVotos_Controller()
         {
             return 0;

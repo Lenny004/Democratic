@@ -19,7 +19,7 @@ namespace Democratic.Idiomas {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class English {
@@ -61,7 +61,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Act..
+        ///   Busca una cadena traducida similar a Act.
         /// </summary>
         internal static string btnactas {
             get {
@@ -70,7 +70,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update report..
+        ///   Busca una cadena traducida similar a Update report.
         /// </summary>
         internal static string BtnActualizarActa {
             get {
@@ -79,7 +79,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update option..
+        ///   Busca una cadena traducida similar a Update option.
         /// </summary>
         internal static string BtnActualizarCandidato {
             get {
@@ -88,7 +88,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update voting venue..
+        ///   Busca una cadena traducida similar a Update voting venue.
         /// </summary>
         internal static string BtnActualizarCV {
             get {
@@ -97,7 +97,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update report detail..
+        ///   Busca una cadena traducida similar a Update report detail.
         /// </summary>
         internal static string BtnActualizarDetalleA {
             get {
@@ -106,7 +106,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update member detail..
+        ///   Busca una cadena traducida similar a Update member detail.
         /// </summary>
         internal static string BtnActualizarDetalleM {
             get {
@@ -115,7 +115,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update voting station..
+        ///   Busca una cadena traducida similar a Update voting station.
         /// </summary>
         internal static string BtnActualizarJRV {
             get {
@@ -124,7 +124,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update member..
+        ///   Busca una cadena traducida similar a Update member.
         /// </summary>
         internal static string BtnActualizarM {
             get {
@@ -133,7 +133,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update option group..
+        ///   Busca una cadena traducida similar a Update option group.
         /// </summary>
         internal static string BtnActualizarPartido {
             get {
@@ -142,7 +142,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Update User..
+        ///   Busca una cadena traducida similar a Update User.
         /// </summary>
         internal static string btnactualizarusuario {
             get {
@@ -151,7 +151,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Manage Act..
+        ///   Busca una cadena traducida similar a Manage Act.
         /// </summary>
         internal static string btnadmindactas {
             get {
@@ -160,7 +160,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Manage Members and Users..
+        ///   Busca una cadena traducida similar a Manage Members and Users.
         /// </summary>
         internal static string btnadmindmiembrosanduser {
             get {
@@ -169,7 +169,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Manage Option Groups and Options..
+        ///   Busca una cadena traducida similar a Manage Option Groups and Options.
         /// </summary>
         internal static string btnadmindpartidosycandidatos {
             get {
@@ -178,7 +178,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add report..
+        ///   Busca una cadena traducida similar a Add report.
         /// </summary>
         internal static string BtnAgregarActa {
             get {
@@ -187,7 +187,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add option..
+        ///   Busca una cadena traducida similar a Add option.
         /// </summary>
         internal static string BtnAgregarCandidato {
             get {
@@ -196,7 +196,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add report detail..
+        ///   Busca una cadena traducida similar a Add report detail.
         /// </summary>
         internal static string BtnAgregarDetalleA {
             get {
@@ -205,7 +205,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add member detail..
+        ///   Busca una cadena traducida similar a Add member detail.
         /// </summary>
         internal static string BtnAgregarDetalleM {
             get {
@@ -214,7 +214,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add member..
+        ///   Busca una cadena traducida similar a Add member.
         /// </summary>
         internal static string BtnAgregarM {
             get {
@@ -223,7 +223,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add option group..
+        ///   Busca una cadena traducida similar a Add option group.
         /// </summary>
         internal static string BtnAgregarPartido {
             get {
@@ -232,7 +232,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add User..
+        ///   Busca una cadena traducida similar a Add User.
         /// </summary>
         internal static string btnagregarusuario {
             get {
@@ -241,7 +241,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search..
+        ///   Busca una cadena traducida similar a Search.
         /// </summary>
         internal static string BtnBuscar {
             get {
@@ -250,7 +250,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Options..
+        ///   Busca una cadena traducida similar a Options.
         /// </summary>
         internal static string btncandidato {
             get {
@@ -259,7 +259,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Load image..
+        ///   Busca una cadena traducida similar a Load image.
         /// </summary>
         internal static string BtnCargarImageC {
             get {
@@ -268,7 +268,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Upload image..
+        ///   Busca una cadena traducida similar a Upload image.
         /// </summary>
         internal static string btncargarimagen {
             get {
@@ -277,7 +277,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Close..
+        ///   Busca una cadena traducida similar a Close.
         /// </summary>
         internal static string btncerrar {
             get {
@@ -286,7 +286,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Test..
+        ///   Busca una cadena traducida similar a Test.
         /// </summary>
         internal static string btnconectar {
             get {
@@ -295,7 +295,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Continue..
+        ///   Busca una cadena traducida similar a Continue.
         /// </summary>
         internal static string btncontinuar {
             get {
@@ -304,7 +304,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting Venues..
+        ///   Busca una cadena traducida similar a Voting Venues.
         /// </summary>
         internal static string btncv {
             get {
@@ -313,7 +313,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Act Details..
+        ///   Busca una cadena traducida similar a Act Details.
         /// </summary>
         internal static string btndetalleacta {
             get {
@@ -322,7 +322,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Members Detail..
+        ///   Busca una cadena traducida similar a Members Detail.
         /// </summary>
         internal static string btndetallemiembros {
             get {
@@ -331,7 +331,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Delete user..
+        ///   Busca una cadena traducida similar a Delete user.
         /// </summary>
         internal static string BtnEliminarActa {
             get {
@@ -340,7 +340,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Delete option..
+        ///   Busca una cadena traducida similar a Delete option.
         /// </summary>
         internal static string BtnEliminarCandidato {
             get {
@@ -349,7 +349,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Delete voting venue..
+        ///   Busca una cadena traducida similar a Delete voting venue.
         /// </summary>
         internal static string BtnEliminarCV {
             get {
@@ -358,7 +358,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Delete report detail..
+        ///   Busca una cadena traducida similar a Delete report detail.
         /// </summary>
         internal static string BtnEliminarDetalleA {
             get {
@@ -367,7 +367,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Delete voting station..
+        ///   Busca una cadena traducida similar a Delete voting station.
         /// </summary>
         internal static string BtnEliminarJRV {
             get {
@@ -376,7 +376,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Remove option group..
+        ///   Busca una cadena traducida similar a Remove option group.
         /// </summary>
         internal static string BtnEliminarPartido {
             get {
@@ -385,7 +385,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a System Structure..
+        ///   Busca una cadena traducida similar a System Structure.
         /// </summary>
         internal static string btnestructura {
             get {
@@ -394,7 +394,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Log Out..
+        ///   Busca una cadena traducida similar a Log Out.
         /// </summary>
         internal static string btnexit {
             get {
@@ -403,7 +403,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Generate Password..
+        ///   Busca una cadena traducida similar a Generate Password.
         /// </summary>
         internal static string BtnGenerar {
             get {
@@ -412,7 +412,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add voting venue..
+        ///   Busca una cadena traducida similar a Add voting venue.
         /// </summary>
         internal static string BtnIngresarCV {
             get {
@@ -421,7 +421,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Add voting station..
+        ///   Busca una cadena traducida similar a Add voting station.
         /// </summary>
         internal static string BtnIngresarJRV {
             get {
@@ -430,7 +430,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sing In..
+        ///   Busca una cadena traducida similar a Sing In.
         /// </summary>
         internal static string btnIniciar {
             get {
@@ -439,7 +439,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting stations..
+        ///   Busca una cadena traducida similar a Voting stations.
         /// </summary>
         internal static string btnjrv {
             get {
@@ -448,7 +448,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Manage Voting Stations and Voting Venues..
+        ///   Busca una cadena traducida similar a Manage Voting Stations and Voting Venues.
         /// </summary>
         internal static string btnjrvandcv {
             get {
@@ -457,7 +457,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Clean boxes..
+        ///   Busca una cadena traducida similar a Clean boxes.
         /// </summary>
         internal static string BtnLimpiar {
             get {
@@ -466,7 +466,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Clean report..
+        ///   Busca una cadena traducida similar a Clean report.
         /// </summary>
         internal static string BtnLimpiarActa {
             get {
@@ -475,7 +475,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Clean fields..
+        ///   Busca una cadena traducida similar a Clean fields.
         /// </summary>
         internal static string BtnLimpiarPartidos {
             get {
@@ -484,7 +484,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Maximize..
+        ///   Busca una cadena traducida similar a Maximize.
         /// </summary>
         internal static string btnmaximizar {
             get {
@@ -493,7 +493,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Members..
+        ///   Busca una cadena traducida similar a Members.
         /// </summary>
         internal static string btnmiembros {
             get {
@@ -502,7 +502,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Minimize..
+        ///   Busca una cadena traducida similar a Minimize.
         /// </summary>
         internal static string btnminimizar {
             get {
@@ -511,7 +511,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Normal..
+        ///   Busca una cadena traducida similar a Normal.
         /// </summary>
         internal static string btnnormal {
             get {
@@ -520,7 +520,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option groups..
+        ///   Busca una cadena traducida similar a Option groups.
         /// </summary>
         internal static string btnpartido {
             get {
@@ -529,7 +529,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Configure organization..
+        ///   Busca una cadena traducida similar a Configure organization.
         /// </summary>
         internal static string btnprimeruso {
             get {
@@ -538,7 +538,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Create First User..
+        ///   Busca una cadena traducida similar a Create First User.
         /// </summary>
         internal static string btnprimerusuario {
             get {
@@ -547,7 +547,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Resend..
+        ///   Busca una cadena traducida similar a Resend.
         /// </summary>
         internal static string btnreenviar {
             get {
@@ -556,7 +556,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Refresh..
+        ///   Busca una cadena traducida similar a Refresh.
         /// </summary>
         internal static string BtnRefrescarM {
             get {
@@ -565,7 +565,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Register..
+        ///   Busca una cadena traducida similar a Register.
         /// </summary>
         internal static string BtnRegistrar {
             get {
@@ -574,7 +574,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No Conecction..
+        ///   Busca una cadena traducida similar a No Conecction.
         /// </summary>
         internal static string btnrojo {
             get {
@@ -583,7 +583,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Remove all options..
+        ///   Busca una cadena traducida similar a Remove all options.
         /// </summary>
         internal static string BtnTruncateC {
             get {
@@ -592,7 +592,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Users..
+        ///   Busca una cadena traducida similar a Users.
         /// </summary>
         internal static string btnusuarios {
             get {
@@ -601,7 +601,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Check your Options..
+        ///   Busca una cadena traducida similar a Check your Options.
         /// </summary>
         internal static string btnvercandidatos {
             get {
@@ -610,7 +610,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Connection Exists..
+        ///   Busca una cadena traducida similar a Connection Exists.
         /// </summary>
         internal static string btnverde {
             get {
@@ -619,7 +619,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a See Stats..
+        ///   Busca una cadena traducida similar a See Stats.
         /// </summary>
         internal static string btnverestadisticas {
             get {
@@ -628,7 +628,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Vote..
+        ///   Busca una cadena traducida similar a Vote.
         /// </summary>
         internal static string btnvotar {
             get {
@@ -637,7 +637,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Manage Votes..
+        ///   Busca una cadena traducida similar a Manage Votes.
         /// </summary>
         internal static string btnvotos {
             get {
@@ -646,7 +646,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Number of votes of options..
+        ///   Busca una cadena traducida similar a Number of votes of options.
         /// </summary>
         internal static string grpgraficas {
             get {
@@ -655,7 +655,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search Members by ID Document Number..
+        ///   Busca una cadena traducida similar a Search Members by ID Document Number.
         /// </summary>
         internal static string label1 {
             get {
@@ -664,7 +664,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Phone number:..
+        ///   Busca una cadena traducida similar a Phone number:.
         /// </summary>
         internal static string label2 {
             get {
@@ -673,7 +673,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a E-mail:..
+        ///   Busca una cadena traducida similar a E-mail:.
         /// </summary>
         internal static string label3 {
             get {
@@ -682,7 +682,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Affiliated option group..
+        ///   Busca una cadena traducida similar a Affiliated option group.
         /// </summary>
         internal static string lblafiliado {
             get {
@@ -691,7 +691,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Surnames:..
+        ///   Busca una cadena traducida similar a Surnames:.
         /// </summary>
         internal static string lblApe {
             get {
@@ -700,7 +700,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option last name..
+        ///   Busca una cadena traducida similar a Option last name.
         /// </summary>
         internal static string lblApellidoC {
             get {
@@ -709,7 +709,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member last name:..
+        ///   Busca una cadena traducida similar a Member last name:.
         /// </summary>
         internal static string lblApellidoM {
             get {
@@ -718,7 +718,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search report..
+        ///   Busca una cadena traducida similar a Search report.
         /// </summary>
         internal static string lblBuscar {
             get {
@@ -727,7 +727,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search users:..
+        ///   Busca una cadena traducida similar a Search users:.
         /// </summary>
         internal static string lblBuscar2 {
             get {
@@ -736,7 +736,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search option..
+        ///   Busca una cadena traducida similar a Search option.
         /// </summary>
         internal static string lblBuscarC {
             get {
@@ -745,7 +745,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search voting venue..
+        ///   Busca una cadena traducida similar a Search voting venue.
         /// </summary>
         internal static string lblBuscarCV {
             get {
@@ -754,7 +754,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search report details..
+        ///   Busca una cadena traducida similar a Search report details.
         /// </summary>
         internal static string lblBuscarDa {
             get {
@@ -763,7 +763,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search for an option group..
+        ///   Busca una cadena traducida similar a Search for an option group.
         /// </summary>
         internal static string lblBuscarDM {
             get {
@@ -772,7 +772,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search for voting station..
+        ///   Busca una cadena traducida similar a Search for voting station.
         /// </summary>
         internal static string lblBuscarjrv {
             get {
@@ -781,7 +781,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search option group..
+        ///   Busca una cadena traducida similar a Search option group.
         /// </summary>
         internal static string lblBuscarP {
             get {
@@ -790,7 +790,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ballot quantity:..
+        ///   Busca una cadena traducida similar a Ballot quantity:.
         /// </summary>
         internal static string lblcantidad {
             get {
@@ -799,7 +799,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Number of ballots..
+        ///   Busca una cadena traducida similar a Number of ballots.
         /// </summary>
         internal static string lblCantidadBoleta {
             get {
@@ -808,7 +808,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Number of voting stations..
+        ///   Busca una cadena traducida similar a Number of voting stations.
         /// </summary>
         internal static string lblCantidadJRV {
             get {
@@ -817,7 +817,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Number of votes:..
+        ///   Busca una cadena traducida similar a Number of votes:.
         /// </summary>
         internal static string lblCantidadV {
             get {
@@ -826,7 +826,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Number of votes:..
+        ///   Busca una cadena traducida similar a Number of votes:.
         /// </summary>
         internal static string lblCantidadVotos {
             get {
@@ -835,7 +835,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Number of ballots:..
+        ///   Busca una cadena traducida similar a Number of ballots:.
         /// </summary>
         internal static string lblCBoletas {
             get {
@@ -844,7 +844,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting center:..
+        ///   Busca una cadena traducida similar a Voting center:.
         /// </summary>
         internal static string lblcentrov {
             get {
@@ -853,7 +853,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting venue..
+        ///   Busca una cadena traducida similar a Voting venue.
         /// </summary>
         internal static string lblcentrovotacion {
             get {
@@ -862,7 +862,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Passwords match..
+        ///   Busca una cadena traducida similar a Passwords match.
         /// </summary>
         internal static string lblcoincidencia {
             get {
@@ -871,7 +871,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Composition:..
+        ///   Busca una cadena traducida similar a Composition:.
         /// </summary>
         internal static string lblcomposicion {
             get {
@@ -880,7 +880,8 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a (The password provided must be the one used to access the mail)..
+        ///   Busca una cadena traducida similar a (The password provided must
+        ///be the one used to access the mail).
         /// </summary>
         internal static string Lblcontrainfo {
             get {
@@ -889,7 +890,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Correlative of voting station..
+        ///   Busca una cadena traducida similar a Correlative of voting station.
         /// </summary>
         internal static string lblcorrelative {
             get {
@@ -898,7 +899,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Email: (required to send password)..
+        ///   Busca una cadena traducida similar a Email: (required to send password).
         /// </summary>
         internal static string lblCorreo {
             get {
@@ -907,7 +908,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a E-Mail:..
+        ///   Busca una cadena traducida similar a E-Mail:.
         /// </summary>
         internal static string lblcorreotribunalregister {
             get {
@@ -925,7 +926,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Enter your E-mail:..
+        ///   Busca una cadena traducida similar a Enter your E-mail:.
         /// </summary>
         internal static string lblCuenta2 {
             get {
@@ -934,7 +935,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Date of birth:..
+        ///   Busca una cadena traducida similar a Date of birth:.
         /// </summary>
         internal static string lblCump {
             get {
@@ -943,7 +944,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Name of voting venue..
+        ///   Busca una cadena traducida similar a Name of voting venue.
         /// </summary>
         internal static string lblCV {
             get {
@@ -952,7 +953,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Activate dark mode..
+        ///   Busca una cadena traducida similar a Activate dark mode.
         /// </summary>
         internal static string lbldarkmode {
             get {
@@ -961,7 +962,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member details:..
+        ///   Busca una cadena traducida similar a Member details:.
         /// </summary>
         internal static string lblDetalleM {
             get {
@@ -970,7 +971,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Address:..
+        ///   Busca una cadena traducida similar a Address:.
         /// </summary>
         internal static string lblDirec {
             get {
@@ -979,7 +980,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member address:..
+        ///   Busca una cadena traducida similar a Member address:.
         /// </summary>
         internal static string lblDireccionM {
             get {
@@ -988,7 +989,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Enter the member&apos;s ID document:..
+        ///   Busca una cadena traducida similar a Enter the member&apos;s ID document:.
         /// </summary>
         internal static string lbldui {
             get {
@@ -997,7 +998,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ID document:..
+        ///   Busca una cadena traducida similar a ID document:.
         /// </summary>
         internal static string lblDuiM {
             get {
@@ -1006,7 +1007,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting venue state..
+        ///   Busca una cadena traducida similar a Voting venue state.
         /// </summary>
         internal static string lblestado {
             get {
@@ -1015,7 +1016,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option status..
+        ///   Busca una cadena traducida similar a Option status.
         /// </summary>
         internal static string lblEstadoC {
             get {
@@ -1024,7 +1025,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member status:..
+        ///   Busca una cadena traducida similar a Member status:.
         /// </summary>
         internal static string lblEstadoM {
             get {
@@ -1033,7 +1034,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member status:..
+        ///   Busca una cadena traducida similar a Member status:.
         /// </summary>
         internal static string lblEstadoP {
             get {
@@ -1042,7 +1043,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option group status:..
+        ///   Busca una cadena traducida similar a Option group status:.
         /// </summary>
         internal static string lblestadopartido {
             get {
@@ -1051,7 +1052,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User status:..
+        ///   Busca una cadena traducida similar a User status:.
         /// </summary>
         internal static string lblEstadoU {
             get {
@@ -1060,7 +1061,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User status:..
+        ///   Busca una cadena traducida similar a User status:.
         /// </summary>
         internal static string lblestadouser {
             get {
@@ -1069,7 +1070,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a State of the voting station..
+        ///   Busca una cadena traducida similar a State of the voting station.
         /// </summary>
         internal static string lblestadovrb {
             get {
@@ -1078,7 +1079,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Foundation date:..
+        ///   Busca una cadena traducida similar a Foundation date:.
         /// </summary>
         internal static string lblfecha {
             get {
@@ -1087,7 +1088,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Date of birth:..
+        ///   Busca una cadena traducida similar a Date of birth:.
         /// </summary>
         internal static string lblFechaNM {
             get {
@@ -1096,7 +1097,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a (When generating a password, it will be updated to the old password)..
+        ///   Busca una cadena traducida similar a (When generating a password, it will be updated to the old password).
         /// </summary>
         internal static string lblgenerarc {
             get {
@@ -1105,7 +1106,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Gender..
+        ///   Busca una cadena traducida similar a Gender.
         /// </summary>
         internal static string lblGenero {
             get {
@@ -1114,7 +1115,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Enter the correlative of the voting station:..
+        ///   Busca una cadena traducida similar a Enter the correlative of the voting station:.
         /// </summary>
         internal static string lblidjrv {
             get {
@@ -1123,7 +1124,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Image max 4MB..
+        ///   Busca una cadena traducida similar a Image max 4MB.
         /// </summary>
         internal static string lblimgmax {
             get {
@@ -1132,7 +1133,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Organization image:..
+        ///   Busca una cadena traducida similar a Organization image:.
         /// </summary>
         internal static string lblimgT {
             get {
@@ -1151,14 +1152,10 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Democratic is a project created by 1st year high school students
-        ///IA with all the knowledge acquired in the academic year, It is a 
-        ///program that gives you many tools about elections online. A way 
-        ///of voting very comfortable and friendly, it has been developed with
-        ///the use of language C# programming and databases. The 
-        ///interface design is built using the native Visual Studio tools in your
-        ///version 2015 and with the implementation of the Bunifu Framework
-        ///v1.52..
+        ///   Busca una cadena traducida similar a Democratic is a configurable voting system based on templates.
+        ///It lets you define vote options, organize voting tables and view
+        ///result charts. It is built with C# and databases; the interfaces
+        ///use Visual Studio 2015 and the Bunifu Framework v1.52..
         /// </summary>
         internal static string lblinfo1 {
             get {
@@ -1167,7 +1164,12 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a The program was developed by the following programmers:  - Eduardo Ernesto Vargas Hernández - Gabriela Susana Méndez .....
+        ///   Busca una cadena traducida similar a The program was developed by the following programmers:
+        ///
+        ///- Eduardo Ernesto Vargas Hernández
+        ///- Gabriela Susana Méndez Barrera
+        ///- Lenny Adrián Elías Sánchez
+        ///- Monica Abigail Mejía Mártinez.
         /// </summary>
         internal static string lblinfo2 {
             get {
@@ -1176,7 +1178,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Information..
+        ///   Busca una cadena traducida similar a Information.
         /// </summary>
         internal static string lblinfomation {
             get {
@@ -1185,7 +1187,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Login..
+        ///   Busca una cadena traducida similar a Login.
         /// </summary>
         internal static string lblinicio {
             get {
@@ -1194,7 +1196,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tried:..
+        ///   Busca una cadena traducida similar a Tried:.
         /// </summary>
         internal static string lblIntento {
             get {
@@ -1203,7 +1205,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Attempts..
+        ///   Busca una cadena traducida similar a Attempts.
         /// </summary>
         internal static string lblintentos {
             get {
@@ -1212,7 +1214,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting station:..
+        ///   Busca una cadena traducida similar a Voting station:.
         /// </summary>
         internal static string lblJRV {
             get {
@@ -1221,7 +1223,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Voting station..
+        ///   Busca una cadena traducida similar a Voting station.
         /// </summary>
         internal static string lblJRVdm {
             get {
@@ -1230,7 +1232,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Jurisdiction:..
+        ///   Busca una cadena traducida similar a Jurisdiction:.
         /// </summary>
         internal static string lbljurisdiccion {
             get {
@@ -1239,7 +1241,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Key:..
+        ///   Busca una cadena traducida similar a Key:.
         /// </summary>
         internal static string lblkey {
             get {
@@ -1248,7 +1250,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member:..
+        ///   Busca una cadena traducida similar a Member:.
         /// </summary>
         internal static string lblM {
             get {
@@ -1266,7 +1268,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member:..
+        ///   Busca una cadena traducida similar a Member:.
         /// </summary>
         internal static string lblmiembro {
             get {
@@ -1275,7 +1277,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Show:..
+        ///   Busca una cadena traducida similar a Show:.
         /// </summary>
         internal static string lblMostrar {
             get {
@@ -1284,7 +1286,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Municipality..
+        ///   Busca una cadena traducida similar a Municipality.
         /// </summary>
         internal static string lblMunicipio {
             get {
@@ -1293,7 +1295,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Passwords do not match..
+        ///   Busca una cadena traducida similar a Passwords do not match.
         /// </summary>
         internal static string lblnocoincidencia {
             get {
@@ -1302,7 +1304,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Names:..
+        ///   Busca una cadena traducida similar a Names:.
         /// </summary>
         internal static string lblnom {
             get {
@@ -1311,7 +1313,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option names..
+        ///   Busca una cadena traducida similar a Option names.
         /// </summary>
         internal static string lblNombreC {
             get {
@@ -1320,7 +1322,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Member name:..
+        ///   Busca una cadena traducida similar a Member name:.
         /// </summary>
         internal static string lblNombreMiembro {
             get {
@@ -1329,7 +1331,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option group name:..
+        ///   Busca una cadena traducida similar a Option group name:.
         /// </summary>
         internal static string lblNombrep {
             get {
@@ -1338,7 +1340,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Phone number:..
+        ///   Busca una cadena traducida similar a Phone number:.
         /// </summary>
         internal static string lblNume {
             get {
@@ -1347,7 +1349,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a OCR Code..
+        ///   Busca una cadena traducida similar a OCR Code.
         /// </summary>
         internal static string lblOCR {
             get {
@@ -1356,7 +1358,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Forgot your password?..
+        ///   Busca una cadena traducida similar a Forgot your password?.
         /// </summary>
         internal static string lblolvidar {
             get {
@@ -1365,7 +1367,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Country:..
+        ///   Busca una cadena traducida similar a Country:.
         /// </summary>
         internal static string lblpais {
             get {
@@ -1374,7 +1376,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Option group:..
+        ///   Busca una cadena traducida similar a Option group:.
         /// </summary>
         internal static string lblPartido {
             get {
@@ -1383,7 +1385,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Password:..
+        ///   Busca una cadena traducida similar a Password:.
         /// </summary>
         internal static string lblpass {
             get {
@@ -1392,7 +1394,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Confirm Password:..
+        ///   Busca una cadena traducida similar a Confirm Password:.
         /// </summary>
         internal static string lblpassconfirm {
             get {
@@ -1401,7 +1403,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Organization configuration..
+        ///   Busca una cadena traducida similar a Organization configuration.
         /// </summary>
         internal static string lblprimerU {
             get {
@@ -1410,7 +1412,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a (previously given e-mail)..
+        ///   Busca una cadena traducida similar a (previously given e-mail).
         /// </summary>
         internal static string lblproporcionado {
             get {
@@ -1419,7 +1421,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a First User Configuration..
+        ///   Busca una cadena traducida similar a First User Configuration.
         /// </summary>
         internal static string lblpuser {
             get {
@@ -1428,7 +1430,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a 170x195 Recommendation..
+        ///   Busca una cadena traducida similar a 170x195 Recommendation.
         /// </summary>
         internal static string lblRecomendación {
             get {
@@ -1437,7 +1439,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Recover password..
+        ///   Busca una cadena traducida similar a Recover password.
         /// </summary>
         internal static string lblrecuperarpass {
             get {
@@ -1446,7 +1448,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a You have not received the password, click resend..
+        ///   Busca una cadena traducida similar a You have not received the password, click resend.
         /// </summary>
         internal static string lblreenviar {
             get {
@@ -1455,7 +1457,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Login..
+        ///   Busca una cadena traducida similar a Login.
         /// </summary>
         internal static string lblregistrar {
             get {
@@ -1464,7 +1466,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Meeting venue:..
+        ///   Busca una cadena traducida similar a Meeting venue:.
         /// </summary>
         internal static string lblsede {
             get {
@@ -1473,7 +1475,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a What is Democratic?..
+        ///   Busca una cadena traducida similar a What is Democratic?.
         /// </summary>
         internal static string lbltema {
             get {
@@ -1482,12 +1484,12 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a If you do not have an account for
-        ///enter the program, you can use 
-        ///your No. DUI with the OCR Code 
-        ///(The second line on the back of 
-        ///your DUI) to access and can realize
-        ///your right to vote..
+        ///   Busca una cadena traducida similar a If you do not have an account to
+        ///access the system, you can use
+        ///your ID number with the OCR Code
+        ///(the second line on the back of
+        ///your ID document) to access and
+        ///participate in the active vote..
         /// </summary>
         internal static string lbltexto1 {
             get {
@@ -1496,10 +1498,10 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a You can create your own account to access the system, with it
-        ///You can also make your right to vote. Members who have
-        ///account different from that of a voting user, you can perform 
-        ///different work before and after voting started..
+        ///   Busca una cadena traducida similar a You can create your own account to access the voting system. With it
+        ///you can cast your vote according to the configured template. Users with
+        ///administration or table roles can manage options, voting tables and
+        ///results before, during and after the voting process..
         /// </summary>
         internal static string lbltexto2 {
             get {
@@ -1508,7 +1510,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Organization type:..
+        ///   Busca una cadena traducida similar a Organization type:.
         /// </summary>
         internal static string lbltipo {
             get {
@@ -1517,7 +1519,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Type of user:..
+        ///   Busca una cadena traducida similar a Type of user:.
         /// </summary>
         internal static string lbltipouser {
             get {
@@ -1526,7 +1528,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Organization..
+        ///   Busca una cadena traducida similar a Organization:.
         /// </summary>
         internal static string lblTribunal {
             get {
@@ -1535,7 +1537,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Username..
+        ///   Busca una cadena traducida similar a Username.
         /// </summary>
         internal static string lbluser {
             get {
@@ -1544,7 +1546,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a User:..
+        ///   Busca una cadena traducida similar a User:.
         /// </summary>
         internal static string lbluser2 {
             get {
@@ -1553,7 +1555,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a About the system..
+        ///   Busca una cadena traducida similar a About the system.
         /// </summary>
         internal static string toolacerca {
             get {
@@ -1562,7 +1564,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Exit..
+        ///   Busca una cadena traducida similar a Exit.
         /// </summary>
         internal static string toolcerrar {
             get {
@@ -1571,7 +1573,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Report bug..
+        ///   Busca una cadena traducida similar a Report bug.
         /// </summary>
         internal static string toolerror {
             get {
@@ -1580,7 +1582,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Help..
+        ///   Busca una cadena traducida similar a Help.
         /// </summary>
         internal static string toolhelp {
             get {
@@ -1589,7 +1591,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Main menu..
+        ///   Busca una cadena traducida similar a Main menu.
         /// </summary>
         internal static string toolmenu {
             get {
@@ -1598,7 +1600,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a System technical requirements..
+        ///   Busca una cadena traducida similar a System technical requirements.
         /// </summary>
         internal static string toolreq {
             get {
@@ -1607,7 +1609,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Log Out..
+        ///   Busca una cadena traducida similar a Log Out.
         /// </summary>
         internal static string toolsalir {
             get {
@@ -1616,7 +1618,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a System..
+        ///   Busca una cadena traducida similar a System.
         /// </summary>
         internal static string toolsistema {
             get {
@@ -1625,7 +1627,7 @@ namespace Democratic.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a See help..
+        ///   Busca una cadena traducida similar a See help.
         /// </summary>
         internal static string toolverhelp {
             get {

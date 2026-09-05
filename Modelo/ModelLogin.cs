@@ -5,15 +5,25 @@ using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
+    /// <summary>
+    /// Capa Modelo: acceso a datos MySQL. Autenticación y gestión de sesión de usuario.
+    /// Tablas físicas: tb_usuario, tb_participante, tb_rol, tb_sede, tb_mesa, tb_organizacion.
+    /// </summary>
     public class ModelLogin
     {
+        /// <summary>
+        /// Valida las credenciales de un usuario por nombre y contraseña.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="Clave_Usuario">Contraseña del usuario.</param>
+        /// <returns>1 si las credenciales son válidas, 2 si son inválidas, 3 si hay error.</returns>
         public static int Acceso(string usuario, string Clave_Usuario)
         {
             int retorno = 0;
             bool retornoaux;
             try
             {
-                string query = "SELECT * FROM tbusuario tu WHERE Usuario = BINARY ?param1 AND Clave_Usuario = BINARY ?param2";
+                string query = "SELECT * FROM tb_usuario tu WHERE tu.nombre_usuario = BINARY ?param1 AND tu.clave = BINARY ?param2";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
                 cmdselect.Parameters.Add(new MySqlParameter("param2", Clave_Usuario));
@@ -35,13 +45,18 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Valida la existencia de un participante por su DUI.
+        /// </summary>
+        /// <param name="DUI">Documento único de identidad.</param>
+        /// <returns>1 si el DUI existe, 2 si no existe, 3 si hay error.</returns>
         public static int Acceso2(string DUI)
         {
             int retorno = 0;
             bool retornoDUI;
             try
             {
-                string query = "SELECT * FROM tbmiembros WHERE DUI = BINARY ?param1";
+                string query = "SELECT * FROM tb_participante WHERE documento_identidad = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", DUI));
                 retornoDUI = Convert.ToBoolean(cmdselect.ExecuteScalar());
@@ -62,13 +77,18 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Valida la existencia de un participante por su código OCR.
+        /// </summary>
+        /// <param name="OCR">Código OCR del documento.</param>
+        /// <returns>1 si el OCR existe, 2 si no existe, 3 si hay error.</returns>
         public static int Acceso3(string OCR)
         {
             int retorno = 0;
             bool retornoOCR;
             try
             {
-                string query = "SELECT * FROM tbmiembros WHERE OCR = BINARY ?param1";
+                string query = "SELECT * FROM tb_participante WHERE codigo_ocr = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", OCR));
                 retornoOCR = Convert.ToBoolean(cmdselect.ExecuteScalar());
@@ -88,12 +108,17 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos completos de un usuario autenticado por nombre de usuario.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <returns>Lista con datos de usuario, participante y rol, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string>ObtenerDatos(string usuario)
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT tu.Usuario, tu.intento, tu.id_Estado_Usuario, tu.id_Tipo_Usuario, tm.id_Miembro, tm.Nombre_Miembro, tm.Apellido_Miembro, tm.DUI, tm.id_Centro_Votación , tm.id_JRV, ttu.Tipo_Usuario FROM tbusuario tu, tbmiembros tm, tbtipo_usuario ttu WHERE tu.Usuario = BINARY ?param1 AND tu.id_Miembro = tm.id_Miembro AND tu.id_Tipo_Usuario = ttu.id_Tipo_Usuario";
+                string query = "SELECT tu.nombre_usuario, tu.intentos_fallidos, tu.id_estado_usuario, tu.id_rol, tm.id_participante, tm.nombre, tm.apellido, tm.documento_identidad, tm.id_sede, tm.id_mesa, r.nombre_rol FROM tb_usuario tu INNER JOIN tb_participante tm ON tu.id_participante = tm.id_participante INNER JOIN tb_rol r ON tu.id_rol = r.id_rol WHERE tu.nombre_usuario = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
@@ -101,27 +126,16 @@ namespace Modelo
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    //Capturando usuario
                     datos.Add(reader.GetString(0));
-                    //Capturando intento
                     datos.Add(reader.GetString(1));
-                    //Capturando estado del usuario
                     datos.Add(reader.GetString(2));
-                    //Capturando idtipoUsuario del usuario
                     datos.Add(reader.GetString(3));
-                    //Capturando idmiembro
                     datos.Add(reader.GetString(4));
-                    //Capturando nombre del miembro
                     datos.Add(reader.GetString(5));
-                    //Capturando apellido del miembro
                     datos.Add(reader.GetString(6));
-                    //Capturando DUI del miembro
                     datos.Add(reader.GetString(7));
-                    //Capturando id_Centro_Votación del miembro
                     datos.Add(reader.GetString(8));
-                    //Capturando id_jrv del miembro
                     datos.Add(reader.GetString(9));
-                    //Capturando nombre tipo de usuario
                     datos.Add(reader.GetString(10));
                 }
                 return datos;
@@ -132,12 +146,17 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos de un participante por su DUI.
+        /// </summary>
+        /// <param name="DUI">Documento único de identidad.</param>
+        /// <returns>Lista con campos del participante, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string> ObtenerDatos2(string DUI)
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT * FROM tbmiembros WHERE DUI = BINARY ?param1";
+                string query = "SELECT * FROM tb_participante WHERE documento_identidad = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", DUI));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
@@ -145,19 +164,12 @@ namespace Modelo
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    //Capturando idmiembro
                     datos.Add(reader.GetString(0));
-                    //Capturando nombre del miembro
                     datos.Add(reader.GetString(1));
-                    //Capturando apellido del miembro
                     datos.Add(reader.GetString(2));
-                    //Capturando DUI del miembro
                     datos.Add(reader.GetString(3));
-                    //Capturando id_Centro_Votación del miembro
                     datos.Add(reader.GetString(9));
-                    //Capturando id_jrv del miembro
                     datos.Add(reader.GetString(10));
-                    //Capturando nombre tipo de usuario
                     datos.Add(reader.GetString(11));
                 }
                 return datos;
@@ -168,12 +180,16 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Cuenta el número de organizaciones electorales registradas.
+        /// </summary>
+        /// <returns>Cantidad de organizaciones, o -1 si hay error.</returns>
         public static int ObtenerTribunal()
         {
             int retorno;
             try
             {
-                string query = "SELECT * FROM tbtribunal";
+                string query = "SELECT COUNT(*) FROM tb_organizacion";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 retorno = Convert.ToInt16(cmdselect.ExecuteScalar());
                 return retorno;
@@ -184,12 +200,16 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Cuenta el número de usuarios registrados en el sistema.
+        /// </summary>
+        /// <returns>Cantidad de usuarios, o -1 si hay error.</returns>
         public static int ObtenerUsuarios()
         {
             int retorno;
             try
             {
-                string query = "SELECT * FROM tbusuario";
+                string query = "SELECT COUNT(*) FROM tb_usuario";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 retorno = Convert.ToInt16(cmdselect.ExecuteScalar());
                 return retorno;
@@ -200,12 +220,19 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Verifica si un usuario tiene registradas las horas de bloqueo y desbloqueo indicadas.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="horaB">Hora de bloqueo.</param>
+        /// <param name="horaD">Hora de desbloqueo.</param>
+        /// <returns><c>true</c> si coinciden las horas; <c>false</c> si no coinciden o hay error.</returns>
         public static bool ExistenciaHora(string usuario, string horaB, string horaD)
         {
             bool retorno = false;
             try
             {
-                string query = "SELECT * FROM tbusuario WHERE Usuario = BINARY ?param1 AND HoraBlock = BINARY ?param2 AND HoraDesBlock = BINARY ?param3";
+                string query = "SELECT * FROM tb_usuario WHERE nombre_usuario = BINARY ?param1 AND hora_bloqueo = BINARY ?param2 AND hora_desbloqueo = BINARY ?param3";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
                 cmdselect.Parameters.Add(new MySqlParameter("param2", horaB));
@@ -219,12 +246,18 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Actualiza el contador de intentos fallidos de un usuario.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="intento">Número de intentos fallidos.</param>
+        /// <returns><c>true</c> si la actualización fue exitosa; <c>false</c> en caso contrario.</returns>
         public static bool ActualizarIntentos(string usuario, int intento)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbusuario SET intento = '" + intento + "' WHERE Usuario = BINARY ?param1"), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET intentos_fallidos = '" + intento + "' WHERE nombre_usuario = BINARY ?param1"), Conexion.getConnect());
                 cmdinsert.Parameters.Add(new MySqlParameter("param1", usuario));
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
@@ -235,12 +268,19 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Registra las horas de bloqueo y desbloqueo de un usuario.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="horaI">Hora de inicio del bloqueo.</param>
+        /// <param name="horaA">Hora de desbloqueo.</param>
+        /// <returns><c>true</c> si la actualización fue exitosa; <c>false</c> en caso contrario.</returns>
         public static bool RegistrarHoraI(string usuario, string horaI, string horaA)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbusuario SET HoraBlock = '" + horaI + "', HoraDesBlock = '"+ horaA +"' WHERE Usuario = BINARY ?param1"), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET hora_bloqueo = '" + horaI + "', hora_desbloqueo = '"+ horaA +"' WHERE nombre_usuario = BINARY ?param1"), Conexion.getConnect());
                 cmdinsert.Parameters.Add(new MySqlParameter("param1", usuario));
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
@@ -251,12 +291,17 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Obtiene las horas de bloqueo y desbloqueo de un usuario.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <returns>Lista con hora de bloqueo y desbloqueo, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string> ObtenerHora(string usuario)
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT * FROM tbusuario tu, tbmiembros tm, tbtipo_usuario ttu  WHERE tu.Usuario = BINARY ?param1 AND tu.id_Miembro = tm.id_Miembro AND tu.id_Tipo_Usuario = ttu.id_Tipo_Usuario";
+                string query = "SELECT tu.hora_bloqueo, tu.hora_desbloqueo FROM tb_usuario tu INNER JOIN tb_participante tm ON tu.id_participante = tm.id_participante INNER JOIN tb_rol r ON tu.id_rol = r.id_rol WHERE tu.nombre_usuario = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
@@ -264,10 +309,8 @@ namespace Modelo
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    //Capturando hora bloqueo
-                    datos.Add(reader.GetString(4));
-                    //Capturando hora desbloqueo
-                    datos.Add(reader.GetString(5));
+                    datos.Add(reader.GetString(0));
+                    datos.Add(reader.GetString(1));
                 }
                 return datos;
             }
@@ -277,12 +320,18 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Actualiza el estado de un usuario.
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="EstadoU">Identificador del nuevo estado.</param>
+        /// <returns><c>true</c> si la actualización fue exitosa; <c>false</c> en caso contrario.</returns>
         public static bool ActualizarEstado(string usuario, int EstadoU)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tbusuario SET id_Estado_Usuario = '"+ EstadoU +"' WHERE Usuario = '" + usuario + "'  "), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET id_estado_usuario = '"+ EstadoU +"' WHERE nombre_usuario = '" + usuario + "'  "), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -292,18 +341,22 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Obtiene el nombre de un centro de votación por su identificador.
+        /// </summary>
+        /// <param name="id">Identificador de la sede.</param>
+        /// <returns>Lista con el nombre de la sede, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string> ObtenerCV(int id)
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT Nombre_Centro_Votación FROM tbcentro_de_votación WHERE id_Centro_Votación = '"+ id +"'  ";
+                string query = "SELECT nombre_sede FROM tb_sede WHERE id_sede = '"+ id +"'  ";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataReader reader = cmdselect.ExecuteReader();
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    //Capturando nombre del CV
                     datos.Add(reader.GetString(0));
                 }
                 return datos;
@@ -314,18 +367,22 @@ namespace Modelo
             }
         }
 
+        /// <summary>
+        /// Obtiene el código correlativo de una mesa por su identificador.
+        /// </summary>
+        /// <param name="id">Identificador de la mesa.</param>
+        /// <returns>Lista con el correlativo de la mesa, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string> ObtenerJRV(int id)
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT Correlativo_JRV  FROM tbjrv WHERE id_JRV = '" + id + "'  ";
+                string query = "SELECT codigo_mesa FROM tb_mesa WHERE id_mesa = '" + id + "'  ";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataReader reader = cmdselect.ExecuteReader();
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    //Capturando correlativo de la JRV
                     datos.Add(reader.GetString(0));
                 }
                 return datos;

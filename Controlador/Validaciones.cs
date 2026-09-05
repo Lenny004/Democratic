@@ -7,8 +7,17 @@ using System.Security.Cryptography;
 
 namespace Controlador
 {
+    /// <summary>
+    /// Proporciona utilidades de validación y transformación de datos en la capa Controlador.
+    /// Coordina operaciones de seguridad entre la Vista y el procesamiento de credenciales.
+    /// </summary>
     public class Validaciones
     {
+        /// <summary>
+        /// Genera el hash MD5 de una cadena de texto en formato hexadecimal.
+        /// </summary>
+        /// <param name="str">Cadena de texto a hashear.</param>
+        /// <returns>Representación hexadecimal del hash MD5 de la cadena.</returns>
         public static string GetMD5(string str)
         {
             MD5 md5 = MD5CryptoServiceProvider.Create();

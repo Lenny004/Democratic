@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="EnvConfig.cs" />
     <Compile Include="ModelActas.cs" />
     <Compile Include="ModelCandidato.cs" />
     <Compile Include="ModelCV.cs" />

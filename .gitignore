@@ -19,6 +19,9 @@ packages/
 *.rar
 NDP452*.exe
 
+## Secrets
+.env
+
 ## OS / IDE
 Thumbs.db
 Desktop.ini

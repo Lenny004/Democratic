@@ -5,18 +5,24 @@ using MySql.Data.MySqlClient;
 namespace Modelo
 {
     /// <summary>
-    /// Acceso a datos de Boleta y Voto (plantilla genérica de votación).
-    /// Tablas físicas: tbboleta, tbvoto, tbcandidato (Opción → GrupoOpciones).
+    /// Capa Modelo: acceso a datos MySQL. Gestión de boletas y votos
+    /// en la plantilla genérica de votación. Tablas físicas: tb_boleta, tb_voto, tb_opcion.
     /// </summary>
     public class ModelVoto
     {
-        /// <summary>Registra una boleta emitida en una mesa (JRV).</summary>
+        /// <summary>
+        /// Registra una boleta emitida en una mesa de votación.
+        /// </summary>
+        /// <param name="fechaVotacion">Fecha de la votación.</param>
+        /// <param name="idEstadoBoleta">Identificador del estado de la boleta.</param>
+        /// <param name="idMesa">Identificador de la mesa (JRV).</param>
+        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> en caso contrario.</returns>
         public static bool RegistrarBoleta(string fechaVotacion, int idEstadoBoleta, int idMesa)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tbboleta (Fecha_Votación, id_Estado_Boleta, id_JRV) VALUES ('{0}','{1}','{2}')", fechaVotacion, idEstadoBoleta, idMesa), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_boleta (fecha_votacion, id_estado_boleta, id_mesa) VALUES ('{0}','{1}','{2}')", fechaVotacion, idEstadoBoleta, idMesa), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -26,13 +32,16 @@ namespace Modelo
             }
         }
 
-        /// <summary>Obtiene el identificador de la última boleta registrada.</summary>
+        /// <summary>
+        /// Obtiene el identificador de la última boleta registrada.
+        /// </summary>
+        /// <returns>Lista con el id de la boleta, o <c>null</c> si no hay registros o hay error.</returns>
         public static List<string> ObtenerUltimaBoleta()
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT * FROM tbboleta order by id_Boleta desc limit 1";
+                string query = "SELECT id_boleta FROM tb_boleta ORDER BY id_boleta DESC LIMIT 1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataReader reader = cmdselect.ExecuteReader();
                 while (reader.Read())
@@ -48,21 +57,21 @@ namespace Modelo
             }
         }
 
-        /// <summary>Wrapper de compatibilidad con controladores existentes.</summary>
-        public static List<string> ObtenerBoleta()
-        {
-            return ObtenerUltimaBoleta();
-        }
-
         /// <summary>
-        /// Registra un voto asociado a un GrupoOpciones (columna id_Partido en tbvoto).
+        /// Registra un voto asociado directamente a un grupo de opciones.
         /// </summary>
+        /// <param name="grupoOpcionesId">Identificador del grupo de opciones.</param>
+        /// <param name="idBoleta">Identificador de la boleta.</param>
+        /// <param name="idEstadoVoto">Identificador del estado del voto.</param>
+        /// <param name="fechaVotacion">Fecha de la votación.</param>
+        /// <param name="horaVotacion">Hora de la votación.</param>
+        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> en caso contrario.</returns>
         public static bool RegistrarVotoPorGrupo(int grupoOpcionesId, int idBoleta, int idEstadoVoto, string fechaVotacion, string horaVotacion)
         {
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tbvoto (id_Partido, id_Boleta, id_Estado_Voto, Fecha_Votación, Hora_Votacion) VALUES ('{0}','{1}','{2}','{3}','{4}')", grupoOpcionesId, idBoleta, idEstadoVoto, fechaVotacion, horaVotacion), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_voto (id_grupo_opciones, id_boleta, id_estado_voto, fecha_votacion, hora_votacion) VALUES ('{0}','{1}','{2}','{3}','{4}')", grupoOpcionesId, idBoleta, idEstadoVoto, fechaVotacion, horaVotacion), Conexion.getConnect());
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -77,9 +86,14 @@ namespace Modelo
         }
 
         /// <summary>
-        /// Registra un voto a partir del identificador de la Opción elegida.
-        /// Resuelve el GrupoOpciones (id_Partido) desde tbcandidato.
+        /// Registra un voto a partir del identificador de la opción elegida.
         /// </summary>
+        /// <param name="opcionId">Identificador de la opción seleccionada.</param>
+        /// <param name="idBoleta">Identificador de la boleta.</param>
+        /// <param name="idEstadoVoto">Identificador del estado del voto.</param>
+        /// <param name="fechaVotacion">Fecha de la votación.</param>
+        /// <param name="horaVotacion">Hora de la votación.</param>
+        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> si no se encuentra el grupo o hay error.</returns>
         public static bool RegistrarVoto(int opcionId, int idBoleta, int idEstadoVoto, string fechaVotacion, string horaVotacion)
         {
             List<string> grupo = ObtenerGrupoOpcionesDeOpcion(opcionId);
@@ -90,25 +104,23 @@ namespace Modelo
             return RegistrarVotoPorGrupo(Convert.ToInt32(grupo[0]), idBoleta, idEstadoVoto, fechaVotacion, horaVotacion);
         }
 
-        /// <summary>Wrapper de compatibilidad: recibe id de GrupoOpciones directamente.</summary>
-        public static bool RegistrarVoto1(int partido, int boleta, int estadoV, string fechaV, string horaV)
-        {
-            return RegistrarVotoPorGrupo(partido, boleta, estadoV, fechaV, horaV);
-        }
-
-        /// <summary>Obtiene el id de GrupoOpciones (id_Partido) al que pertenece una Opción.</summary>
+        /// <summary>
+        /// Obtiene el identificador del grupo de opciones al que pertenece una opción.
+        /// </summary>
+        /// <param name="opcionId">Identificador de la opción.</param>
+        /// <returns>Lista con el id del grupo, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string> ObtenerGrupoOpcionesDeOpcion(int opcionId)
         {
             List<string> datos = null;
             try
             {
-                string query = "SELECT * FROM tbcandidato tc WHERE tc.id_Candidato = '" + opcionId + "'  ";
+                string query = "SELECT id_grupo_opciones FROM tb_opcion WHERE id_opcion = '" + opcionId + "'";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 MySqlDataReader leer = cmdselect.ExecuteReader();
                 while (leer.Read())
                 {
                     datos = new List<string>();
-                    datos.Add(leer.GetString(5));
+                    datos.Add(leer.GetString(0));
                 }
                 return datos;
             }
@@ -117,15 +129,5 @@ namespace Modelo
                 return datos;
             }
         }
-
-        public static List<string> BuscarIDPartido1(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido2(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido3(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido4(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido5(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido6(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido7(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido8(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
-        public static List<string> BuscarIDPartido9(int idCandidato) { return ObtenerGrupoOpcionesDeOpcion(idCandidato); }
     }
 }

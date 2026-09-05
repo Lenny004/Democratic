@@ -6,9 +6,6 @@ using System.Windows.Forms;
 using Controlador;
 using MySql.Data.MySqlClient;
 using System.Drawing.Drawing2D;
-using static System.Net.WebRequestMethods;
-using System.Windows.Forms.DataVisualization.Charting;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Democratic
 {
@@ -181,7 +178,7 @@ namespace Democratic
             TxtgeneroC.Text = DgvCandidatos[3, posicion].Value.ToString();
 
             MySqlConnection conexion = MainController.ConnectController();
-            string query = "SELECT Imagen_Candidato FROM tbcandidato WHERE id_Candidato = ?param1";
+            string query = "SELECT imagen FROM tb_opcion WHERE id_opcion = ?param1";
             MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
             cmdselect.Parameters.Add(new MySqlParameter("param1", txtIdC.Text));
             MySqlDataReader Reader = cmdselect.ExecuteReader();

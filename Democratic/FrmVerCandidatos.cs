@@ -67,7 +67,7 @@ namespace Democratic
 
         private void CargarImagenOpcion(int idOpcion, PictureBox destino)
         {
-            byte[] imagen = ModelCandidato.ModelRecuperarImagenCandidato(idOpcion);
+            byte[] imagen = ModelCandidato.RecuperarImagenOpcion(idOpcion);
             if (imagen == null)
             {
                 return;

@@ -204,7 +204,7 @@ namespace Democratic
             try
             {
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "SELECT Imagen_Tribunal FROM tbtribunal";
+                string query = "SELECT imagen FROM tb_organizacion";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
                 MySqlDataReader Reader = cmdselect.ExecuteReader();
                 while (Reader.Read())

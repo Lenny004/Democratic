@@ -42,7 +42,7 @@ namespace Democratic
             {
                 int id = VarSession.idmiembro;
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "SELECT Imagen_Miembro FROM tbmiembros WHERE id_Miembro = '"+ id +"'  ";
+                string query = "SELECT imagen FROM tb_participante WHERE id_participante = '"+ id +"'  ";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
                 MySqlDataReader Reader = cmdselect.ExecuteReader();
                 while (Reader.Read())

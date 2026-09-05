@@ -1,47 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
+    /// <summary>
+    /// Capa Modelo: acceso a datos MySQL. Gestiona la apertura de conexiones
+    /// usando la configuración definida en <see cref="EnvConfig"/>.
+    /// </summary>
     public class Conexion
     {
-        ///<sumary>
-        ///
-        ///</sumary>
-        ///<returns>MySqlConnection</returns>
+        /// <summary>
+        /// Abre y devuelve una conexión activa a la base de datos MySQL.
+        /// </summary>
+        /// <returns>Conexión abierta, o <c>null</c> si ocurre un error al conectar.</returns>
         public static MySqlConnection getConnect()
         {
-            //Declarando variable de tipo MySqlConnection que servira como retorno
-            MySqlConnection connect;
-            //Declarando variables que permitirán conexión
-            string server = "127.0.0.1";
-            string database = "dbdemocratic";
-            string user = "root";
-            string password = "";
-
-            //Urtilizamos Try Catch para capturar cualquier error al establecer la conexión
-            //Si todo resulta correcto Try se ejecutara completamente
-            //Si existe algun error no controlado se ejecutara el Catch
+            MySqlConnection connect = null;
             try
             {
-                //Instanciamos la variable connect para que sea un objeto.
-                //Pasamos todos los valores necesarios para conectarnos a nuestra base.
-                connect = new MySqlConnection("server = " + server +
-                                              "; database = " + database +
-                                              "; uid = " + user +
-                                              "; pwd = " + password);
-                //Abrimos conexión
+                string server = EnvConfig.Get("DB_HOST", "127.0.0.1");
+                string port = EnvConfig.Get("DB_PORT", "3306");
+                string database = EnvConfig.Get("DB_DATABASE", "dbdemocratic");
+                string user = EnvConfig.Get("DB_USERNAME", "root");
+                string password = EnvConfig.Get("DB_PASSWORD", "");
+                string charset = EnvConfig.Get("DB_CHARSET", "utf8mb4");
+
+                string connectionString = string.Format(
+                    "server={0};port={1};database={2};uid={3};pwd={4};CharSet={5}",
+                    server,
+                    port,
+                    database,
+                    user,
+                    password,
+                    charset);
+
+                connect = new MySqlConnection(connectionString);
                 connect.Open();
-                //Retornamos conexión abierta lista para gestionar datos.
                 return connect;
             }
             catch (Exception)
             {
-                return connect = null;
+                return null;
             }
         }
     }

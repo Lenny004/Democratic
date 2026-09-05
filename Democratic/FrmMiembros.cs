@@ -222,7 +222,7 @@ namespace Democratic
             TxtOCR.Text = DgvMiembros[4, posicion].Value.ToString();
 
             MySqlConnection conexion = MainController.ConnectController();
-            string query = "SELECT Imagen_Miembro FROM tbmiembros WHERE id_Miembro = ?param1";
+            string query = "SELECT imagen FROM tb_participante WHERE id_participante = ?param1";
             MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
             cmdselect.Parameters.Add(new MySqlParameter("param1", TxtIdM.Text));
             MySqlDataReader Reader = cmdselect.ExecuteReader();
