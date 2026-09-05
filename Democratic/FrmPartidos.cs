@@ -15,36 +15,18 @@ namespace Democratic
         {
             InitializeComponent();
         }
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
 
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    lblNombreP.ForeColor = Color.White;
-                    lblEstadoP.ForeColor = Color.White;
-                    lblCantidadVotos.ForeColor = Color.White;
-                    lblBuscarP.ForeColor = Color.White;
-                    lblRecomendación.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnAgregarPartido.BackColor = Celeste;
-                    BtnActualizarPartido.BackColor = Celeste;
-                    BtnLimpiarPartidos.BackColor = Celeste;
-                    BtnEliminarPartido.BackColor = Rosa;
-                    PanelPartido.BackColor = Morado;
-                    toolStrip1.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelPartido,
+                toolStrip1,
+                new Control[] { lblNombreP, lblEstadoP, lblCantidadVotos, lblBuscarP, lblRecomendación },
+                BtnAgregarPartido,
+                BtnActualizarPartido,
+                BtnLimpiarPartidos,
+                BtnMinimizar,
+                BtnEliminarPartido);
         }
 
         void VerificarIdioma()
@@ -372,22 +354,7 @@ namespace Democratic
 
         private void DgvPartidos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvPartidos.BackgroundColor = Medio;
-                    DgvPartidos.HeaderBgColor = Rosa;
-                    DgvPartidos.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvPartidos);
         }
     }
 }

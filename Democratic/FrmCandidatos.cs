@@ -15,37 +15,20 @@ namespace Democratic
         {
             InitializeComponent();
         }
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
-
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    lblNombreC.ForeColor = Color.White;
-                    lblApellidoC.ForeColor = Color.White;
-                    lblGenero.ForeColor = Color.White;
-                    label1.ForeColor = Color.White;
-                    lblEstadoC.ForeColor = Color.White;
-                    lblBuscarP.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnAgregarCandidato.BackColor = Celeste;
-                    BtnActualizarCandidato.BackColor = Celeste;
-                    BtnLimpiarCandidato.BackColor = Celeste;
-                    BtnEliminarCandidato.BackColor = Rosa;
-                    toolStrip1.BackColor = Morado;
-                    PanelCandidatos.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelCandidatos,
+                toolStrip1,
+                new Control[]
+                {
+                    lblNombreC, lblApellidoC, lblGenero, label1, lblEstadoC, lblBuscarP
+                },
+                BtnAgregarCandidato,
+                BtnActualizarCandidato,
+                BtnLimpiarCandidato,
+                BtnMinimizar,
+                BtnEliminarCandidato);
         }
 
         void VerificarIdioma()
@@ -433,22 +416,7 @@ namespace Democratic
 
         private void DgvCandidatos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvCandidatos.BackgroundColor = Medio;
-                    DgvCandidatos.HeaderBgColor = Rosa;
-                    DgvCandidatos.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvCandidatos);
         }
     }
 }

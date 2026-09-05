@@ -182,6 +182,13 @@ namespace Democratic
             OcultarCamposAvanzados();
             CrearLabelMostrar();
             ReacomodarLayout();
+            UiTheme.ApplySetupForm(
+                ToolSPUser,
+                panel2,
+                txtUsuario2,
+                txtClave2,
+                txtClaveConfirm,
+                lblUser2, lblPass2, LblPassConfirm);
             BtnIngresar.Enabled = true;
         }
 

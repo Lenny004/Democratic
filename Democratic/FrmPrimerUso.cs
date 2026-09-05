@@ -304,6 +304,10 @@ namespace Democratic
             VerificarIdioma();
             OcultarControlesCorreo();
             ReacomodarLayout();
+            UiTheme.ApplySetupForm(
+                ToolSPrimerUso,
+                PanelPu,
+                lblPais, lblTipo, lblFecha, lblJurisdiccion, lblComposicion, lblSede, LblimgT, Lblimgmax);
         }
     }
 }

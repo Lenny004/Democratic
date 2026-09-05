@@ -20,39 +20,20 @@ namespace Democratic
         {
             InitializeComponent();
         }
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
-
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    lblNombreMiembro.ForeColor = Color.White;
-                    lblApellidoM.ForeColor = Color.White;
-                    lblDuiM.ForeColor = Color.White;
-                    lblFechaNM.ForeColor = Color.White;
-                    lblDireccionM.ForeColor = Color.White;
-                    label3.ForeColor = Color.White;
-                    label2.ForeColor = Color.White;
-                    label1.ForeColor = Color.White;
-                    lblEstadoM.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnAgregarM.BackColor = Celeste;
-                    BtnActualizarM.BackColor = Celeste;
-                    BtnLimpiar.BackColor = Celeste;
-                    toolStrip1.BackColor = Morado;
-                    PanelMiembro.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelMiembro,
+                toolStrip1,
+                new Control[]
+                {
+                    lblNombreMiembro, lblApellidoM, lblDuiM, lblFechaNM, lblDireccionM,
+                    label3, label2, label1, lblEstadoM
+                },
+                BtnAgregarM,
+                BtnActualizarM,
+                BtnLimpiar,
+                BtnMinimizar);
         }
 
         void VerificarIdioma()
@@ -369,22 +350,7 @@ namespace Democratic
 
         private void DgvMiembros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvMiembros.BackgroundColor = Medio;
-                    DgvMiembros.HeaderBgColor = Rosa;
-                    DgvMiembros.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvMiembros);
         }
 
         private void BtnCargarImageP_Click(object sender, EventArgs e)

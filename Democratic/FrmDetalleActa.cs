@@ -11,35 +11,17 @@ namespace Democratic
         {
             InitializeComponent();
         }
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
-
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    lblActa.ForeColor = Color.White;
-                    lblCantidadV.ForeColor = Color.White;
-                    lblBuscarDa.ForeColor = Color.White;
-                    lblPartido.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnAgregarDetalleA.BackColor = Celeste;
-                    BtnActualizarDetalleA.BackColor = Celeste;
-                    BtnLimpiarDetallesA.BackColor = Celeste;
-                    BtnEliminarDetalleA.BackColor = Rosa;
-                    PanelDA.BackColor = Morado;
-                    toolStrip1.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelDA,
+                toolStrip1,
+                new Control[] { lblActa, lblCantidadV, lblBuscarDa, lblPartido },
+                BtnAgregarDetalleA,
+                BtnActualizarDetalleA,
+                BtnLimpiarDetallesA,
+                BtnMinimizar,
+                BtnEliminarDetalleA);
         }
 
         void VerificarIdioma()
@@ -302,22 +284,7 @@ namespace Democratic
 
         private void DgvDetalleActa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvDetalleActa.BackgroundColor = Medio;
-                    DgvDetalleActa.HeaderBgColor = Rosa;
-                    DgvDetalleActa.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvDetalleActa);
         }
     }
 }

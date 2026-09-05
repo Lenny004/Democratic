@@ -12,8 +12,6 @@ namespace Democratic
     {
         private const int TotalOpciones = 9;
 
-        private readonly Color Gris = ColorTranslator.FromHtml("#3b3f48");
-
         private PictureBox[] _pbOpciones;
         private Label[] _lblNombreOpcion;
         private Label[] _lblDetalleOpcion;
@@ -45,18 +43,14 @@ namespace Democratic
 
         private void VerificarMode()
         {
-            switch (VarSession.Color)
+            UiTheme.ApplyGrayPanel(panel1, toolStrip1, BtnMinimizar);
+            if (UiTheme.IsDarkMode)
             {
-                case 1:
-                    panel1.BackColor = Gris;
-                    toolStrip1.BackColor = Gris;
-                    BtnMinimizar.ForeColor = Color.White;
-                    for (int i = 0; i < TotalOpciones; i++)
-                    {
-                        _lblNombreOpcion[i].ForeColor = Color.Cyan;
-                        _lblDetalleOpcion[i].ForeColor = Color.Cyan;
-                    }
-                    break;
+                for (int i = 0; i < TotalOpciones; i++)
+                {
+                    _lblNombreOpcion[i].ForeColor = UiTheme.AcentoCyan;
+                    _lblDetalleOpcion[i].ForeColor = UiTheme.AcentoCyan;
+                }
             }
         }
 

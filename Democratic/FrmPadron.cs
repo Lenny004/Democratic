@@ -15,8 +15,6 @@ namespace Democratic
 {
     public partial class FrmPadron : Form
     {
-        private Color Oscuro = ColorTranslator.FromHtml("#050334");
-
         public FrmPadron()
         {
             InitializeComponent();
@@ -24,16 +22,7 @@ namespace Democratic
 
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    ToolP.BackColor = Oscuro;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyToolbar(ToolP);
         }
 
         void TraerImagenMiembro()

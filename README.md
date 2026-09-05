@@ -13,7 +13,7 @@ Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos 
 - **Roles y permisos:** superadministrador, administrador, operador de mesa, representante de grupo, votante.
 - **Escrutinio:** registros por mesa y detalle por grupo.
 - **Gráficas en tiempo real** (`FrmGraficos`).
-- **Modo oscuro** e idiomas español / inglés.
+- **Modo oscuro** e idiomas español / inglés (paleta centralizada en `Democratic/UiTheme.cs`).
 - **Configuración inicial** sin correo SMTP: organización + superadministrador local.
 - **Sitio web complementario:** `Pagina Democratic 2020 Full/`.
 

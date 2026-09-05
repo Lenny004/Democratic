@@ -12,35 +12,17 @@ namespace Democratic
             InitializeComponent();
         }
 
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
-
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    lblcorrelativo.ForeColor = Color.White;
-                    LblEstadoJRV.ForeColor = Color.White;
-                    LblCV.ForeColor = Color.White;
-                    lblBuscar.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnIngresarJRV.BackColor = Celeste;
-                    BtnActualizarJRV.BackColor = Celeste;
-                    BtnLimpiarJRV.BackColor = Celeste;
-                    BtnEliminarJRV.BackColor = Rosa;
-                    PanelJRV.BackColor = Morado;
-                    toolStrip1.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelJRV,
+                toolStrip1,
+                new Control[] { lblcorrelativo, LblEstadoJRV, LblCV, lblBuscar },
+                BtnIngresarJRV,
+                BtnActualizarJRV,
+                BtnLimpiarJRV,
+                BtnMinimizar,
+                BtnEliminarJRV);
         }
 
         void VerificarIdioma()
@@ -324,22 +306,7 @@ namespace Democratic
 
         private void DgvJRV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvJRV.BackgroundColor = Medio;
-                    DgvJRV.HeaderBgColor = Rosa;
-                    DgvJRV.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvJRV);
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Controlador;
 using MySql.Data.MySqlClient;
 using System.IO;
+using Bunifu.Framework.UI;
 
 namespace Democratic
 {
@@ -21,12 +22,6 @@ namespace Democratic
         public string apellido = VarSession.apellido;
         public string TipoU = VarSession.TipoUser;
         public string usuario = VarSession.usuario;
-        
-        private Color Oscuro = ColorTranslator.FromHtml("#0c0715");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color FondoAzul = ColorTranslator.FromHtml("#282638");
-        private Color GrisH = ColorTranslator.FromHtml("#282638");
-        private Color Morado = ColorTranslator.FromHtml("#272244");
 
         Point pos1 = new Point(0,85);
         Point pos2 = new Point(0,129);
@@ -52,80 +47,22 @@ namespace Democratic
 
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    //Cambio de color a los botones
-                    BtnVotar.BackColor = Oscuro;
-                    BtnEstadisticas.BackColor = Oscuro;
-                    BtnAdminActas.BackColor = Oscuro;
-                    BtnJRVyCV.BackColor = Oscuro;
-                    BtnMiembroyUser.BackColor = Oscuro;
-                    BtnPartidoCandidato.BackColor = Oscuro;
-                    BtnVotos.BackColor = Oscuro;
-                    BtnEstructura.BackColor = Oscuro;
-                    BtnSalir.BackColor = Oscuro;
-                    menuStrip1.BackColor = Oscuro;
-                    BtnActas.BackColor = Medio;
-                    BtnDetalleActas.BackColor = Medio;
-                    BtnJRV.BackColor = Medio;
-                    BtnCV.BackColor = Medio;
-                    BtnMiembros.BackColor = Medio;
-                    BtnDetalleM.BackColor = Medio;
-                    BtnUsuarios.BackColor = Medio;
-                    BtnPartidos.BackColor = Medio;
-                    BtnC.BackColor = Medio;
-                    //Normal
-                    BtnCandidatos.Normalcolor = Oscuro;
-                    BtnVotar.Normalcolor = Oscuro;
-                    BtnEstadisticas.Normalcolor = Oscuro;
-                    BtnAdminActas.Normalcolor = Oscuro;
-                    BtnJRVyCV.Normalcolor = Oscuro;
-                    BtnMiembroyUser.Normalcolor = Oscuro;
-                    BtnPartidoCandidato.Normalcolor = Oscuro;
-                    BtnVotos.Normalcolor = Oscuro;
-                    BtnEstructura.Normalcolor = Oscuro;
-                    BtnSalir.Normalcolor = Oscuro;
-                    BtnActas.Normalcolor = Medio;
-                    BtnDetalleActas.Normalcolor = Medio;
-                    BtnJRV.Normalcolor = Medio;
-                    BtnCV.Normalcolor = Medio;
-                    BtnMiembros.Normalcolor = Medio;
-                    BtnDetalleM.Normalcolor = Medio;
-                    BtnUsuarios.Normalcolor = Medio;
-                    BtnPartidos.Normalcolor = Medio;
-                    BtnC.Normalcolor = Medio;
-                    //Hover
-                    BtnCandidatos.OnHovercolor = GrisH;
-                    BtnVotar.OnHovercolor = GrisH;
-                    BtnEstadisticas.OnHovercolor = GrisH;
-                    BtnAdminActas.OnHovercolor = GrisH;
-                    BtnJRVyCV.OnHovercolor = GrisH;
-                    BtnMiembroyUser.OnHovercolor = GrisH;
-                    BtnPartidoCandidato.OnHovercolor = GrisH;
-                    BtnVotos.OnHovercolor = GrisH;
-                    BtnEstructura.OnHovercolor = GrisH;
-                    BtnSalir.OnHovercolor = GrisH;
-                    BtnActas.OnHovercolor = GrisH;
-                    BtnDetalleActas.OnHovercolor = GrisH;
-                    BtnJRV.OnHovercolor = GrisH;
-                    BtnCV.OnHovercolor = GrisH;
-                    BtnMiembros.OnHovercolor = GrisH;
-                    BtnDetalleM.OnHovercolor = GrisH;
-                    BtnUsuarios.OnHovercolor = GrisH;
-                    BtnPartidos.OnHovercolor = GrisH;
-                    BtnC.OnHovercolor = GrisH;
-                    //Otrosfijos
-                    PanelUser.BackColor = FondoAzul;
-                    PanelSidebar.BackColor = FondoAzul;
-                    toolStrip1.BackColor = Morado;
-                    toolStrip2.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyContenedor(
+                PanelSidebar,
+                PanelUser,
+                menuStrip1,
+                toolStrip1,
+                toolStrip2,
+                new BunifuFlatButton[]
+                {
+                    BtnCandidatos, BtnVotar, BtnEstadisticas, BtnAdminActas, BtnJRVyCV,
+                    BtnMiembroyUser, BtnPartidoCandidato, BtnVotos, BtnEstructura, BtnSalir
+                },
+                new BunifuFlatButton[]
+                {
+                    BtnActas, BtnDetalleActas, BtnJRV, BtnCV, BtnMiembros,
+                    BtnDetalleM, BtnUsuarios, BtnPartidos, BtnC
+                });
         }
 
         void VerificarIdioma()

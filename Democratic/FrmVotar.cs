@@ -12,7 +12,6 @@ namespace Democratic
     {
         private const int TotalOpciones = 9;
 
-        private readonly Color Gris = ColorTranslator.FromHtml("#3b3f48");
         public string DtToday = DateTime.Now.ToString("yyyy-MM-dd");
         public string DtNow = DateTime.Now.ToString("hh:mm:ss");
         public int estadov = 1;
@@ -59,14 +58,7 @@ namespace Democratic
 
         private void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    panel1.BackColor = Gris;
-                    toolStrip1.BackColor = Gris;
-                    BtnMinimizar.ForeColor = Color.White;
-                    break;
-            }
+            UiTheme.ApplyGrayPanel(panel1, toolStrip1, BtnMinimizar);
         }
 
         private void CargarImagenOpcion(int idOpcion, PictureBox destino)

@@ -9,7 +9,6 @@ namespace Democratic
 {
     public partial class FrmGraficos : Form
     {
-        private readonly Color Gris = ColorTranslator.FromHtml("#3b3f48");
         private readonly ArrayList _nombresGrupo = new ArrayList();
         private readonly ArrayList _cantidadVotos = new ArrayList();
 
@@ -20,17 +19,7 @@ namespace Democratic
 
         private void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    ChartVotos1.BackColor = Gris;
-                    ChartVotos2.BackColor = Gris;
-                    ChartVotos3.BackColor = Gris;
-                    GrpGrafCandidato.ForeColor = Color.White;
-                    panel1.BackColor = Gris;
-                    GrpGrafCandidato.BackColor = Gris;
-                    break;
-            }
+            UiTheme.ApplyCharts(panel1, GrpGrafCandidato, ChartVotos1, ChartVotos2, ChartVotos3);
         }
 
         private void ConfigurarTitulosGraficas()

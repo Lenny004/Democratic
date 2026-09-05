@@ -11,8 +11,6 @@ namespace Democratic
 {
     public partial class FrmLogin : Form
     {
-        private Color azul = ColorTranslator.FromHtml("#324E7E");
-        private Color Oscuro = ColorTranslator.FromHtml("#050334");
         private string User;
         private int intentos;
         private int idEstadoUsuario;
@@ -533,6 +531,12 @@ namespace Democratic
             lblOlvidar.Visible = false;
         }
 
+        void AplicarTema()
+        {
+            SwitchDark.Value = UiTheme.IsDarkMode;
+            UiTheme.ApplyLogin(ToolS1, panel1, txtUsuario, txtClave, TxtDui, TxtOCR);
+        }
+
         void VerificarTribunalYUser()
         {
             int valor = LoginController.VerificacionTribunal_Controller();
@@ -690,6 +694,7 @@ namespace Democratic
             VerificarIdioma();
             VerificarTribunalYUser();
             OcultarRegistroPorCorreo();
+            AplicarTema();
             TraerImagenTribunal();
         }
 
@@ -846,16 +851,8 @@ namespace Democratic
 
         private void SwitchDark_Click(object sender, EventArgs e)
         {
-            if (SwitchDark.Value == true)
-            {
-                VarSession.Color = 1;
-                ToolS1.BackColor = Oscuro;
-            }
-            else
-            {
-                VarSession.Color = 2;
-                ToolS1.BackColor = azul;
-            }
+            VarSession.Color = SwitchDark.Value ? 1 : 2;
+            AplicarTema();
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)

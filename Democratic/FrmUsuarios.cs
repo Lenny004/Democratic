@@ -13,13 +13,6 @@ namespace Democratic
 {
     public partial class FrmUsuarios : Form
     {
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
-
         public FrmUsuarios()
         {
             InitializeComponent();
@@ -41,32 +34,19 @@ namespace Democratic
 
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    lblUser3.ForeColor = Color.White;
-                    lblEstadoU.ForeColor = Color.White;
-                    lblkey.ForeColor = Color.White;
-                    lblTipoU.ForeColor = Color.White;
-                    lblDui.ForeColor = Color.White;
-                    lblMiembro.ForeColor = Color.White;
-                    lblIntento.ForeColor = Color.White;
-                    lblCV.ForeColor = Color.White;
-                    lblBuscar2.ForeColor = Color.White;
-                    lblMostrar.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnAgregarUsuario.BackColor = Celeste;
-                    BtnActualizarU.BackColor = Celeste;
-                    BtnLimpiarU.BackColor = Celeste;
-                    BtnEliminarU.BackColor = Rosa;
-                    toolStrip1.BackColor = Morado;
-                    PanelUser.BackColor = Morado;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelUser,
+                toolStrip1,
+                new Control[]
+                {
+                    lblUser3, lblEstadoU, lblkey, lblTipoU, lblDui, lblMiembro,
+                    lblIntento, lblCV, lblBuscar2, lblMostrar
+                },
+                BtnAgregarUsuario,
+                BtnActualizarU,
+                BtnLimpiarU,
+                BtnMinimizar,
+                BtnEliminarU);
         }
 
         void VerificarIdioma()
@@ -505,22 +485,7 @@ namespace Democratic
 
         private void DgvUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvUsuarios.BackgroundColor = Medio;
-                    DgvUsuarios.HeaderBgColor = Rosa;
-                    DgvUsuarios.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvUsuarios);
         }
     }
 }

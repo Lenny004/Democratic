@@ -17,38 +17,20 @@ namespace Democratic
         {
             InitializeComponent();
         }
-        private Color Celeste = ColorTranslator.FromHtml("#4e79a2");
-        private Color Rosa = ColorTranslator.FromHtml("#BF5E6F");
-        private Color Rosa2 = ColorTranslator.FromHtml("#f25c5c");
-        private Color Oscuro = ColorTranslator.FromHtml("#211f2e");
-        private Color Medio = ColorTranslator.FromHtml("#454356");
-        private Color Morado = ColorTranslator.FromHtml("#161422");
-
         void VerificarMode()
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    PanelCV.BackColor = Morado;
-                    toolStrip1.BackColor = Morado;
-                    lblCV.ForeColor = Color.White;
-                    lblCantidadJRV.ForeColor = Color.White;
-                    lblMunicipio.ForeColor = Color.White;
-                    lblestado.ForeColor = Color.White;
-                    lblCantidadBoleta.ForeColor = Color.White;
-                    lblTribunal.ForeColor = Color.White;
-                    lblBuscar.ForeColor = Color.White;
-                    BtnMinimizar.ForeColor = Color.White;
-                    BtnIngresarCV.BackColor = Celeste;
-                    BtnActualizarCV.BackColor = Celeste;
-                    BtnLimpiarCV.BackColor = Celeste;
-                    BtnEliminarCV.BackColor = Rosa;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.ApplyCrudPanel(
+                PanelCV,
+                toolStrip1,
+                new Control[]
+                {
+                    lblCV, lblCantidadJRV, lblMunicipio, lblestado, lblCantidadBoleta, lblTribunal, lblBuscar
+                },
+                BtnIngresarCV,
+                BtnActualizarCV,
+                BtnLimpiarCV,
+                BtnMinimizar,
+                BtnEliminarCV);
         }
 
         void VerificarIdioma()
@@ -370,22 +352,7 @@ namespace Democratic
 
         private void DgvCV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            switch (VarSession.Color)
-            {
-                case 1:
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Oscuro;
-                    e.CellStyle.SelectionBackColor = Color.Cyan;
-                    e.CellStyle.SelectionForeColor = Color.Black;
-                    DgvCV.BackgroundColor = Medio;
-                    DgvCV.HeaderBgColor = Rosa;
-                    DgvCV.HeaderForeColor = Color.White;
-                    break;
-                case 2:
-                    break;
-                default:
-                    break;
-            }
+            UiTheme.FormatGridCell(e, DgvCV);
         }
     }
 }
