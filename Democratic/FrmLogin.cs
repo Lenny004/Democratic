@@ -22,8 +22,6 @@ namespace Democratic
         private string Tipo_Usuario;
         private int CentroV;
         private int JRV;
-        private int numero = 1;
-        private bool _mostrarInfoPendiente;
         private string DtNow = DateTime.Now.ToString("hh:mm:ss");
         private TimeSpan HoraBloqueo;
         private TimeSpan HoraDesbloqueo;
@@ -33,31 +31,24 @@ namespace Democratic
             InitializeComponent();
         }
 
-        void ObtenerDatos()
+        void CargarSesionDesdeDatos(List<string> datos)
         {
-            try
+            if (datos == null || datos.Count < 11)
             {
-                List<string> datos = LoginController.Nivel_Controller();
-                User = datos[0];
-                idEstadoUsuario = Convert.ToInt16(datos[2]);
-                idnivel = Convert.ToInt16(datos[3]);
-                idmiembro = Convert.ToInt16(datos[4]);
-                nombre = datos[5];
-                lastname = datos[6];
-                DUI = datos[7];
-                CentroV = Convert.ToInt16(datos[8]);
-                JRV = Convert.ToInt16(datos[9]);
-                Tipo_Usuario = datos[10];
+                return;
             }
-            catch (Exception)
-            {
-                if (Rdenglish.Checked == true){
-                    FrmNoti.Noti(Idiomas.EnglishMessage.msjocubase, Idiomas.EnglishMessage.msjerrorconexion);
-                }
-                else{
-                    FrmNoti.Noti(Idiomas.MensajesEspanol.msjocubase, Idiomas.MensajesEspanol.msjerrorconexion);
-                }
-            }
+
+            User = datos[0];
+            idEstadoUsuario = Convert.ToInt16(datos[2]);
+            idnivel = Convert.ToInt16(datos[3]);
+            idmiembro = Convert.ToInt16(datos[4]);
+            nombre = datos[5];
+            lastname = datos[6];
+            DUI = datos[7];
+            CentroV = Convert.ToInt16(datos[8]);
+            JRV = Convert.ToInt16(datos[9]);
+            Tipo_Usuario = datos[10];
+
             VarSession.usuario = User;
             VarSession.EstadoUsuario = idEstadoUsuario;
             VarSession.nivelU = idnivel;
@@ -68,6 +59,39 @@ namespace Democratic
             VarSession.apellido = lastname;
             VarSession.DUI = DUI;
             VarSession.TipoUser = Tipo_Usuario;
+        }
+
+        void ObtenerDatos()
+        {
+            try
+            {
+                List<string> datos = LoginController.Nivel_Controller();
+                if (datos == null)
+                {
+                    if (Rdenglish.Checked)
+                    {
+                        FrmNoti.Noti(Idiomas.EnglishMessage.msjocubase, Idiomas.EnglishMessage.msjerrorconexion);
+                    }
+                    else
+                    {
+                        FrmNoti.Noti(Idiomas.MensajesEspanol.msjocubase, Idiomas.MensajesEspanol.msjerrorconexion);
+                    }
+                    return;
+                }
+
+                CargarSesionDesdeDatos(datos);
+            }
+            catch (Exception)
+            {
+                if (Rdenglish.Checked)
+                {
+                    FrmNoti.Noti(Idiomas.EnglishMessage.msjocubase, Idiomas.EnglishMessage.msjerrorconexion);
+                }
+                else
+                {
+                    FrmNoti.Noti(Idiomas.MensajesEspanol.msjocubase, Idiomas.MensajesEspanol.msjerrorconexion);
+                }
+            }
         }
 
         void ObtenerDatos2()
@@ -103,57 +127,26 @@ namespace Democratic
         }
 
         void EnvioDatosLog()
-        { 
+        {
             AtributosLogin.usuario = txtUsuario.Text;
-            string claveEncriptada = Validaciones.GetMD5(txtClave.Text);
             AtributosLogin.Clave_Usuario = txtClave.Text;
-            ObtenerDatos();
+
             int acceso = LoginController.Acceso_Controller();
-
-            if (acceso == 1 && (VarSession.EstadoUsuario == 1 || VarSession.EstadoUsuario == 3))
+            if (acceso != 1)
             {
-                if (Rdenglish.Checked == true)
+                if (acceso == 2)
                 {
-                    VarSession.idioma = 1;
-                }
-                else if (Rdespanol.Checked == true)
-                {
-                    VarSession.idioma = 2;
-                }
-                else
-                {
-                    VarSession.idioma = 2;
-                }
-
-                if (SwitchDark.Value == true)
-                {
-                    VarSession.Color = 1;
-                }
-                else
-                {
-                    VarSession.Color = 2;
-                }
-                ObtenerDatos();
-                FrmPadron padron = new FrmPadron();
-                padron.Show();
-                this.Hide();
-            }
-            else if (acceso == 2 || VarSession.EstadoUsuario == 2)
-            {
-                if (Rdenglish.Checked == true)
-                {
-                    MessageBox.Show(Idiomas.EnglishMessage.msjuserdenied, Idiomas.EnglishMessage.msjperdioconexiontitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (Rdenglish.Checked)
+                    {
+                        MessageBox.Show(Idiomas.EnglishMessage.msjuserdenied, Idiomas.EnglishMessage.msjperdioconexiontitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Idiomas.MensajesEspanol.msjuserdenied, Idiomas.MensajesEspanol.msjperdioconexiontitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     ActualizarIntentos();
                 }
-                else
-                {
-                    MessageBox.Show(Idiomas.MensajesEspanol.msjuserdenied, Idiomas.MensajesEspanol.msjperdioconexiontitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    ActualizarIntentos();
-                }
-            }
-            else
-            {
-                if (Rdenglish.Checked == true)
+                else if (Rdenglish.Checked)
                 {
                     FrmNoti.Noti(Idiomas.EnglishMessage.msjocubase, Idiomas.EnglishMessage.msjerrorconexion);
                 }
@@ -161,6 +154,54 @@ namespace Democratic
                 {
                     FrmNoti.Noti(Idiomas.MensajesEspanol.msjocubase, Idiomas.MensajesEspanol.msjerrorconexion);
                 }
+                return;
+            }
+
+            ObtenerDatos();
+            if (string.IsNullOrEmpty(VarSession.usuario))
+            {
+                if (Rdenglish.Checked)
+                {
+                    FrmNoti.Noti(Idiomas.EnglishMessage.msjocubase, Idiomas.EnglishMessage.msjerrorconexion);
+                }
+                else
+                {
+                    FrmNoti.Noti(Idiomas.MensajesEspanol.msjocubase, Idiomas.MensajesEspanol.msjerrorconexion);
+                }
+                return;
+            }
+
+            if (VarSession.EstadoUsuario == 1 || VarSession.EstadoUsuario == 3)
+            {
+                if (Rdenglish.Checked)
+                {
+                    VarSession.idioma = 1;
+                }
+                else if (Rdespanol.Checked)
+                {
+                    VarSession.idioma = 2;
+                }
+                else
+                {
+                    VarSession.idioma = 2;
+                }
+
+                VarSession.Color = SwitchDark.Value ? 1 : 2;
+                FrmPadron padron = new FrmPadron();
+                padron.Show();
+                this.Hide();
+            }
+            else if (VarSession.EstadoUsuario == 2)
+            {
+                if (Rdenglish.Checked)
+                {
+                    MessageBox.Show(Idiomas.EnglishMessage.msjuserdenied, Idiomas.EnglishMessage.msjperdioconexiontitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(Idiomas.MensajesEspanol.msjuserdenied, Idiomas.MensajesEspanol.msjperdioconexiontitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                ActualizarIntentos();
             }
         }
 
@@ -302,6 +343,11 @@ namespace Democratic
             try
             {
                 List<string> datos = LoginController.Nivel_Controller();
+                if (datos == null || datos.Count < 2)
+                {
+                    return;
+                }
+
                 intentos = Convert.ToInt16(datos[1]);
                 AtributosLogin.usuario = txtUsuario.Text;
                 VarSession.intentos = intentos;
@@ -561,10 +607,25 @@ namespace Democratic
             lblOlvidar.Visible = false;
         }
 
+        void OcultarLoginDuiOcr()
+        {
+            TxtDui.Visible = false;
+            TxtOCR.Visible = false;
+            LblDui.Visible = false;
+            LblOCR.Visible = false;
+            BtnAcceder2.Visible = false;
+            lblOr.Visible = false;
+            Separador3.Visible = false;
+            Separador4.Visible = false;
+            Separador5.Visible = false;
+            Separador6.Visible = false;
+            bunifuImageButton1.Visible = false;
+        }
+
         void AplicarTema()
         {
             SwitchDark.Value = UiTheme.IsDarkMode;
-            UiTheme.ApplyLogin(ToolS1, panel1, txtUsuario, txtClave, TxtDui, TxtOCR);
+            UiTheme.ApplyLogin(ToolS1, panel1, txtUsuario, txtClave);
         }
 
         void VerificarTribunalYUser()
@@ -581,11 +642,6 @@ namespace Democratic
                     BtnPrimerUsuario.Visible = false;
                     PBcourt.Visible = false;
                     PBuser.Visible = false;
-                    if (numero == 1 && !VarSession.OmitirDialogoInfoInicio)
-                    {
-                        numero = numero + 1;
-                        _mostrarInfoPendiente = true;
-                    }
                 }
                 else if (valor2 == 0)
                 {
@@ -724,6 +780,7 @@ namespace Democratic
             Opacity = 1;
             VerificarIdioma();
             OcultarRegistroPorCorreo();
+            OcultarLoginDuiOcr();
             AplicarTema();
             VerificarTribunalYUser();
         }
@@ -731,13 +788,6 @@ namespace Democratic
         private void FrmLogin_Shown(object sender, EventArgs e)
         {
             TraerImagenTribunal();
-
-            if (_mostrarInfoPendiente)
-            {
-                _mostrarInfoPendiente = false;
-                BeginInvoke(new Action(() => FrmInfo.Frminfo()));
-            }
-
             VarSession.OmitirDialogoInfoInicio = false;
         }
 
@@ -811,6 +861,7 @@ namespace Democratic
             BtnPrimerUso.Text = Idiomas.English.btnprimeruso;
             BtnPrimerUsuario.Text = Idiomas.English.btnprimerusuario;
             VerificarTribunalYUser();
+            OcultarLoginDuiOcr();
             OcultarRegistroPorCorreo();
         }
 
@@ -885,10 +936,9 @@ namespace Democratic
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ValidacionesTexto.soloNumeros(e);
-            if (e.KeyChar == '-')
+            if (e.KeyChar == '"')
             {
-                e.Handled = false;
+                e.Handled = true;
             }
         }
 

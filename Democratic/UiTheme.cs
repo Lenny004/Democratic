@@ -203,6 +203,12 @@ namespace Democratic
         }
 
         public static void ApplyLogin(ToolStrip toolbar, Panel panel,
+            TextBox txtUser, TextBox txtPass)
+        {
+            ApplyLogin(toolbar, panel, txtUser, txtPass, null, null);
+        }
+
+        public static void ApplyLogin(ToolStrip toolbar, Panel panel,
             TextBox txtUser, TextBox txtPass, TextBox txtDui, TextBox txtOcr)
         {
             ApplyToolbar(toolbar);

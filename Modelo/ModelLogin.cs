@@ -118,7 +118,7 @@ namespace Modelo
             List<string> datos = null;
             try
             {
-                string query = "SELECT tu.nombre_usuario, tu.intentos_fallidos, tu.id_estado_usuario, tu.id_rol, tm.id_participante, tm.nombre, tm.apellido, tm.documento_identidad, tm.id_sede, tm.id_mesa, r.nombre_rol FROM tb_usuario tu INNER JOIN tb_participante tm ON tu.id_participante = tm.id_participante INNER JOIN tb_rol r ON tu.id_rol = r.id_rol WHERE tu.nombre_usuario = BINARY ?param1";
+                string query = "SELECT tu.nombre_usuario, tu.intentos_fallidos, tu.id_estado_usuario, tu.id_rol, COALESCE(CAST(tu.id_participante AS CHAR), '0'), COALESCE(tm.nombre, ''), COALESCE(tm.apellido, ''), COALESCE(tm.documento_identidad, ''), COALESCE(CAST(COALESCE(tm.id_sede, tu.id_sede) AS CHAR), '0'), COALESCE(CAST(COALESCE(tm.id_mesa, tu.id_mesa) AS CHAR), '0'), r.nombre_rol FROM tb_usuario tu INNER JOIN tb_rol r ON tu.id_rol = r.id_rol LEFT JOIN tb_participante tm ON tu.id_participante = tm.id_participante WHERE tu.nombre_usuario = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
@@ -301,7 +301,7 @@ namespace Modelo
             List<string> datos = null;
             try
             {
-                string query = "SELECT tu.hora_bloqueo, tu.hora_desbloqueo FROM tb_usuario tu INNER JOIN tb_participante tm ON tu.id_participante = tm.id_participante INNER JOIN tb_rol r ON tu.id_rol = r.id_rol WHERE tu.nombre_usuario = BINARY ?param1";
+                string query = "SELECT tu.hora_bloqueo, tu.hora_desbloqueo FROM tb_usuario tu WHERE tu.nombre_usuario = BINARY ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
                 cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
