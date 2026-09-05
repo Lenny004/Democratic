@@ -19,29 +19,32 @@ namespace Modelo
         /// <returns>1 si las credenciales son válidas, 2 si son inválidas, 3 si hay error.</returns>
         public static int Acceso(string usuario, string Clave_Usuario)
         {
-            int retorno = 0;
-            bool retornoaux;
+            MySqlConnection conn = null;
             try
             {
-                string query = "SELECT * FROM tb_usuario tu WHERE tu.nombre_usuario = BINARY ?param1 AND tu.clave = BINARY ?param2";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
-                cmdselect.Parameters.Add(new MySqlParameter("param2", Clave_Usuario));
-                retornoaux = Convert.ToBoolean(cmdselect.ExecuteScalar());
+                conn = Conexion.getConnect();
+                if (conn == null)
+                {
+                    return 3;
+                }
 
-                if (retornoaux == true)
-                {
-                    retorno = 1;
-                }
-                else
-                {
-                    retorno = 2;
-                }
-                return retorno;
+                const string query = "SELECT COUNT(*) FROM tb_usuario tu WHERE tu.nombre_usuario = BINARY ?param1 AND tu.clave = BINARY ?param2";
+                MySqlCommand cmdselect = new MySqlCommand(query, conn);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", usuario ?? string.Empty));
+                cmdselect.Parameters.Add(new MySqlParameter("param2", Clave_Usuario ?? string.Empty));
+                int coincidencias = Convert.ToInt32(cmdselect.ExecuteScalar());
+                return coincidencias > 0 ? 1 : 2;
             }
             catch (Exception)
             {
-                return retorno = 3;
+                return 3;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -52,28 +55,31 @@ namespace Modelo
         /// <returns>1 si el DUI existe, 2 si no existe, 3 si hay error.</returns>
         public static int Acceso2(string DUI)
         {
-            int retorno = 0;
-            bool retornoDUI;
+            MySqlConnection conn = null;
             try
             {
-                string query = "SELECT * FROM tb_participante WHERE documento_identidad = BINARY ?param1";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", DUI));
-                retornoDUI = Convert.ToBoolean(cmdselect.ExecuteScalar());
+                conn = Conexion.getConnect();
+                if (conn == null)
+                {
+                    return 3;
+                }
 
-                if (retornoDUI == true)
-                {
-                    retorno = 1;
-                }
-                else
-                {
-                    retorno = 2;
-                }
-                return retorno;
+                const string query = "SELECT COUNT(*) FROM tb_participante WHERE documento_identidad = BINARY ?param1";
+                MySqlCommand cmdselect = new MySqlCommand(query, conn);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", DUI ?? string.Empty));
+                int coincidencias = Convert.ToInt32(cmdselect.ExecuteScalar());
+                return coincidencias > 0 ? 1 : 2;
             }
             catch (Exception)
             {
-                return retorno = 3;
+                return 3;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -84,27 +90,31 @@ namespace Modelo
         /// <returns>1 si el OCR existe, 2 si no existe, 3 si hay error.</returns>
         public static int Acceso3(string OCR)
         {
-            int retorno = 0;
-            bool retornoOCR;
+            MySqlConnection conn = null;
             try
             {
-                string query = "SELECT * FROM tb_participante WHERE codigo_ocr = BINARY ?param1";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", OCR));
-                retornoOCR = Convert.ToBoolean(cmdselect.ExecuteScalar());
-                if (retornoOCR == true)
+                conn = Conexion.getConnect();
+                if (conn == null)
                 {
-                    retorno = 1;
+                    return 3;
                 }
-                else
-                {
-                    retorno = 2;
-                }
-                return retorno;
+
+                const string query = "SELECT COUNT(*) FROM tb_participante WHERE codigo_ocr = BINARY ?param1";
+                MySqlCommand cmdselect = new MySqlCommand(query, conn);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", OCR ?? string.Empty));
+                int coincidencias = Convert.ToInt32(cmdselect.ExecuteScalar());
+                return coincidencias > 0 ? 1 : 2;
             }
             catch (Exception)
             {
-                return retorno = 3;
+                return 3;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -116,34 +126,52 @@ namespace Modelo
         public static List<string>ObtenerDatos(string usuario)
         {
             List<string> datos = null;
+            MySqlConnection conn = null;
             try
             {
-                string query = "SELECT tu.nombre_usuario, tu.intentos_fallidos, tu.id_estado_usuario, tu.id_rol, COALESCE(CAST(tu.id_participante AS CHAR), '0'), COALESCE(tm.nombre, ''), COALESCE(tm.apellido, ''), COALESCE(tm.documento_identidad, ''), COALESCE(CAST(COALESCE(tm.id_sede, tu.id_sede) AS CHAR), '0'), COALESCE(CAST(COALESCE(tm.id_mesa, tu.id_mesa) AS CHAR), '0'), r.nombre_rol FROM tb_usuario tu INNER JOIN tb_rol r ON tu.id_rol = r.id_rol LEFT JOIN tb_participante tm ON tu.id_participante = tm.id_participante WHERE tu.nombre_usuario = BINARY ?param1";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                cmdselect.Parameters.Add(new MySqlParameter("param1", usuario));
+                conn = Conexion.getConnect();
+                if (conn == null)
+                {
+                    return null;
+                }
+
+                const string query = "SELECT tu.nombre_usuario, CAST(tu.intentos_fallidos AS CHAR), CAST(tu.id_estado_usuario AS CHAR), CAST(tu.id_rol AS CHAR), COALESCE(CAST(tu.id_participante AS CHAR), '0'), COALESCE(tm.nombre, ''), COALESCE(tm.apellido, ''), COALESCE(tm.documento_identidad, ''), COALESCE(CAST(COALESCE(tm.id_sede, tu.id_sede) AS CHAR), '0'), COALESCE(CAST(COALESCE(tm.id_mesa, tu.id_mesa) AS CHAR), '0'), r.nombre_rol FROM tb_usuario tu INNER JOIN tb_rol r ON tu.id_rol = r.id_rol LEFT JOIN tb_participante tm ON tu.id_participante = tm.id_participante WHERE tu.nombre_usuario = BINARY ?param1";
+                MySqlCommand cmdselect = new MySqlCommand(query, conn);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", usuario ?? string.Empty));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
 
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    datos.Add(reader.GetString(0));
-                    datos.Add(reader.GetString(1));
-                    datos.Add(reader.GetString(2));
-                    datos.Add(reader.GetString(3));
-                    datos.Add(reader.GetString(4));
-                    datos.Add(reader.GetString(5));
-                    datos.Add(reader.GetString(6));
-                    datos.Add(reader.GetString(7));
-                    datos.Add(reader.GetString(8));
-                    datos.Add(reader.GetString(9));
-                    datos.Add(reader.GetString(10));
+                    for (int i = 0; i < 11; i++)
+                    {
+                        datos.Add(LeerCampo(reader, i));
+                    }
                 }
+                reader.Close();
                 return datos;
             }
             catch (Exception)
             {
                 return datos;
             }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private static string LeerCampo(MySqlDataReader reader, int indice)
+        {
+            if (reader.IsDBNull(indice))
+            {
+                return string.Empty;
+            }
+
+            return Convert.ToString(reader.GetValue(indice)) ?? string.Empty;
         }
 
         /// <summary>
@@ -349,21 +377,41 @@ namespace Modelo
         public static List<string> ObtenerCV(int id)
         {
             List<string> datos = null;
+            MySqlConnection conn = null;
             try
             {
-                string query = "SELECT nombre_sede FROM tb_sede WHERE id_sede = '"+ id +"'  ";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                if (id <= 0)
+                {
+                    return datos;
+                }
+
+                conn = Conexion.getConnect();
+                if (conn == null)
+                {
+                    return datos;
+                }
+
+                MySqlCommand cmdselect = new MySqlCommand("SELECT nombre_sede FROM tb_sede WHERE id_sede = ?param1", conn);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", id));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    datos.Add(reader.GetString(0));
+                    datos.Add(LeerCampo(reader, 0));
                 }
+                reader.Close();
                 return datos;
             }
             catch (Exception)
             {
                 return datos;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -375,21 +423,41 @@ namespace Modelo
         public static List<string> ObtenerJRV(int id)
         {
             List<string> datos = null;
+            MySqlConnection conn = null;
             try
             {
-                string query = "SELECT codigo_mesa FROM tb_mesa WHERE id_mesa = '" + id + "'  ";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                if (id <= 0)
+                {
+                    return datos;
+                }
+
+                conn = Conexion.getConnect();
+                if (conn == null)
+                {
+                    return datos;
+                }
+
+                MySqlCommand cmdselect = new MySqlCommand("SELECT codigo_mesa FROM tb_mesa WHERE id_mesa = ?param1", conn);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", id));
                 MySqlDataReader reader = cmdselect.ExecuteReader();
                 while (reader.Read())
                 {
                     datos = new List<string>();
-                    datos.Add(reader.GetString(0));
+                    datos.Add(LeerCampo(reader, 0));
                 }
+                reader.Close();
                 return datos;
             }
             catch (Exception)
             {
                 return datos;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
             }
         }
     }

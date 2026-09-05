@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using Controlador;
 using MySql.Data.MySqlClient;
-using System.IO;
 
 namespace Democratic
 {
@@ -25,59 +20,81 @@ namespace Democratic
             UiTheme.ApplyToolbar(ToolP);
         }
 
+        string TextoSinAsignar()
+        {
+            return VarSession.idioma == 1 ? "Unassigned" : "Sin asignar";
+        }
+
         void TraerImagenMiembro()
         {
             try
             {
+                if (VarSession.idmiembro <= 0)
+                {
+                    return;
+                }
+
                 int id = VarSession.idmiembro;
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "SELECT imagen FROM tb_participante WHERE id_participante = '"+ id +"'  ";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
+                if (conexion == null)
+                {
+                    return;
+                }
+
+                MySqlCommand cmdselect = new MySqlCommand("SELECT imagen FROM tb_participante WHERE id_participante = ?param1", conexion);
+                cmdselect.Parameters.Add(new MySqlParameter("param1", id));
                 MySqlDataReader Reader = cmdselect.ExecuteReader();
                 while (Reader.Read())
                 {
+                    if (Reader.IsDBNull(0))
+                    {
+                        continue;
+                    }
+
                     byte[] imagenP = Convert.FromBase64String(Reader.GetString(0));
                     MemoryStream ms = new MemoryStream(imagenP);
                     PBPersona.Image = Image.FromStream(ms);
                 }
+                Reader.Close();
+                conexion.Close();
             }
             catch (Exception)
             {
-
             }
         }
 
         void ObtenerCVJRV()
         {
+            string vacio = TextoSinAsignar();
+            lblCV.Text = vacio;
+            JrvCorrelativo.Text = vacio;
+
             try
             {
                 AtributosLogin.CV = VarSession.idCentroV;
                 AtributosLogin.JRV = VarSession.idJRV;
                 List<string> datos = LoginController.BuscarCV_Controller();
                 List<string> datos2 = LoginController.BuscarJRV_Controller();
-                lblCV.Text = datos[0];
-                JrvCorrelativo.Text = datos2[0];
+                if (datos != null && datos.Count > 0 && !string.IsNullOrWhiteSpace(datos[0]))
+                {
+                    lblCV.Text = datos[0];
+                }
+                if (datos2 != null && datos2.Count > 0 && !string.IsNullOrWhiteSpace(datos2[0]))
+                {
+                    JrvCorrelativo.Text = datos2[0];
+                }
             }
             catch (Exception)
             {
-                throw;
             }
         }
 
         void ObtenerDatos()
         {
             ObtenerCVJRV();
-            try
-            {
-                lblNombre.Text = VarSession.nombre;
-                lblApellido.Text = VarSession.apellido;
-                lblDui.Text = VarSession.DUI;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            lblNombre.Text = string.IsNullOrWhiteSpace(VarSession.nombre) ? VarSession.usuario : VarSession.nombre;
+            lblApellido.Text = string.IsNullOrWhiteSpace(VarSession.apellido) ? TextoSinAsignar() : VarSession.apellido;
+            lblDui.Text = string.IsNullOrWhiteSpace(VarSession.DUI) ? TextoSinAsignar() : VarSession.DUI;
         }
 
         private void FrmPadron_Load(object sender, EventArgs e)

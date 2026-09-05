@@ -128,7 +128,7 @@ namespace Democratic
 
         void EnvioDatosLog()
         {
-            AtributosLogin.usuario = txtUsuario.Text;
+            AtributosLogin.usuario = txtUsuario.Text.Trim();
             AtributosLogin.Clave_Usuario = txtClave.Text;
 
             int acceso = LoginController.Acceso_Controller();
@@ -631,10 +631,10 @@ namespace Democratic
         void VerificarTribunalYUser()
         {
             int valor = LoginController.VerificacionTribunal_Controller();
-            if (valor == 1)
+            if (valor >= 1)
             {
                 int valor2 = LoginController.VerificacionUsuario_Controller();
-                if (valor2 == 1)
+                if (valor2 >= 1)
                 {
                     PicturePrimerUso.Visible = false;
                     BtnPrimerUso.Visible = false;
