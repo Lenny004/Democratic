@@ -526,6 +526,13 @@ namespace Democratic
             }
         }
 
+        void OcultarRegistroPorCorreo()
+        {
+            lblCuenta.Visible = false;
+            lblRegistrar.Visible = false;
+            lblOlvidar.Visible = false;
+        }
+
         void VerificarTribunalYUser()
         {
             int valor = LoginController.VerificacionTribunal_Controller();
@@ -682,6 +689,7 @@ namespace Democratic
         {
             VerificarIdioma();
             VerificarTribunalYUser();
+            OcultarRegistroPorCorreo();
             TraerImagenTribunal();
         }
 
@@ -717,16 +725,10 @@ namespace Democratic
         
         private void lblRegistrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmRegistrar frmregistro = new FrmRegistrar();
-            frmregistro.Show();
-            this.Hide();
         }
 
         private void lblOlvidar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmRecuperarPass frmrecuperar = new FrmRecuperarPass();
-            frmrecuperar.Show();
-            this.Hide();
         }
 
         private void PBcourt_Click(object sender, EventArgs e)

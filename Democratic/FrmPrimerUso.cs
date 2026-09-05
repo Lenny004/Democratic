@@ -4,14 +4,11 @@ using System.IO;//Para Cargar imagen(permiten leer y escribir en archivos y fluj
 using System.Drawing.Imaging;//Para Cargar imagen
 using System.Windows.Forms;
 using Controlador;
-using System.Text;
 
 namespace Democratic
 {
     public partial class FrmPrimerUso : Form
     {
-        public string contra;
-        public string correo;
         public FrmPrimerUso()
         {
             InitializeComponent();
@@ -26,16 +23,12 @@ namespace Democratic
                     lblPais.Text = Idiomas.English.lblpais;
                     lblTipo.Text = Idiomas.English.lbltipo;
                     lblComposicion.Text = Idiomas.English.lblcomposicion;
-                    lblCorreoTribunalRegister.Text = Idiomas.English.lblcorreotribunalregister;
-                    lblContraRegister.Text = Idiomas.English.lblkey;
-                    lblinfo.Text = Idiomas.English.lblinfo;
                     lblFecha.Text = Idiomas.English.lblfecha;
                     lblJurisdiccion.Text = Idiomas.English.lbljurisdiccion;
                     lblSede.Text = Idiomas.English.lblsede;
                     LblContrainfo.Text = Idiomas.English.Lblcontrainfo;
                     LblimgT.Text = Idiomas.English.lblimgT;
                     Lblimgmax.Text = Idiomas.English.lblimgmax;
-                    lblmenosseguras.Text = Idiomas.English.lblmenosseguras;
                     BtnCargarImagen.Text = Idiomas.English.btncargarimagen;
                     BtnContinuar.Text = Idiomas.English.btncontinuar;
                     BtnCerrar.Text = Idiomas.English.btncerrar;
@@ -46,6 +39,16 @@ namespace Democratic
                 default:
                     break;
             }
+        }
+
+        void OcultarControlesCorreo()
+        {
+            txtCorreoRegister.Visible = false;
+            TxtContraseñaRegister.Visible = false;
+            lblCorreoTribunalRegister.Visible = false;
+            lblContraRegister.Visible = false;
+            lblinfo.Visible = false;
+            lblmenosseguras.Visible = false;
         }
 
         private void BtnCargarImagen_Click(object sender, EventArgs e)
@@ -64,7 +67,6 @@ namespace Democratic
         void LimpiarCamposTribunal()
         {
             txtComposicion.Clear();
-            txtCorreoRegister.Clear();
             txtpais.Clear();
             txtTipo.Clear();
             txtJurisdiccion.Clear();
@@ -88,17 +90,9 @@ namespace Democratic
                 agregar.tipo = txtTipo.Text;
                 agregar.jurisdicción = txtJurisdiccion.Text;
                 agregar.sede = txtSede.Text;
+                agregar.correotribunal = string.Empty;
+                agregar.contratribunal = string.Empty;
 
-                string correo = txtCorreoRegister.Text;
-                byte[] correoByte = Encoding.ASCII.GetBytes(correo);
-                string CorreoE = Convert.ToBase64String(correoByte);
-                agregar.correotribunal = CorreoE;
-
-                string contra = TxtContraseñaRegister.Text;
-                byte[] contraByte = Encoding.ASCII.GetBytes(contra);
-                string ContraE = Convert.ToBase64String(contraByte);
-                agregar.contratribunal = ContraE;
-                
                 if (agregar.EnviarDatosTribunal_Controller() == false)
                 {
                     if (VarSession.idioma == 1)
@@ -137,9 +131,7 @@ namespace Democratic
                     string.IsNullOrWhiteSpace(txtTipo.Text.Trim()) ||
                     string.IsNullOrWhiteSpace(txtJurisdiccion.Text.Trim()) ||
                     string.IsNullOrWhiteSpace(txtComposicion.Text.Trim()) ||
-                    string.IsNullOrWhiteSpace(txtSede.Text.Trim()) ||
-                    string.IsNullOrWhiteSpace(TxtContraseñaRegister.Text.Trim()) ||
-                    string.IsNullOrWhiteSpace(txtCorreoRegister.Text.Trim()))
+                    string.IsNullOrWhiteSpace(txtSede.Text.Trim()))
                 {
                     if (VarSession.idioma == 1)
                     {
@@ -268,12 +260,10 @@ namespace Democratic
 
         private void txtCorreo_MouseEnter(object sender, EventArgs e)
         {
-            lblCorreoTribunalRegister.ForeColor = Color.DarkBlue;
         }
 
         private void txtCorreo_MouseLeave(object sender, EventArgs e)
         {
-            lblCorreoTribunalRegister.ForeColor = Color.White;
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -314,6 +304,7 @@ namespace Democratic
         private void FrmPrimerUso_Load(object sender, EventArgs e)
         {
             VerificarIdioma();
+            OcultarControlesCorreo();
         }
     }
 }

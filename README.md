@@ -14,6 +14,7 @@ Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos 
 - **Escrutinio:** registros por mesa y detalle por grupo.
 - **Gráficas en tiempo real** (`FrmGraficos`).
 - **Modo oscuro** e idiomas español / inglés.
+- **Configuración inicial** sin correo SMTP: organización + superadministrador local.
 - **Sitio web complementario:** `Pagina Democratic 2020 Full/`.
 
 ---
@@ -76,7 +77,7 @@ Documentación del dominio: **[docs/DOMINIO-VOTACION.md](docs/DOMINIO-VOTACION.m
 2. Abrir `Democratic.sln` en Visual Studio.
 3. Proyecto de inicio: **Vista**.
 4. Compilar y ejecutar.
-5. Primer arranque: registrar **organización** (`FrmPrimerUso`) y usuario root (`FrmPrimerUsuario`) si la base está vacía.
+5. Primer arranque: registrar **organización** (`FrmPrimerUso`) y **superadministrador** (`FrmPrimerUsuario`) si la base está vacía. No se solicita cuenta de correo en el primer uso; registro público y recuperación por email están deshabilitados.
 
 ---
 

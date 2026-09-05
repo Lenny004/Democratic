@@ -201,6 +201,31 @@ namespace Modelo
         }
 
         /// <summary>
+        /// Registra el primer usuario administrador del sistema (sin mesa ni participante).
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario.</param>
+        /// <param name="clave">Contraseña.</param>
+        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> en caso contrario.</returns>
+        public static bool RegistrarUsuarioRoot(string usuario, string clave)
+        {
+            bool retorno;
+            try
+            {
+                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol) VALUES ('{0}','{1}',0,1,1)", usuario, clave), Conexion.getConnect());
+                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                return retorno;
+            }
+            catch (Exception)
+            {
+                return retorno = false;
+            }
+            finally
+            {
+                Conexion.getConnect().Close();
+            }
+        }
+
+        /// <summary>
         /// Busca un estado de usuario por su nombre.
         /// </summary>
         /// <param name="idEstado_Usuario">Nombre del estado a buscar.</param>

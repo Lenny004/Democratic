@@ -144,12 +144,6 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin2.Designer.cs">
-      <DependentUpon>FrmLogin2.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmContenedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,18 +179,6 @@
     </Compile>
     <Compile Include="FrmPrimerUsuario.Designer.cs">
       <DependentUpon>FrmPrimerUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRecuperarPass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRecuperarPass.Designer.cs">
-      <DependentUpon>FrmRecuperarPass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRegistrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegistrar.Designer.cs">
-      <DependentUpon>FrmRegistrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -290,9 +272,6 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin2.resx">
-      <DependentUpon>FrmLogin2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmContenedor.resx">
       <DependentUpon>FrmContenedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,12 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrimerUsuario.resx">
       <DependentUpon>FrmPrimerUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRecuperarPass.resx">
-      <DependentUpon>FrmRecuperarPass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistrar.resx">
-      <DependentUpon>FrmRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

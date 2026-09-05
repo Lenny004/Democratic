@@ -79,6 +79,15 @@ namespace Controlador
         }
 
         /// <summary>
+        /// Registra el primer superadministrador durante la configuración inicial.
+        /// </summary>
+        /// <returns><c>true</c> si el registro fue exitoso; en caso contrario, <c>false</c>.</returns>
+        public bool EnviarDatosUsuarioRoot_Controller()
+        {
+            return ModelUsuarios.RegistrarUsuarioRoot(usuario, clave);
+        }
+
+        /// <summary>
         /// Carga el estado de un usuario mediante consulta con inner join.
         /// </summary>
         /// <param name="id">Identificador del estado a consultar.</param>
