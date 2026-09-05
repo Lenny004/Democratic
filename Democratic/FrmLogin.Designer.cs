@@ -665,10 +665,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
-            this.Opacity = 0.95D;
+            this.Opacity = 1D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.Shown += new System.EventHandler(this.FrmLogin_Shown);
             this.ToolS1.ResumeLayout(false);
             this.ToolS1.PerformLayout();
             this.panel1.ResumeLayout(false);

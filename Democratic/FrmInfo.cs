@@ -37,7 +37,7 @@ namespace Democratic
 
         private void FrmInfo_Load(object sender, EventArgs e)
         {
-            Esclarecer.ShowAsyc(this);
+            Opacity = 1;
             VerificarIdioma();
         }
 

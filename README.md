@@ -1,8 +1,8 @@
 # Democratic — Plantilla genérica de votación
 
-Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos **MySQL 8** para gestionar procesos de votación configurables: organización del evento, sedes, mesas, grupos de opciones, emisión de votos, escrutinio y **gráficas de resultados**.
+Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos **MySQL 8** para gestionar **procesos de votación configurables** (no solo elecciones estatales): organización del evento, sedes, mesas, grupos de opciones, emisión de votos, escrutinio y gráficas.
 
-> Plantilla genérica reutilizable. El esquema físico usa tablas `tb_*` con nombres de dominio actual (organización, grupo, opción, sede, mesa, etc.).
+> La UI y algunos formularios aún dicen «Tribunal», «partido», «candidato» o «JRV» por herencia del proyecto original; en el modelo genérico equivalen a organización, grupo de opciones, opción y mesa.
 
 ---
 

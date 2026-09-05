@@ -118,17 +118,10 @@ namespace Democratic
                 }
                 else
                 {
-                    if (VarSession.idioma == 1)
-                    {
-                        MessageBox.Show(Idiomas.EnglishMessage.msjloggedpuser, Idiomas.EnglishMessage.msjloggedpusertitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(Idiomas.MensajesEspanol.msjloggedpuser, Idiomas.MensajesEspanol.msjloggedpusertitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    FrmLogin FrmLogin = new FrmLogin();
-                    FrmLogin.Show();
-                    this.Hide();
+                    VarSession.OmitirDialogoInfoInicio = true;
+                    FrmLogin login = new FrmLogin();
+                    login.Show();
+                    this.Close();
                 }
             }
             catch (Exception)

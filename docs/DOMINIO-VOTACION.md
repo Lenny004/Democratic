@@ -6,7 +6,9 @@ Modelo conceptual y esquema físico **genérico** para procesos de votación con
 
 ## Visión general
 
-1. **Organización** (`tb_organizacion`) — contexto del evento.
+Plantilla **genérica de votación configurable**: sirve para elecciones, encuestas internas, votaciones escolares o corporativas. El esquema físico usa tablas `tb_*`; la UI WinForms conserva **nombres legacy** del origen electoral salvadoreño (Tribunal, JRV, partido, candidato, DUI) como alias de conceptos genéricos (organización, mesa, grupo, opción, participante).
+
+1. **Organización** (`tb_organizacion`) — contexto del evento de votación.
 2. **Grupos de opciones** (`tb_grupo_opciones`) — agrupación de alternativas.
 3. **Opciones** (`tb_opcion`) — ítems votables.
 4. **Participantes** (`tb_participante`) — padrón asignado a sedes y mesas.

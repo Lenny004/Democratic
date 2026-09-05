@@ -76,6 +76,9 @@ namespace Controlador
         /// <summary>Identificador del esquema de color de la interfaz.</summary>
         public static int Color { get; set; }
 
+        /// <summary>Omitir el diálogo informativo al abrir login (p. ej. tras configuración inicial).</summary>
+        public static bool OmitirDialogoInfoInicio { get; set; }
+
         /// <summary>Indica si el rol actual es Votante.</summary>
         /// <returns><c>true</c> si el rol es <see cref="Roles.Votante"/>; en caso contrario, <c>false</c>.</returns>
         public static bool EsVotante()

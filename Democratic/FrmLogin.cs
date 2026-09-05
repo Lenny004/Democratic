@@ -23,6 +23,7 @@ namespace Democratic
         private int CentroV;
         private int JRV;
         private int numero = 1;
+        private bool _mostrarInfoPendiente;
         private string DtNow = DateTime.Now.ToString("hh:mm:ss");
         private TimeSpan HoraBloqueo;
         private TimeSpan HoraDesbloqueo;
@@ -448,30 +449,59 @@ namespace Democratic
 
         void TraerImagenTribunal()
         {
-            try
+            System.Threading.Tasks.Task.Run(() =>
             {
-                MySqlConnection conexion = MainController.ConnectController();
-                string query = "SELECT imagen FROM tb_organizacion";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
-                MySqlDataReader Reader = cmdselect.ExecuteReader();
-                while (Reader.Read())
+                try
                 {
-                    byte[] imagenP = Convert.FromBase64String(Reader.GetString(0));
-                    MemoryStream ms = new MemoryStream(imagenP);
-                    PbITLogin.Image = Image.FromStream(ms);
+                    MySqlConnection conexion = MainController.ConnectController();
+                    string query = "SELECT imagen FROM tb_organizacion LIMIT 1";
+                    MySqlCommand cmdselect = new MySqlCommand(query, conexion);
+                    MySqlDataReader reader = cmdselect.ExecuteReader();
+                    Image imagen = null;
+                    if (reader.Read())
+                    {
+                        byte[] imagenP = Convert.FromBase64String(reader.GetString(0));
+                        using (MemoryStream ms = new MemoryStream(imagenP))
+                        {
+                            imagen = Image.FromStream(ms);
+                        }
+                    }
+                    reader.Close();
+                    conexion.Close();
+
+                    if (imagen == null || IsDisposed)
+                    {
+                        return;
+                    }
+
+                    BeginInvoke(new Action(() =>
+                    {
+                        if (!IsDisposed)
+                        {
+                            PbITLogin.Image = imagen;
+                        }
+                    }));
                 }
-            }
-            catch (Exception)
-            {
-                if (Rdenglish.Checked == true)
+                catch (Exception)
                 {
-                    MessageBox.Show(Idiomas.EnglishMessage.msjtribunal, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (IsDisposed)
+                    {
+                        return;
+                    }
+
+                    BeginInvoke(new Action(() =>
+                    {
+                        if (Rdenglish.Checked)
+                        {
+                            MessageBox.Show(Idiomas.EnglishMessage.msjtribunal, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Idiomas.MensajesEspanol.msjtribunal, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }));
                 }
-                else
-                {
-                    MessageBox.Show(Idiomas.MensajesEspanol.msjtribunal, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            });
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -551,10 +581,10 @@ namespace Democratic
                     BtnPrimerUsuario.Visible = false;
                     PBcourt.Visible = false;
                     PBuser.Visible = false;
-                    if (numero == 1)
+                    if (numero == 1 && !VarSession.OmitirDialogoInfoInicio)
                     {
                         numero = numero + 1;
-                        FrmInfo.Frminfo();
+                        _mostrarInfoPendiente = true;
                     }
                 }
                 else if (valor2 == 0)
@@ -691,11 +721,24 @@ namespace Democratic
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            Opacity = 1;
             VerificarIdioma();
-            VerificarTribunalYUser();
             OcultarRegistroPorCorreo();
             AplicarTema();
+            VerificarTribunalYUser();
+        }
+
+        private void FrmLogin_Shown(object sender, EventArgs e)
+        {
             TraerImagenTribunal();
+
+            if (_mostrarInfoPendiente)
+            {
+                _mostrarInfoPendiente = false;
+                BeginInvoke(new Action(() => FrmInfo.Frminfo()));
+            }
+
+            VarSession.OmitirDialogoInfoInicio = false;
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------
