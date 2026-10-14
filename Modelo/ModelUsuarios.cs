@@ -186,7 +186,8 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol, id_mesa, id_participante) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", usuario, clave, intento, Estado_Usuario, Tipo_Usuario, JRV, id_Miembro), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol, id_mesa, id_participante) VALUES (?usuario, ?clave, ?intento, ?estado, ?rol, ?mesa, ?miembro)", Conexion.getConnect());
+                cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave)); cmdinsert.Parameters.AddWithValue("intento", intento); cmdinsert.Parameters.AddWithValue("estado", Estado_Usuario); cmdinsert.Parameters.AddWithValue("rol", Tipo_Usuario); cmdinsert.Parameters.AddWithValue("mesa", JRV); cmdinsert.Parameters.AddWithValue("miembro", id_Miembro);
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -211,7 +212,8 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol) VALUES ('{0}','{1}',0,1,1)", usuario, clave), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol) VALUES (?usuario, ?clave, 0, 1, 1)", Conexion.getConnect());
+                cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave));
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -319,8 +321,9 @@ namespace Modelo
             DataTable data;
             try
             {
-                string query = "SELECT s.id_sede AS id_Centro_Votación, s.nombre_sede AS Nombre_Centro_Votación, s.id_registro_escrutinio AS id_Acta, s.cantidad_mesas AS Cantidad_de_JRV, s.id_estado_sede AS id_Estado_CentroVotación, s.id_municipio AS id_Municipio, s.id_organizacion AS id_Tribunal FROM tb_sede s WHERE s.id_sede = '" + idCentro_Votacion + "'";
+                string query = "SELECT s.id_sede AS id_Centro_Votación, s.nombre_sede AS Nombre_Centro_Votación, s.id_registro_escrutinio AS id_Acta, s.cantidad_mesas AS Cantidad_de_JRV, s.id_estado_sede AS id_Estado_CentroVotación, s.id_municipio AS id_Municipio, s.id_organizacion AS id_Tribunal FROM tb_sede s WHERE s.id_sede = ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                cmdselect.Parameters.AddWithValue("param1", idCentro_Votacion);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();
                 adp.Fill(data);
@@ -374,8 +377,9 @@ namespace Modelo
             DataTable data;
             try
             {
-                string query = "SELECT m.id_mesa AS id_JRV, m.codigo_mesa AS Correlativo_JRV, m.id_sede AS id_Centro_Votación, m.id_estado_mesa AS id_Estado_JRV FROM tb_mesa m WHERE m.id_mesa = '" + id_JRV + "'";
+                string query = "SELECT m.id_mesa AS id_JRV, m.codigo_mesa AS Correlativo_JRV, m.id_sede AS id_Centro_Votación, m.id_estado_mesa AS id_Estado_JRV FROM tb_mesa m WHERE m.id_mesa = ?param1";
                 MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+                cmdselect.Parameters.AddWithValue("param1", id_JRV);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmdselect);
                 data = new DataTable();
                 adp.Fill(data);
@@ -436,7 +440,8 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET nombre_usuario = '" + usuario + "', clave = '" + clave + "', intentos_fallidos = '" + intento + "', id_estado_usuario = '" + Estado_Usuario + "', id_rol = '" + Tipo_Usuario + "', id_mesa = '" + JRV + "', id_participante = '" + id_Miembro + "' WHERE id_usuario = '" + idusuario + "'  "), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET nombre_usuario = ?usuario, clave = ?clave, intentos_fallidos = ?intento, id_estado_usuario = ?estado, id_rol = ?rol, id_mesa = ?mesa, id_participante = ?miembro WHERE id_usuario = ?id", Conexion.getConnect());
+                cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave)); cmdinsert.Parameters.AddWithValue("intento", intento); cmdinsert.Parameters.AddWithValue("estado", Estado_Usuario); cmdinsert.Parameters.AddWithValue("rol", Tipo_Usuario); cmdinsert.Parameters.AddWithValue("mesa", JRV); cmdinsert.Parameters.AddWithValue("miembro", id_Miembro); cmdinsert.Parameters.AddWithValue("id", idusuario);
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }
@@ -456,7 +461,8 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_usuario WHERE id_usuario = '" + id + "' "), Conexion.getConnect());
+                MySqlCommand cmddel = new MySqlCommand("DELETE FROM tb_usuario WHERE id_usuario = ?id", Conexion.getConnect());
+                cmddel.Parameters.AddWithValue("id", id);
                 retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
                 if (retorno == 1)
                 {

@@ -1,6 +1,7 @@
 ﻿using Controlador;
 using Modelo;
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -10,7 +11,6 @@ namespace Democratic
 {
     public partial class FrmVotar : Form
     {
-        private const int TotalOpciones = 9;
 
         public string DtToday = DateTime.Now.ToString("yyyy-MM-dd");
         public string DtNow = DateTime.Now.ToString("hh:mm:ss");
@@ -89,9 +89,8 @@ namespace Democratic
             }
         }
 
-        private void CargarOpcion(int indice)
+        private void CargarOpcion(int indice, int idOpcion)
         {
-            int idOpcion = indice + 1;
             CargarImagenOpcion(idOpcion, _pbOpciones[indice]);
 
             List<string> datos = VotoController.BuscarIdGrupoPorOpcion_Controller(idOpcion);
@@ -101,14 +100,20 @@ namespace Democratic
             }
 
             _txtIdGrupo[indice].Text = datos[0];
+            _txtIdGrupo[indice].Tag = idOpcion;
             CargarImagenGrupo(Convert.ToInt32(datos[0]), _pbGrupos[indice]);
         }
 
         private void CargarTodasLasOpciones()
         {
-            for (int i = 0; i < TotalOpciones; i++)
+            DataTable opciones = CandidatosController.CargarOpciones_Controller();
+            int limite = opciones == null ? 0 : Math.Min(opciones.Rows.Count, _pbOpciones.Length);
+            for (int i = 0; i < _pbOpciones.Length; i++)
             {
-                CargarOpcion(i);
+                _pbOpciones[i].Visible = i < limite;
+                _pbGrupos[i].Visible = false;
+                _btnVotar[i].Visible = i < limite;
+                if (i < limite) CargarOpcion(i, Convert.ToInt32(opciones.Rows[i]["id_Candidato"]));
             }
         }
 
@@ -154,7 +159,7 @@ namespace Democratic
 
         private void InhabilitarVotacion()
         {
-            for (int i = 0; i < TotalOpciones; i++)
+            for (int i = 0; i < _btnVotar.Length; i++)
             {
                 _pbOpciones[i].Enabled = false;
                 _pbGrupos[i].Enabled = false;
@@ -179,28 +184,14 @@ namespace Democratic
 
         private void EnviarVoto(int indice)
         {
+            if (!int.TryParse(_txtIdGrupo[indice].Tag == null ? string.Empty : _txtIdGrupo[indice].Tag.ToString(), out int idOpcion)) return;
             VotoController agregarBoleta = new VotoController();
             agregarBoleta.FechaV = Convert.ToString(DtToday);
+            agregarBoleta.HoraV = Convert.ToString(DtNow);
             agregarBoleta.idEstadoBoleta = estadoB;
             agregarBoleta.JRV = Randomjrv;
-            if (!agregarBoleta.RegistrarBoleta_Controller())
-            {
-                MostrarMensajeBoletaOcupada();
-                return;
-            }
-
-            List<string> datosBoleta = VotoController.ObtenerBoleta_Controller();
-            Boleta = Convert.ToInt16(datosBoleta[0]);
-
-            int idGrupo = Convert.ToInt16(_txtIdGrupo[indice].Text);
-
-            VotoController agregarVoto = new VotoController();
-            agregarVoto.Partido = idGrupo;
-            agregarVoto.Boleta = Boleta;
-            agregarVoto.EstadoVoto = estadov;
-            agregarVoto.FechaV = Convert.ToString(DtToday);
-            agregarVoto.HoraV = Convert.ToString(DtNow);
-            if (!agregarVoto.RegistrarVoto_Controller())
+            agregarBoleta.EstadoVoto = estadov;
+            if (!agregarBoleta.RegistrarBoletaYVoto_Controller(idOpcion))
             {
                 MostrarMensajeVotoInvalido();
                 return;

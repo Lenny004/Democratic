@@ -19,32 +19,26 @@ namespace Modelo
         /// <returns>1 si las credenciales son válidas, 2 si son inválidas, 3 si hay error.</returns>
         public static int Acceso(string usuario, string Clave_Usuario)
         {
-            MySqlConnection conn = null;
             try
             {
-                conn = Conexion.getConnect();
-                if (conn == null)
+                using (MySqlConnection conn = Conexion.getConnect())
+                using (MySqlCommand command = new MySqlCommand("SELECT clave FROM tb_usuario WHERE nombre_usuario = BINARY ?usuario", conn))
                 {
-                    return 3;
+                    command.Parameters.AddWithValue("usuario", usuario ?? string.Empty);
+                    object value = command.ExecuteScalar();
+                    bool legacy;
+                    if (value == null || !PasswordHasher.Verify(Clave_Usuario, Convert.ToString(value), out legacy)) return 2;
+                    if (legacy)
+                    {
+                        using (MySqlCommand update = new MySqlCommand("UPDATE tb_usuario SET clave = ?clave WHERE nombre_usuario = BINARY ?usuario", conn))
+                        { update.Parameters.AddWithValue("clave", PasswordHasher.Hash(Clave_Usuario)); update.Parameters.AddWithValue("usuario", usuario); update.ExecuteNonQuery(); }
+                    }
+                    return 1;
                 }
-
-                const string query = "SELECT COUNT(*) FROM tb_usuario tu WHERE tu.nombre_usuario = BINARY ?param1 AND tu.clave = BINARY ?param2";
-                MySqlCommand cmdselect = new MySqlCommand(query, conn);
-                cmdselect.Parameters.Add(new MySqlParameter("param1", usuario ?? string.Empty));
-                cmdselect.Parameters.Add(new MySqlParameter("param2", Clave_Usuario ?? string.Empty));
-                int coincidencias = Convert.ToInt32(cmdselect.ExecuteScalar());
-                return coincidencias > 0 ? 1 : 2;
             }
             catch (Exception)
             {
                 return 3;
-            }
-            finally
-            {
-                if (conn != null)
-                {
-                    conn.Close();
-                }
             }
         }
 
@@ -285,7 +279,8 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET intentos_fallidos = '" + intento + "' WHERE nombre_usuario = BINARY ?param1"), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET intentos_fallidos = ?intento WHERE nombre_usuario = BINARY ?param1", Conexion.getConnect());
+                cmdinsert.Parameters.AddWithValue("intento", intento);
                 cmdinsert.Parameters.Add(new MySqlParameter("param1", usuario));
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
@@ -308,7 +303,8 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET hora_bloqueo = '" + horaI + "', hora_desbloqueo = '"+ horaA +"' WHERE nombre_usuario = BINARY ?param1"), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET hora_bloqueo = ?horaI, hora_desbloqueo = ?horaA WHERE nombre_usuario = BINARY ?param1", Conexion.getConnect());
+                cmdinsert.Parameters.AddWithValue("horaI", horaI); cmdinsert.Parameters.AddWithValue("horaA", horaA);
                 cmdinsert.Parameters.Add(new MySqlParameter("param1", usuario));
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
@@ -359,7 +355,8 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET id_estado_usuario = '"+ EstadoU +"' WHERE nombre_usuario = '" + usuario + "'  "), Conexion.getConnect());
+                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET id_estado_usuario = ?estado WHERE nombre_usuario = BINARY ?usuario", Conexion.getConnect());
+                cmdinsert.Parameters.AddWithValue("estado", EstadoU); cmdinsert.Parameters.AddWithValue("usuario", usuario);
                 retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
                 return retorno;
             }

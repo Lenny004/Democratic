@@ -1,95 +1,101 @@
-# Democratic — Plantilla genérica de votación
+<!-- readme-standard:v1 -->
+<!-- section:header -->
+# Democratic
 
-Aplicación de escritorio **WinForms (.NET Framework 4.5.2)** con base de datos **MySQL 8** para gestionar **procesos de votación configurables** (no solo elecciones estatales): organización del evento, sedes, mesas, grupos de opciones, emisión de votos, escrutinio y gráficas.
+Aplicación WinForms para configurar procesos de votación y registrar sus resultados.
 
-> Los nombres internos de clases y formularios pueden conservar alias legacy (`FrmJRV`, `ModelPartido`, etc.); la interfaz y los mensajes usan terminología genérica (organización, sede, mesa, grupo de opciones, participante, escrutinio).
+<!-- section:toc -->
+## 📑 Contenido
 
----
+- [Aspectos destacados](#-aspectos-destacados)
+- [Descripción](#ℹ️-descripción)
+- [Requisitos](#📋-requisitos)
+- [Instalación](#⬇️-instalación)
+- [Uso](#🚀-uso)
+- [Configuración](#⚙️-configuración)
+- [Estructura](#🗂️-estructura-del-proyecto)
+- [Desarrollo](#🛠️-desarrollo)
+- [Soporte y contribuciones](#💭-soporte-y-contribuciones)
+- [Licencia](#📄-licencia)
 
-## Características
+<!-- section:highlights -->
+## 🌟 Aspectos destacados
 
-- **Votación configurable:** grupos de opciones y opciones ilimitadas.
-- **Padrón de participantes** con autenticación por usuario y contraseña.
-- **Roles y permisos:** superadministrador, administrador, operador de mesa, representante de grupo, votante.
-- **Escrutinio:** registros por mesa y detalle por grupo.
-- **Gráficas en tiempo real** (`FrmGraficos`).
-- **Modo oscuro** e idiomas español / inglés (paleta centralizada en `Democratic/UiTheme.cs`).
-- **Configuración inicial** sin correo SMTP: organización + superadministrador local.
-- **Sitio web complementario:** `Pagina Democratic 2020 Full/`.
+- **Votación configurable**: administra grupos y opciones con IDs reales de la base de datos.
+- **Autenticación segura**: PBKDF2 con sal y migración automática de claves legadas.
+- **Integridad del voto**: boleta y voto se registran en una sola transacción MySQL.
+- **Gestión electoral**: incluye participantes, sedes, mesas, usuarios y escrutinio.
 
----
+<!-- section:overview -->
+## ℹ️ Descripción
 
-## Arquitectura
+Democratic es una aplicación de escritorio para organizar un proceso de votación, administrar su padrón y registrar votos por grupo de opciones. La separación Vista–Controlador–Modelo mantiene los formularios, la lógica y el acceso a MySQL diferenciados.
 
-| Proyecto | Carpeta | Responsabilidad |
-|----------|---------|-----------------|
-| **Vista** | `Democratic/` | Formularios WinForms |
-| **Controlador** | `Controlador/` | Lógica de presentación |
-| **Modelo** | `Modelo/` | Acceso a datos MySQL |
+**Stack:** C# WinForms, .NET Framework 4.8, MySQL 8 y MySql.Data.
 
+<!-- section:requirements -->
+## 📋 Requisitos
+
+- Windows con .NET Framework 4.8.
+- Visual Studio 2019 o posterior con las herramientas de escritorio .NET.
+- MySQL 8.x y una base creada con `sql/schema_generico_mysql8.sql`.
+
+<!-- section:installation -->
+## ⬇️ Instalación
+
+1. Copia `.env.example` a `.env` y completa la conexión local.
+2. Ejecuta `sql/schema_generico_mysql8.sql` en MySQL.
+3. Abre `Democratic.sln` en Visual Studio.
+4. Compila y ejecuta el proyecto `Vista`.
+
+<!-- section:usage -->
+## 🚀 Uso
+
+En el primer arranque registra la organización y el superadministrador. Después configura sedes, mesas, grupos y opciones; finalmente inicia sesión para emitir votos y consultar resultados.
+
+<!-- section:configuration -->
+## ⚙️ Configuración
+
+**`.env`**
+
+| Variable | Descripción | Ejemplo | Requerida |
+|---|---|---|---|
+| `DB_HOST` | Host de MySQL | `127.0.0.1` | Sí |
+| `DB_PORT` | Puerto de MySQL | `3306` | Sí |
+| `DB_DATABASE` | Base de datos | `dbdemocratic` | Sí |
+| `DB_USERNAME` | Usuario de MySQL | `root` | Sí |
+| `DB_PASSWORD` | Contraseña de MySQL | `TU_CLAVE_LOCAL` | Sí |
+| `DB_CHARSET` | Codificación de conexión | `utf8mb4` | Sí |
+
+<!-- section:structure -->
+## 🗂️ Estructura del proyecto
+
+```text
+.
+├── Democratic/       # Formularios y recursos WinForms
+├── Controlador/      # Coordinación de la interfaz y el modelo
+├── Modelo/           # Conexión, consultas y seguridad de datos
+├── sql/              # Esquema inicial de MySQL
+├── docs/             # Documentación del dominio
+└── Democratic.sln    # Solución de Visual Studio
 ```
-Vista → Controlador → Modelo → MySQL (dbdemocratic)
+
+<!-- section:development -->
+## 🛠️ Desarrollo
+
+```powershell
+msbuild Democratic.sln /t:Build /p:Configuration=Debug
 ```
 
----
+La DLL de MySQL y Bunifu se resuelven desde `lib/`, mediante rutas relativas al repositorio.
 
-## Requisitos
+<!-- section:contributing -->
+## 💭 Soporte y contribuciones
 
-- Windows con **.NET Framework 4.5.2+**
-- **Visual Studio 2015+**
-- **MySQL 8.x** (utf8mb4)
-- Base de datos: `dbdemocratic`
+Reporta errores describiendo pasos para reproducirlos, versión de Windows, versión de MySQL y mensajes relevantes. Las contribuciones deben mantener consultas parametrizadas y conexiones dentro de `using`.
 
-### Conexión MySQL (`.env`)
+<!-- section:license -->
+## 📄 Licencia
 
-Copia `.env.example` a `.env` en la raíz de `Democratic/`:
+TODO(readme): indicar la licencia del proyecto.
 
-```env
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=dbdemocratic
-DB_USERNAME=root
-DB_PASSWORD=tu_clave
-DB_CHARSET=utf8mb4
-```
-
-`Modelo/Conexion.cs` lee estas variables al iniciar la app (busca `.env` desde `bin/Debug` hacia arriba). El archivo `.env` no se sube al repositorio.
-
----
-
-## Base de datos
-
-### Crear esquema genérico
-
-```bash
-"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p < sql/schema_generico_mysql8.sql
-```
-
-Crea tablas como `tb_organizacion`, `tb_grupo_opciones`, `tb_opcion`, `tb_sede`, `tb_mesa`, `tb_voto`, `tb_participante`, `tb_usuario`, catálogos de estado y roles semilla.
-
-Documentación del dominio: **[docs/DOMINIO-VOTACION.md](docs/DOMINIO-VOTACION.md)**
-
----
-
-## Compilación y ejecución
-
-1. Ejecutar el script SQL anterior.
-2. Abrir `Democratic.sln` en Visual Studio.
-3. Proyecto de inicio: **Vista**.
-4. Compilar y ejecutar.
-5. Primer arranque: registrar **organización** (`FrmPrimerUso`) y **superadministrador** (`FrmPrimerUsuario`) si la base está vacía. No se solicita cuenta de correo en el primer uso; registro público y recuperación por email están deshabilitados.
-
----
-
-## Estructura del repositorio
-
-```
-Democratic/
-├── Democratic/          # Vista (WinForms)
-├── Controlador/
-├── Modelo/
-├── docs/DOMINIO-VOTACION.md
-├── sql/schema_generico_mysql8.sql
-├── Democratic.sln
-└── README.md
-```

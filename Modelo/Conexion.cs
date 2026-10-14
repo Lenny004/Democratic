@@ -12,10 +12,9 @@ namespace Modelo
         /// <summary>
         /// Abre y devuelve una conexión activa a la base de datos MySQL.
         /// </summary>
-        /// <returns>Conexión abierta, o <c>null</c> si ocurre un error al conectar.</returns>
+        /// <returns>Conexión abierta.</returns>
         public static MySqlConnection getConnect()
         {
-            MySqlConnection connect = null;
             try
             {
                 string server = EnvConfig.Get("DB_HOST", "127.0.0.1");
@@ -34,13 +33,14 @@ namespace Modelo
                     password,
                     charset);
 
-                connect = new MySqlConnection(connectionString);
+                MySqlConnection connect = new MySqlConnection(connectionString);
                 connect.Open();
                 return connect;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                System.Diagnostics.Trace.TraceError("Error al conectar con MySQL: {0}", ex);
+                throw;
             }
         }
     }

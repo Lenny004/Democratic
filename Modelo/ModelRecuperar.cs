@@ -47,8 +47,9 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_usuario SET clave = '" + contraUpd + "' WHERE nombre_usuario = '" + correo2 + "'  "), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                using (MySqlConnection connection = Conexion.getConnect())
+                using (MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET clave = ?clave WHERE nombre_usuario = BINARY ?usuario", connection))
+                { cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(contraUpd)); cmdinsert.Parameters.AddWithValue("usuario", correo2); retorno = cmdinsert.ExecuteNonQuery() == 1; }
                 return retorno;
             }
             catch (Exception)

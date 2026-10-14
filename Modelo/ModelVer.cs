@@ -20,8 +20,9 @@ namespace Modelo
             List<string> datos = null;
             try
             {
-                string query = "SELECT nombre, apellido FROM tb_opcion WHERE id_opcion = " + idOpcion;
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
+            string query = "SELECT nombre, apellido FROM tb_opcion WHERE id_opcion = ?id";
+            MySqlCommand cmdselect = new MySqlCommand(query, Conexion.getConnect());
+            cmdselect.Parameters.AddWithValue("id", idOpcion);
                 MySqlDataReader leer = cmdselect.ExecuteReader();
                 while (leer.Read())
                 {

@@ -1,133 +1,68 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace Modelo
 {
-    /// <summary>
-    /// Capa Modelo: acceso a datos MySQL. Gestión de boletas y votos
-    /// en la plantilla genérica de votación. Tablas físicas: tb_boleta, tb_voto, tb_opcion.
-    /// </summary>
+    /// <summary>Registra boletas y votos con consultas parametrizadas.</summary>
     public class ModelVoto
     {
-        /// <summary>
-        /// Registra una boleta emitida en una mesa de votación.
-        /// </summary>
-        /// <param name="fechaVotacion">Fecha de la votación.</param>
-        /// <param name="idEstadoBoleta">Identificador del estado de la boleta.</param>
-        /// <param name="idMesa">Identificador de la mesa (JRV).</param>
-        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> en caso contrario.</returns>
-        public static bool RegistrarBoleta(string fechaVotacion, int idEstadoBoleta, int idMesa)
+        public static bool RegistrarBoleta(string fecha, int estado, int mesa)
         {
-            bool retorno;
-            try
+            using (MySqlConnection connection = Conexion.getConnect())
+            using (MySqlCommand command = new MySqlCommand("INSERT INTO tb_boleta (fecha_votacion, id_estado_boleta, id_mesa) VALUES (?fecha, ?estado, ?mesa)", connection))
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_boleta (fecha_votacion, id_estado_boleta, id_mesa) VALUES ('{0}','{1}','{2}')", fechaVotacion, idEstadoBoleta, idMesa), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
-                return retorno;
-            }
-            catch (Exception)
-            {
-                return retorno = false;
+                command.Parameters.AddWithValue("fecha", fecha); command.Parameters.AddWithValue("estado", estado); command.Parameters.AddWithValue("mesa", mesa);
+                return command.ExecuteNonQuery() == 1;
             }
         }
 
-        /// <summary>
-        /// Obtiene el identificador de la última boleta registrada.
-        /// </summary>
-        /// <returns>Lista con el id de la boleta, o <c>null</c> si no hay registros o hay error.</returns>
+        public static bool RegistrarBoletaYVoto(int opcionId, string fecha, string hora, int estadoBoleta, int estadoVoto, int mesa)
+        {
+            using (MySqlConnection connection = Conexion.getConnect())
+            using (MySqlTransaction transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    long ballotId;
+                    using (MySqlCommand ballot = new MySqlCommand("INSERT INTO tb_boleta (fecha_votacion, id_estado_boleta, id_mesa) VALUES (?fecha, ?estadoBoleta, ?mesa); SELECT LAST_INSERT_ID();", connection, transaction))
+                    {
+                        ballot.Parameters.AddWithValue("fecha", fecha); ballot.Parameters.AddWithValue("estadoBoleta", estadoBoleta); ballot.Parameters.AddWithValue("mesa", mesa); ballotId = Convert.ToInt64(ballot.ExecuteScalar());
+                    }
+                    using (MySqlCommand vote = new MySqlCommand("INSERT INTO tb_voto (id_grupo_opciones, id_boleta, id_estado_voto, fecha_votacion, hora_votacion) SELECT id_grupo_opciones, ?boleta, ?estadoVoto, ?fecha, ?hora FROM tb_opcion WHERE id_opcion = ?opcion", connection, transaction))
+                    {
+                        vote.Parameters.AddWithValue("boleta", ballotId); vote.Parameters.AddWithValue("estadoVoto", estadoVoto); vote.Parameters.AddWithValue("fecha", fecha); vote.Parameters.AddWithValue("hora", hora); vote.Parameters.AddWithValue("opcion", opcionId);
+                        if (vote.ExecuteNonQuery() != 1) throw new InvalidOperationException("La opción no existe.");
+                    }
+                    transaction.Commit(); return true;
+                }
+                catch { transaction.Rollback(); return false; }
+            }
+        }
+
         public static List<string> ObtenerUltimaBoleta()
         {
-            List<string> datos = null;
-            try
-            {
-                string query = "SELECT id_boleta FROM tb_boleta ORDER BY id_boleta DESC LIMIT 1";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                MySqlDataReader reader = cmdselect.ExecuteReader();
-                while (reader.Read())
-                {
-                    datos = new List<string>();
-                    datos.Add(reader.GetString(0));
-                }
-                return datos;
-            }
-            catch (Exception)
-            {
-                return datos;
-            }
+            using (MySqlConnection connection = Conexion.getConnect())
+            using (MySqlCommand command = new MySqlCommand("SELECT id_boleta FROM tb_boleta ORDER BY id_boleta DESC LIMIT 1", connection))
+            using (MySqlDataReader reader = command.ExecuteReader())
+            { return reader.Read() ? new List<string> { reader.GetString(0) } : null; }
         }
 
-        /// <summary>
-        /// Registra un voto asociado directamente a un grupo de opciones.
-        /// </summary>
-        /// <param name="grupoOpcionesId">Identificador del grupo de opciones.</param>
-        /// <param name="idBoleta">Identificador de la boleta.</param>
-        /// <param name="idEstadoVoto">Identificador del estado del voto.</param>
-        /// <param name="fechaVotacion">Fecha de la votación.</param>
-        /// <param name="horaVotacion">Hora de la votación.</param>
-        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> en caso contrario.</returns>
-        public static bool RegistrarVotoPorGrupo(int grupoOpcionesId, int idBoleta, int idEstadoVoto, string fechaVotacion, string horaVotacion)
+        public static bool RegistrarVotoPorGrupo(int grupo, int boleta, int estado, string fecha, string hora)
         {
-            bool retorno;
-            try
-            {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_voto (id_grupo_opciones, id_boleta, id_estado_voto, fecha_votacion, hora_votacion) VALUES ('{0}','{1}','{2}','{3}','{4}')", grupoOpcionesId, idBoleta, idEstadoVoto, fechaVotacion, horaVotacion), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
-                return retorno;
-            }
-            catch (Exception)
-            {
-                return retorno = false;
-            }
-            finally
-            {
-                Conexion.getConnect().Close();
-            }
+            using (MySqlConnection connection = Conexion.getConnect())
+            using (MySqlCommand command = new MySqlCommand("INSERT INTO tb_voto (id_grupo_opciones, id_boleta, id_estado_voto, fecha_votacion, hora_votacion) VALUES (?grupo, ?boleta, ?estado, ?fecha, ?hora)", connection))
+            { command.Parameters.AddWithValue("grupo", grupo); command.Parameters.AddWithValue("boleta", boleta); command.Parameters.AddWithValue("estado", estado); command.Parameters.AddWithValue("fecha", fecha); command.Parameters.AddWithValue("hora", hora); return command.ExecuteNonQuery() == 1; }
         }
 
-        /// <summary>
-        /// Registra un voto a partir del identificador de la opción elegida.
-        /// </summary>
-        /// <param name="opcionId">Identificador de la opción seleccionada.</param>
-        /// <param name="idBoleta">Identificador de la boleta.</param>
-        /// <param name="idEstadoVoto">Identificador del estado del voto.</param>
-        /// <param name="fechaVotacion">Fecha de la votación.</param>
-        /// <param name="horaVotacion">Hora de la votación.</param>
-        /// <returns><c>true</c> si el registro fue exitoso; <c>false</c> si no se encuentra el grupo o hay error.</returns>
-        public static bool RegistrarVoto(int opcionId, int idBoleta, int idEstadoVoto, string fechaVotacion, string horaVotacion)
-        {
-            List<string> grupo = ObtenerGrupoOpcionesDeOpcion(opcionId);
-            if (grupo == null || grupo.Count == 0)
-            {
-                return false;
-            }
-            return RegistrarVotoPorGrupo(Convert.ToInt32(grupo[0]), idBoleta, idEstadoVoto, fechaVotacion, horaVotacion);
-        }
-
-        /// <summary>
-        /// Obtiene el identificador del grupo de opciones al que pertenece una opción.
-        /// </summary>
-        /// <param name="opcionId">Identificador de la opción.</param>
-        /// <returns>Lista con el id del grupo, o <c>null</c> si no se encuentra o hay error.</returns>
         public static List<string> ObtenerGrupoOpcionesDeOpcion(int opcionId)
         {
-            List<string> datos = null;
-            try
-            {
-                string query = "SELECT id_grupo_opciones FROM tb_opcion WHERE id_opcion = '" + opcionId + "'";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                MySqlDataReader leer = cmdselect.ExecuteReader();
-                while (leer.Read())
-                {
-                    datos = new List<string>();
-                    datos.Add(leer.GetString(0));
-                }
-                return datos;
-            }
-            catch (Exception)
-            {
-                return datos;
-            }
+            using (MySqlConnection connection = Conexion.getConnect())
+            using (MySqlCommand command = new MySqlCommand("SELECT id_grupo_opciones FROM tb_opcion WHERE id_opcion = ?opcion", connection))
+            { command.Parameters.AddWithValue("opcion", opcionId); object value = command.ExecuteScalar(); return value == null ? null : new List<string> { Convert.ToString(value) }; }
         }
+
+        public static bool RegistrarVoto(int opcionId, int boleta, int estado, string fecha, string hora)
+        { List<string> grupo = ObtenerGrupoOpcionesDeOpcion(opcionId); return grupo != null && RegistrarVotoPorGrupo(Convert.ToInt32(grupo[0]), boleta, estado, fecha, hora); }
     }
 }

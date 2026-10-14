@@ -19,6 +19,11 @@ namespace Controlador
             return ModelVoto.RegistrarBoleta(FechaV, idEstadoBoleta, JRV);
         }
 
+        public bool RegistrarBoletaYVoto_Controller(int opcionId)
+        {
+            return ModelVoto.RegistrarBoletaYVoto(opcionId, FechaV, HoraV, idEstadoBoleta, EstadoVoto, JRV);
+        }
+
         /// <summary>
         /// Registra un voto por grupo con los atributos de la instancia actual.
         /// </summary>
@@ -67,87 +72,6 @@ namespace Controlador
         public static List<string> ObtenerBoleta_Controller()
         {
             return ModelVoto.ObtenerUltimaBoleta();
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 1.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 1.</returns>
-        public static List<string> BuscarIDPartido1_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(1);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 2.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 2.</returns>
-        public static List<string> BuscarIDPartido2_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(2);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 3.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 3.</returns>
-        public static List<string> BuscarIDPartido3_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(3);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 4.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 4.</returns>
-        public static List<string> BuscarIDPartido4_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(4);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 5.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 5.</returns>
-        public static List<string> BuscarIDPartido5_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(5);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 6.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 6.</returns>
-        public static List<string> BuscarIDPartido6_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(6);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 7.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 7.</returns>
-        public static List<string> BuscarIDPartido7_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(7);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 8.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 8.</returns>
-        public static List<string> BuscarIDPartido8_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(8);
-        }
-
-        /// <summary>
-        /// Delega al método genérico <see cref="BuscarIdGrupoPorOpcion_Controller"/> para la opción 9.
-        /// </summary>
-        /// <returns>Lista de cadenas con el grupo de la opción 9.</returns>
-        public static List<string> BuscarIDPartido9_Controller()
-        {
-            return BuscarIdGrupoPorOpcion_Controller(9);
         }
 
         /// <summary>

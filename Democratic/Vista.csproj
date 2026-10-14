@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
-      <HintPath>..\..\..\..\..\Visual Studio 2015\Bunifu_UI_v1.52.dll</HintPath>
+      <HintPath>..\lib\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\lib\MySql.Data.dll</HintPath>
@@ -65,12 +65,6 @@
     </Compile>
     <Compile Include="UiTheme.cs" />
     <Compile Include="UiTerminology.cs" />
-    <Compile Include="FrmAdministración.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAdministración.Designer.cs">
-      <DependentUpon>FrmAdministración.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmAyuda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,12 +197,6 @@
     <Compile Include="FrmVotar.Designer.cs">
       <DependentUpon>FrmVotar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVotos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmVotos.Designer.cs">
-      <DependentUpon>FrmVotos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Idiomas\English.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,9 +225,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActas.resx">
       <DependentUpon>FrmActas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAdministración.resx">
-      <DependentUpon>FrmAdministración.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAyuda.resx">
       <DependentUpon>FrmAyuda.cs</DependentUpon>
@@ -303,9 +288,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVotar.resx">
       <DependentUpon>FrmVotar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmVotos.resx">
-      <DependentUpon>FrmVotos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Idiomas\English.resx">
       <Generator>ResXFileCodeGenerator</Generator>

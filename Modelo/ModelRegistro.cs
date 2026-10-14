@@ -110,17 +110,14 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_usuario (nombre_usuario, clave, id_sede, id_participante) VALUES ('{0}','{1}','{2}','{3}')", usuario, clave, Centro_Votación, id_Miembro), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                using (MySqlConnection connection = Conexion.getConnect())
+                using (MySqlCommand cmdinsert = new MySqlCommand("INSERT INTO tb_usuario (nombre_usuario, clave, id_sede, id_participante) VALUES (?usuario, ?clave, ?sede, ?miembro)", connection))
+                { cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave)); cmdinsert.Parameters.AddWithValue("sede", Centro_Votación); cmdinsert.Parameters.AddWithValue("miembro", id_Miembro); retorno = cmdinsert.ExecuteNonQuery() == 1; }
                 return retorno;
             }
             catch (Exception)
             {
                 return retorno = false;
-            }
-            finally
-            {
-                Conexion.getConnect().Close();
             }
         }
     }
