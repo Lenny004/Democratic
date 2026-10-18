@@ -49,8 +49,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_grupo_opciones (imagen, nombre_grupo, total_votos, id_estado_grupo) VALUES ('{0}', '{1}', '{2}', '{3}')", imagen, nombreGrupoOpciones, cantidadVotos, idEstadoOrganizacion), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_grupo_opciones (imagen, nombre_grupo, total_votos, id_estado_grupo) VALUES (?imagen, ?nombre, ?votos, ?estado)", new MySqlParameter("imagen", imagen), new MySqlParameter("nombre", nombreGrupoOpciones), new MySqlParameter("votos", cantidadVotos), new MySqlParameter("estado", idEstadoOrganizacion)));
                 return retorno;
             }
             catch (Exception)
@@ -154,8 +153,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_grupo_opciones SET imagen = '" + imagen + "', nombre_grupo = '" + nombreGrupoOpciones + "', total_votos = '" + cantidadVotos + "', id_estado_grupo = '" + idEstadoOrganizacion + "' WHERE id_grupo_opciones = '" + idOrganizacion + "'  "), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_grupo_opciones SET imagen = ?imagen, nombre_grupo = ?nombre, total_votos = ?votos, id_estado_grupo = ?estado WHERE id_grupo_opciones = ?id", new MySqlParameter("imagen", imagen), new MySqlParameter("nombre", nombreGrupoOpciones), new MySqlParameter("votos", cantidadVotos), new MySqlParameter("estado", idEstadoOrganizacion), new MySqlParameter("id", idOrganizacion)));
                 return retorno;
             }
             catch (Exception)
@@ -174,8 +172,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_grupo_opciones WHERE id_grupo_opciones = '" + idOrganizacion + "' "), Conexion.getConnect());
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_grupo_opciones WHERE id_grupo_opciones = ?id", new MySqlParameter("id", idOrganizacion));
                 if (retorno == 1)
                 {
                     retorno = 1;

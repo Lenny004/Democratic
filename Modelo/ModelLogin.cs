@@ -279,10 +279,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET intentos_fallidos = ?intento WHERE nombre_usuario = BINARY ?param1", Conexion.getConnect());
-                cmdinsert.Parameters.AddWithValue("intento", intento);
-                cmdinsert.Parameters.Add(new MySqlParameter("param1", usuario));
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_usuario SET intentos_fallidos = ?intento WHERE nombre_usuario = BINARY ?param1", new MySqlParameter("intento", intento), new MySqlParameter("param1", usuario)));
                 return retorno;
             }
             catch (Exception)
@@ -303,10 +300,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET hora_bloqueo = ?horaI, hora_desbloqueo = ?horaA WHERE nombre_usuario = BINARY ?param1", Conexion.getConnect());
-                cmdinsert.Parameters.AddWithValue("horaI", horaI); cmdinsert.Parameters.AddWithValue("horaA", horaA);
-                cmdinsert.Parameters.Add(new MySqlParameter("param1", usuario));
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_usuario SET hora_bloqueo = ?horaI, hora_desbloqueo = ?horaA WHERE nombre_usuario = BINARY ?param1", new MySqlParameter("horaI", horaI), new MySqlParameter("horaA", horaA), new MySqlParameter("param1", usuario)));
                 return retorno;
             }
             catch (Exception)
@@ -355,9 +349,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET id_estado_usuario = ?estado WHERE nombre_usuario = BINARY ?usuario", Conexion.getConnect());
-                cmdinsert.Parameters.AddWithValue("estado", EstadoU); cmdinsert.Parameters.AddWithValue("usuario", usuario);
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_usuario SET id_estado_usuario = ?estado WHERE nombre_usuario = BINARY ?usuario", new MySqlParameter("estado", EstadoU), new MySqlParameter("usuario", usuario)));
                 return retorno;
             }
             catch (Exception)

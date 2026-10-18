@@ -77,8 +77,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_registro_escrutinio(cantidad_boletas, id_mesa) VALUES ('{0}','{1}')", Cantidad_Boletas, JRV), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_registro_escrutinio(cantidad_boletas, id_mesa) VALUES (?cantidad, ?mesa)", new MySqlParameter("cantidad", Cantidad_Boletas), new MySqlParameter("mesa", JRV)));
                 return retorno;
             }
             catch (Exception)
@@ -127,8 +126,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_registro_escrutinio SET cantidad_boletas = '" + Cantidad_Boletas + "', id_mesa = '" + JRV + "' WHERE id_registro_escrutinio = '" + id_Acta + "'  "), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_registro_escrutinio SET cantidad_boletas = ?cantidad, id_mesa = ?mesa WHERE id_registro_escrutinio = ?acta", new MySqlParameter("cantidad", Cantidad_Boletas), new MySqlParameter("mesa", JRV), new MySqlParameter("acta", id_Acta)));
                 return retorno;
             }
             catch (Exception)
@@ -147,8 +145,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_registro_escrutinio WHERE id_registro_escrutinio = '" + id + "' "), Conexion.getConnect());
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_registro_escrutinio WHERE id_registro_escrutinio = ?id", new MySqlParameter("id", id));
                 if (retorno == 1)
                 {
                     retorno = 1;
@@ -175,13 +172,16 @@ namespace Modelo
             List<string> datos = null;
             try
             {
-                string query = "SELECT * FROM tb_mesa WHERE codigo_mesa = '"+ CorrelativoJrv +"'   ";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                MySqlDataReader Leer = cmdselect.ExecuteReader();
-                while (Leer.Read())
+                using (MySqlConnection connection = Conexion.getConnect())
+                using (MySqlCommand command = new MySqlCommand("SELECT * FROM tb_mesa WHERE codigo_mesa = ?codigo", connection))
                 {
-                    datos = new List<string>();
-                    datos.Add(Leer.GetString(1));
+                    command.Parameters.AddWithValue("codigo", CorrelativoJrv);
+                    using (MySqlDataReader Leer = command.ExecuteReader())
+                    while (Leer.Read())
+                    {
+                        datos = new List<string>();
+                        datos.Add(Leer.GetString(1));
+                    }
                 }
                 return datos;
             }
@@ -201,9 +201,12 @@ namespace Modelo
             bool retorno = false;
             try
             {
-                string query = "SELECT * FROM tb_mesa WHERE codigo_mesa = '" + CorrelativoJRV + "'  ";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdselect.ExecuteScalar());
+                using (MySqlConnection connection = Conexion.getConnect())
+                using (MySqlCommand command = new MySqlCommand("SELECT * FROM tb_mesa WHERE codigo_mesa = ?codigo", connection))
+                {
+                    command.Parameters.AddWithValue("codigo", CorrelativoJRV);
+                    retorno = Convert.ToBoolean(command.ExecuteScalar());
+                }
                 return retorno;
             }
             catch (Exception)

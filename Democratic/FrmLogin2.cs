@@ -263,9 +263,13 @@ namespace Democratic
             {
                 cliente.Send(mmsg);
                 MySqlConnection conexion = MainController.ConnectController();
-                string query = "UPDATE tb_usuario SET clave = '"+ contraA +"' WHERE nombre_usuario = BINARY ?param1";
-                MySqlCommand cmdselect = new MySqlCommand(string.Format(query), conexion);
-                cmdselect.Parameters.Add(new MySqlParameter("param1", CorreoI));
+                using (conexion)
+                using (MySqlCommand cmdselect = new MySqlCommand("UPDATE tb_usuario SET clave = ?clave WHERE nombre_usuario = BINARY ?param1", conexion))
+                {
+                    cmdselect.Parameters.Add(new MySqlParameter("param1", CorreoI));
+                    cmdselect.Parameters.Add(new MySqlParameter("clave", contraA));
+                    cmdselect.ExecuteNonQuery();
+                }
             }
             catch (Exception)
             {

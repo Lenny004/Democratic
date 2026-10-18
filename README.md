@@ -8,6 +8,7 @@ Aplicación WinForms para configurar procesos de votación y registrar sus resul
 ## 📑 Contenido
 
 - [Aspectos destacados](#-aspectos-destacados)
+- [Enfoque](#enfoque)
 - [Descripción](#ℹ️-descripción)
 - [Requisitos](#📋-requisitos)
 - [Instalación](#⬇️-instalación)
@@ -32,6 +33,13 @@ Aplicación WinForms para configurar procesos de votación y registrar sus resul
 Democratic es una aplicación de escritorio para organizar un proceso de votación, administrar su padrón y registrar votos por grupo de opciones. La separación Vista–Controlador–Modelo mantiene los formularios, la lógica y el acceso a MySQL diferenciados.
 
 **Stack:** C# WinForms, .NET Framework 4.8, MySQL 8 y MySql.Data.
+
+<!-- section:focus -->
+## Enfoque
+
+Democratic está pensado para votaciones internas presenciales de organizaciones pequeñas: permite configurar participantes, sedes, mesas, opciones y registrar el escrutinio en una instalación local.
+
+No es una plataforma para elecciones oficiales, procesos electorales gubernamentales ni voto remoto o por internet.
 
 <!-- section:requirements -->
 ## 📋 Requisitos
@@ -98,4 +106,3 @@ Reporta errores describiendo pasos para reproducirlos, versión de Windows, vers
 ## 📄 Licencia
 
 TODO(readme): indicar la licencia del proyecto.
-

@@ -159,8 +159,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_sede(nombre_sede, id_registro_escrutinio, cantidad_mesas, id_estado_sede, id_municipio, id_organizacion) VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", NombreCentroVotacion, Acta, CantidadJRV, EstadoCentroVotacion, Municipio, Tribunal), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_sede(nombre_sede, id_registro_escrutinio, cantidad_mesas, id_estado_sede, id_municipio, id_organizacion) VALUES (?nombre, ?acta, ?mesas, ?estado, ?municipio, ?organizacion)", new MySqlParameter("nombre", NombreCentroVotacion), new MySqlParameter("acta", Acta), new MySqlParameter("mesas", CantidadJRV), new MySqlParameter("estado", EstadoCentroVotacion), new MySqlParameter("municipio", Municipio), new MySqlParameter("organizacion", Tribunal)));
                 return retorno;
             }
             catch (Exception)
@@ -300,8 +299,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_sede SET nombre_sede = '" + NombreCentroVotacion + "', id_registro_escrutinio = '" + Acta + "', cantidad_mesas = '" + CantidadJRV + "', id_estado_sede = '" + EstadoCentroVotacion + "', id_municipio = '" + Municipio + "', id_organizacion = '" + Tribunal + "' WHERE id_sede = '" + id + "'"), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_sede SET nombre_sede = ?nombre, id_registro_escrutinio = ?acta, cantidad_mesas = ?mesas, id_estado_sede = ?estado, id_municipio = ?municipio, id_organizacion = ?organizacion WHERE id_sede = ?id", new MySqlParameter("nombre", NombreCentroVotacion), new MySqlParameter("acta", Acta), new MySqlParameter("mesas", CantidadJRV), new MySqlParameter("estado", EstadoCentroVotacion), new MySqlParameter("municipio", Municipio), new MySqlParameter("organizacion", Tribunal), new MySqlParameter("id", id)));
                 return retorno;
             }
             catch (Exception)
@@ -320,8 +318,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_sede WHERE id_sede = '" + id + "'"), Conexion.getConnect());
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_sede WHERE id_sede = ?id", new MySqlParameter("id", id));
                 if (retorno == 1)
                 {
                     retorno = 1;

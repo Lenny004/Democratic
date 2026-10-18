@@ -186,9 +186,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol, id_mesa, id_participante) VALUES (?usuario, ?clave, ?intento, ?estado, ?rol, ?mesa, ?miembro)", Conexion.getConnect());
-                cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave)); cmdinsert.Parameters.AddWithValue("intento", intento); cmdinsert.Parameters.AddWithValue("estado", Estado_Usuario); cmdinsert.Parameters.AddWithValue("rol", Tipo_Usuario); cmdinsert.Parameters.AddWithValue("mesa", JRV); cmdinsert.Parameters.AddWithValue("miembro", id_Miembro);
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol, id_mesa, id_participante) VALUES (?usuario, ?clave, ?intento, ?estado, ?rol, ?mesa, ?miembro)", new MySqlParameter("usuario", usuario), new MySqlParameter("clave", PasswordHasher.Hash(clave)), new MySqlParameter("intento", intento), new MySqlParameter("estado", Estado_Usuario), new MySqlParameter("rol", Tipo_Usuario), new MySqlParameter("mesa", JRV), new MySqlParameter("miembro", id_Miembro)));
                 return retorno;
             }
             catch (Exception)
@@ -212,9 +210,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol) VALUES (?usuario, ?clave, 0, 1, 1)", Conexion.getConnect());
-                cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave));
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_usuario (nombre_usuario, clave, intentos_fallidos, id_estado_usuario, id_rol) VALUES (?usuario, ?clave, 0, 1, 1)", new MySqlParameter("usuario", usuario), new MySqlParameter("clave", PasswordHasher.Hash(clave))));
                 return retorno;
             }
             catch (Exception)
@@ -440,9 +436,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand("UPDATE tb_usuario SET nombre_usuario = ?usuario, clave = ?clave, intentos_fallidos = ?intento, id_estado_usuario = ?estado, id_rol = ?rol, id_mesa = ?mesa, id_participante = ?miembro WHERE id_usuario = ?id", Conexion.getConnect());
-                cmdinsert.Parameters.AddWithValue("usuario", usuario); cmdinsert.Parameters.AddWithValue("clave", PasswordHasher.Hash(clave)); cmdinsert.Parameters.AddWithValue("intento", intento); cmdinsert.Parameters.AddWithValue("estado", Estado_Usuario); cmdinsert.Parameters.AddWithValue("rol", Tipo_Usuario); cmdinsert.Parameters.AddWithValue("mesa", JRV); cmdinsert.Parameters.AddWithValue("miembro", id_Miembro); cmdinsert.Parameters.AddWithValue("id", idusuario);
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_usuario SET nombre_usuario = ?usuario, clave = ?clave, intentos_fallidos = ?intento, id_estado_usuario = ?estado, id_rol = ?rol, id_mesa = ?mesa, id_participante = ?miembro WHERE id_usuario = ?id", new MySqlParameter("usuario", usuario), new MySqlParameter("clave", PasswordHasher.Hash(clave)), new MySqlParameter("intento", intento), new MySqlParameter("estado", Estado_Usuario), new MySqlParameter("rol", Tipo_Usuario), new MySqlParameter("mesa", JRV), new MySqlParameter("miembro", id_Miembro), new MySqlParameter("id", idusuario)));
                 return retorno;
             }
             catch (Exception)
@@ -461,9 +455,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand("DELETE FROM tb_usuario WHERE id_usuario = ?id", Conexion.getConnect());
-                cmddel.Parameters.AddWithValue("id", id);
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_usuario WHERE id_usuario = ?id", new MySqlParameter("id", id));
                 if (retorno == 1)
                 {
                     retorno = 1;

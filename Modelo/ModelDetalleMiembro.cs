@@ -106,8 +106,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_detalle_participante (detalle, id_participante, id_mesa) VALUES ('{0}', '{1}', '{2}')", Detalle_de_Miembros, id_Miembro, id_JRV), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_detalle_participante (detalle, id_participante, id_mesa) VALUES (?detalle, ?miembro, ?mesa)", new MySqlParameter("detalle", Detalle_de_Miembros), new MySqlParameter("miembro", id_Miembro), new MySqlParameter("mesa", id_JRV)));
                 return retorno;
             }
             catch (Exception)
@@ -129,8 +128,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_detalle_participante SET detalle = '" + Detalle_De_Miembros + "', id_participante = '" + id_Miembro + "', id_mesa = '" + id_JRV + "' WHERE id_detalle = '" + id_Detalle + "' "), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_detalle_participante SET detalle = ?detalle, id_participante = ?miembro, id_mesa = ?mesa WHERE id_detalle = ?id", new MySqlParameter("detalle", Detalle_De_Miembros), new MySqlParameter("miembro", id_Miembro), new MySqlParameter("mesa", id_JRV), new MySqlParameter("id", id_Detalle)));
                 return retorno;
             }
             catch (Exception)
@@ -149,8 +147,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_detalle_participante WHERE id_detalle = '" + id + "' "), Conexion.getConnect());
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_detalle_participante WHERE id_detalle = ?id", new MySqlParameter("id", id));
                 if (retorno == 1)
                 {
                     retorno = 1;

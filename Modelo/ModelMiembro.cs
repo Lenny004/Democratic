@@ -86,8 +86,7 @@ namespace Modelo
             bool retorno;
             try 
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_participante(nombre, apellido, documento_identidad, codigo_ocr, imagen, fecha_nacimiento, direccion, telefono, id_sede, id_mesa, id_estado_participante) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", nombre, apellido, dui, OCR, ImagenM, Fecha_de_nacimiento, dirección, telefono, CV, JRV, estadomiembro), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_participante(nombre, apellido, documento_identidad, codigo_ocr, imagen, fecha_nacimiento, direccion, telefono, id_sede, id_mesa, id_estado_participante) VALUES (?nombre, ?apellido, ?dui, ?ocr, ?imagen, ?fecha, ?direccion, ?telefono, ?sede, ?mesa, ?estado)", new MySqlParameter("nombre", nombre), new MySqlParameter("apellido", apellido), new MySqlParameter("dui", dui), new MySqlParameter("ocr", OCR), new MySqlParameter("imagen", ImagenM), new MySqlParameter("fecha", Fecha_de_nacimiento), new MySqlParameter("direccion", dirección), new MySqlParameter("telefono", telefono), new MySqlParameter("sede", CV), new MySqlParameter("mesa", JRV), new MySqlParameter("estado", estadomiembro)));
                 return retorno;
             }
             catch (Exception)
@@ -201,8 +200,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_participante SET nombre = '" + nombre + "', apellido = '" + apellido + "', documento_identidad = '" + dui + "', codigo_ocr = '"+ OCR +"', imagen = '"+ ImagenM +"', fecha_nacimiento = '" + Fecha_de_nacimiento + "', direccion = '" + dirección + "', telefono = '" + telefono + "', id_sede = '"+ CV +"', id_mesa = '"+ JRV +"', id_estado_participante = '" + estadomiembro + "' WHERE id_participante = '" + id_Miembro + "'  "), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_participante SET nombre = ?nombre, apellido = ?apellido, documento_identidad = ?dui, codigo_ocr = ?ocr, imagen = ?imagen, fecha_nacimiento = ?fecha, direccion = ?direccion, telefono = ?telefono, id_sede = ?sede, id_mesa = ?mesa, id_estado_participante = ?estado WHERE id_participante = ?id", new MySqlParameter("nombre", nombre), new MySqlParameter("apellido", apellido), new MySqlParameter("dui", dui), new MySqlParameter("ocr", OCR), new MySqlParameter("imagen", ImagenM), new MySqlParameter("fecha", Fecha_de_nacimiento), new MySqlParameter("direccion", dirección), new MySqlParameter("telefono", telefono), new MySqlParameter("sede", CV), new MySqlParameter("mesa", JRV), new MySqlParameter("estado", estadomiembro), new MySqlParameter("id", id_Miembro)));
                 return retorno;
             }
             catch (Exception)

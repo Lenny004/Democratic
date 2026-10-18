@@ -103,8 +103,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_opcion (nombre, apellido, genero, imagen, id_grupo_opciones, id_estado_opcion) VALUES ('{0}', '{1}', '{2}', '{3}','{4}','{5}')", nombreOpcion, apellidoOpcion, genero, imagenOpcion, idGrupoOpciones, idEstadoOpcion), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_opcion (nombre, apellido, genero, imagen, id_grupo_opciones, id_estado_opcion) VALUES (?nombre, ?apellido, ?genero, ?imagen, ?grupo, ?estado)", new MySqlParameter("nombre", nombreOpcion), new MySqlParameter("apellido", apellidoOpcion), new MySqlParameter("genero", genero), new MySqlParameter("imagen", imagenOpcion), new MySqlParameter("grupo", idGrupoOpciones), new MySqlParameter("estado", idEstadoOpcion)));
                 return retorno;
             }
             catch (Exception)
@@ -216,8 +215,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_opcion SET nombre = '" + nombreOpcion + "', apellido = '" + apellidoOpcion + "', genero = '" + genero + "', imagen = '" + imagenOpcion + "', id_grupo_opciones = '" + idGrupoOpciones + "', id_estado_opcion = '" + idEstadoOpcion + "' WHERE id_opcion = '" + idOpcion + "'  "), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_opcion SET nombre = ?nombre, apellido = ?apellido, genero = ?genero, imagen = ?imagen, id_grupo_opciones = ?grupo, id_estado_opcion = ?estado WHERE id_opcion = ?id", new MySqlParameter("nombre", nombreOpcion), new MySqlParameter("apellido", apellidoOpcion), new MySqlParameter("genero", genero), new MySqlParameter("imagen", imagenOpcion), new MySqlParameter("grupo", idGrupoOpciones), new MySqlParameter("estado", idEstadoOpcion), new MySqlParameter("id", idOpcion)));
                 return retorno;
             }
             catch (Exception)
@@ -236,8 +234,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_opcion WHERE id_opcion = '" + idOpcion + "' "), Conexion.getConnect());
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_opcion WHERE id_opcion = ?id", new MySqlParameter("id", idOpcion));
                 if (retorno == 1)
                 {
                     retorno = 1;
@@ -263,8 +260,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("TRUNCATE TABLE tb_opcion"), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmddel.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("TRUNCATE TABLE tb_opcion"));
                 return retorno;
             }
             catch (Exception)

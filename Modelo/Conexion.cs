@@ -43,5 +43,20 @@ namespace Modelo
                 throw;
             }
         }
+
+        /// <summary>Ejecuta una sentencia parametrizada y libera sus recursos.</summary>
+        public static int ExecuteNonQuery(string sql, params MySqlParameter[] parameters)
+        {
+            using (MySqlConnection connection = getConnect())
+            using (MySqlCommand command = new MySqlCommand(sql, connection))
+            {
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                return command.ExecuteNonQuery();
+            }
+        }
     }
 }

@@ -27,8 +27,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_organizacion (fecha_fundacion, descripcion, imagen, pais, tipo_organizacion, jurisdiccion, sede_principal, correo, contrasena_contacto) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", fundacion, composicion, imagenOrganizacion, pais, tipo, jurisdiccion, sede, correoOrganizacion, contrasenaOrganizacion), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_organizacion (fecha_fundacion, descripcion, imagen, pais, tipo_organizacion, jurisdiccion, sede_principal, correo, contrasena_contacto) VALUES (?fundacion, ?descripcion, ?imagen, ?pais, ?tipo, ?jurisdiccion, ?sede, ?correo, ?contrasena)", new MySqlParameter("fundacion", fundacion), new MySqlParameter("descripcion", composicion), new MySqlParameter("imagen", imagenOrganizacion), new MySqlParameter("pais", pais), new MySqlParameter("tipo", tipo), new MySqlParameter("jurisdiccion", jurisdiccion), new MySqlParameter("sede", sede), new MySqlParameter("correo", correoOrganizacion), new MySqlParameter("contrasena", contrasenaOrganizacion)));
                 return retorno;
             }
             catch (Exception)

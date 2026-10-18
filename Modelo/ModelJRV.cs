@@ -104,8 +104,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("INSERT INTO tb_mesa (codigo_mesa, id_sede, id_estado_mesa) VALUE('{0}','{1}','{2}')", correlativo, centrovotacion, estadojrv), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("INSERT INTO tb_mesa (codigo_mesa, id_sede, id_estado_mesa) VALUES (?codigo, ?sede, ?estado)", new MySqlParameter("codigo", correlativo), new MySqlParameter("sede", centrovotacion), new MySqlParameter("estado", estadojrv)));
                 return retorno;
             }
             catch (Exception)
@@ -183,8 +182,7 @@ namespace Modelo
             bool retorno;
             try
             {
-                MySqlCommand cmdinsert = new MySqlCommand(string.Format("UPDATE tb_mesa SET codigo_mesa = '" + correlativo + "', id_sede = '" + centrovotacion + "', id_estado_mesa = '" + estadojrv + "' WHERE id_mesa = '" + id + "'"), Conexion.getConnect());
-                retorno = Convert.ToBoolean(cmdinsert.ExecuteNonQuery());
+                retorno = Convert.ToBoolean(Conexion.ExecuteNonQuery("UPDATE tb_mesa SET codigo_mesa = ?codigo, id_sede = ?sede, id_estado_mesa = ?estado WHERE id_mesa = ?id", new MySqlParameter("codigo", correlativo), new MySqlParameter("sede", centrovotacion), new MySqlParameter("estado", estadojrv), new MySqlParameter("id", id)));
                 return retorno;
             }
             catch (Exception)
@@ -203,8 +201,7 @@ namespace Modelo
             int retorno = 0;
             try
             {
-                MySqlCommand cmddel = new MySqlCommand(string.Format("DELETE FROM tb_mesa WHERE id_mesa = '" + id + "'  "), Conexion.getConnect());
-                retorno = Convert.ToInt16(cmddel.ExecuteNonQuery());
+                retorno = Conexion.ExecuteNonQuery("DELETE FROM tb_mesa WHERE id_mesa = ?id", new MySqlParameter("id", id));
                 if (retorno == 1)
                 {
                     retorno = 1;
